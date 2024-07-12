@@ -12,22 +12,6 @@ public class BinaryTree<T extends Comparable<T>> {
         return this.root;
     }
 
-//    public void insert(T data) {
-//        BinNode<T> newNode = new BinNode<>(data);
-//        root = insert(root, newNode);
-//    }
-//
-//    private BinNode<T> insert(BinNode<T> current, BinNode<T> newNode) {
-//        if (current == null) {
-//            return newNode;
-//        } else if (newNode.getData().compareTo(current.getData()) < 0) {
-//            current.setLeftNode(insert(current.getLeftNode(), newNode));
-//        } else {
-//            current.setRightNode(insert(current.getRightNode(), newNode));
-//        }
-//        return current;
-//    }
-
     public void insert(T data) {
         BinNode<T> newNode = new BinNode<>(data);
         root = insert(root, newNode, null); // Passa null como pai inicial
@@ -98,6 +82,21 @@ public class BinaryTree<T extends Comparable<T>> {
         return getSmaller(current.getLeftNode());
     }
 
+    public boolean compareTrees(BinaryTree<T> treeToCompare){
+        return compareTrees(this.root, treeToCompare.getRoot());
+    }
+
+    private boolean compareTrees(BinNode<T> current, BinNode<T> otherCurrent){
+        if (current == null && otherCurrent == null) {
+            return true;
+        }
+        if (current == null || otherCurrent == null) {
+            return false;
+        }
+        return (current.getData().compareTo(otherCurrent.getData()) == 0 &&
+                compareTrees(current.getLeftNode(), otherCurrent.getLeftNode()) &&
+                compareTrees(current.getRightNode(), otherCurrent.getRightNode()));
+    }
 
 //    public boolean compareTree(BinaryTree<T> treeToCompare){
 //        return compareTree(treeToCompare, this.root, treeToCompare.getRoot());
