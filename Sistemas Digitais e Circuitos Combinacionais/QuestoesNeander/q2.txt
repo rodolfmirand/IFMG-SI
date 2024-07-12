@@ -1,0 +1,39 @@
+;---------------------------------------------------
+; Programa: Entrada * 5
+; Autor: Rodolfo O. Miranda
+; Data: 05/01/2024
+;---------------------------------------------------
+
+Entrada EQU 128
+X EQU 129
+Soma EQU 130
+um EQU 131
+
+LDI 1
+STA um
+
+LDI 5
+STA X
+
+LDI 0
+STA Soma
+
+IN 0
+STA Entrada
+
+Loop:
+LDA X
+JZ Fim
+
+LDA Soma
+ADD Entrada
+STA Soma
+LDA X
+SUB um
+STA X
+JMP Loop
+
+Fim:
+LDA Soma
+OUT 0
+HLT

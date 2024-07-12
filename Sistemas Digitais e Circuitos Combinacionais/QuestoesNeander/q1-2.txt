@@ -1,0 +1,44 @@
+;---------------------------------------------------
+; Programa: Entrada > 5 e Entrada <= 12 mostre 1 
+; senão mostre 2
+; Autor: Rodolfo O. Miranda
+; Data: 10/01
+;---------------------------------------------------
+
+Entrada EQU 128
+X EQU 129
+Y EQU 130
+
+LDI 5
+STA X
+
+LDI 12
+STA Y
+
+IN 0
+STA Entrada
+
+LDA Entrada
+SUB X
+JNZ MaiorCinco
+JMP MostrarDois
+
+MaiorCinco:
+LDA Entrada
+SUB Y
+JN MostrarUm
+JZ MostrarUm
+JMP MostrarDois
+
+MostrarUm:
+LDI 1
+JMP Fim
+
+MostrarDois:
+LDI 2
+JMP Fim
+
+Fim:
+OUT 0
+HLT 
+

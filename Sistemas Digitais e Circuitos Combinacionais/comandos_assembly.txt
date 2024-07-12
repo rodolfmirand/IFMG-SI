@@ -1,0 +1,56 @@
+1. 06h + 04h – 05h =
+
+0h LDA Ah 0000 1010b 0Ah
+1h ADD Bh 0001 1011b 1Bh
+2h SUB Ch 0010 1100b 2Ch  
+3h OUT    1110 0000b E0h
+4h HLT    1111 00000 F0h
+5h
+6h
+7h
+8h
+9h
+Ah 0000 0110 06h
+Bh 0000 0100 04h
+Ch 0000 0101 05h
+Dh
+Eh
+Fh
+
+2. 14h – 10h + 0Ah =
+
+0h LDA Ah 0000 1010b 0Ah
+1h SUB Bh 0010 1011b 2Bh
+2h ADD Ch 0001 1100b 1Ch
+3h OUT    1110 0000b E0h
+3h HLT    1111 0000b F0h
+4h
+5h
+6h
+7h
+8h
+9h
+Ah 0000 1110 Eh
+Bh 0000 1010 Ah
+Ch 0000 1010 Ah
+Dh
+Eh
+Fh
+
+3. 05h + 2Fh – 0Ch + 18h – 1Dh
+
+0h LDA Ah 0000 1010b 0Ah
+1h ADD Bh 0001 1011b 1Bh
+2h SUB Ch 0010 1100b 2Ch
+4h ADD Dh 0001 1101b 1Dh
+5h SUB Eh 0010 1110b 2Eh
+6h
+7h
+8h
+9h
+Ah 0000 0101b 5h
+Bh 0010 1111b 2fh
+Ch 0000 1100b Ch
+Dh 0001 1000b 18h
+Eh 0001 1101b 1Dh
+Fh

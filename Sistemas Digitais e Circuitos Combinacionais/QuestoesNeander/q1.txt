@@ -1,0 +1,49 @@
+;---------------------------------------------------
+; Programa: (5 + 8) * 4
+; Autor: Rodolfo O. Miranda
+; Data: 04/01/2024
+;---------------------------------------------------
+
+X EQU 128
+Y EQU 129
+Z EQU 130
+Soma EQU 131
+Resultado EQU 132
+um EQU 133
+
+LDI 1
+STA um
+
+LDI 5
+STA X
+
+LDI 8
+STA Y
+
+LDI 4
+STA Z
+
+LDI 0
+STA Resultado
+
+LDA X
+ADD Y
+STA Soma 
+
+Loop:
+LDA Z
+JZ Fim
+
+LDA Resultado
+ADD Soma
+STA Resultado
+LDA Z
+SUB um
+STA Z
+JMP Loop
+
+Fim:
+LDA Resultado
+OUT 0
+HLT
+

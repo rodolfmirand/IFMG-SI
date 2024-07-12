@@ -1,0 +1,27 @@
+XXXX YYYY
+
+X -> tipo da instrução
+Y -> local da variável
+
+LDA -> 0000 0100b -> 08h
+OUT -> 1110 0000b -> E0h
+HLT -> 1111 0000b -> F0h
+
+Programa:
+|*2h + 3h = 
+
+LDA 8h -> 0000 1000b -> 08h	
+ADD 9h -> 0001 1001b -> 19h
+OUT    -> 1110 0000b -> E0h
+HLT    -> 1111 0000b -> F0h
+
+* 7h - 4h =
+LDA Ch -> 0000 1100b -> 0Ch	
+SUB Dh -> 0010 1101b -> 2Dh
+OUT    -> 1110 0000b -> E0h
+HLT    -> 1111 0000b -> F0h
+
+
+
+
+(h = hexadecimal)
