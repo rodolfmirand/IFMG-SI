@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Main {
 
-    public static int[][] correctPixels(int imgOriginal[][]) {
+    public static int[][] correctPixels(int[][] imgOriginal) {
 
         int row = imgOriginal.length;
         int column = imgOriginal[0].length;
@@ -25,14 +25,19 @@ public class Main {
     private static int correctPixel(int[][] imgOriginal, int i, int j) {
         int valuePixelsSum = 0;
         int pixelsNumb = 0;
+        int blackPixelsNumb = 0;
         for (int i1 = -1; i1 <= 1; i1++) {
             for (int j1 = -1; j1 <= 1; j1++) {
                 if (j1 + j >= 0 && j1 + j < imgOriginal[i].length && i1 + i >= 0 && i1 + i < imgOriginal.length) {
                     if (i1 + i == i && j1 + j == j) continue;
+                    if(imgOriginal[i1 + i][j1 + j] < 100) blackPixelsNumb++;
                     valuePixelsSum += imgOriginal[i1 + i][j1 + j];
                     pixelsNumb++;
                 }
             }
+        }
+        if(blackPixelsNumb > (pixelsNumb-blackPixelsNumb)){
+            return 0;
         }
         return valuePixelsSum / pixelsNumb;
     }
@@ -45,9 +50,10 @@ public class Main {
         File image = new File("D:\\Download\\projeto e arquivos para o problema de imagens\\Imagens\\modificadas\\img (1).jpg");
         int[][] imageMatrix = PixelsReader.readPixels(image.getAbsolutePath());
 
+        assert imageMatrix != null;
         int[][] correctedImage = correctPixels(imageMatrix);
 
-        PixelsRecorder.recordPixels("E:", correctedImage);
+        PixelsRecorder.recordPixels(image.getAbsolutePath(), correctedImage);
 
         //iamgens que precisam ser corrigidas
 //        for (File img : imagesFile) {
