@@ -19,7 +19,7 @@ public class PixelsRecorder {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
 
         //transformando a mat. em um vetor de bytes
-        byte bytesPixels[] = new byte[width * height];
+        byte[] bytesPixels = new byte[width * height];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 bytesPixels[y * (width) + x] = (byte) pixels[x][y];
