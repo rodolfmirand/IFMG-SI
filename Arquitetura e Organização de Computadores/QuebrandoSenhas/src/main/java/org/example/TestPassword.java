@@ -5,9 +5,9 @@ import net.lingala.zip4j.model.FileHeader;
 
 import java.util.List;
 
-public class TestPassword {
+public class TestPassword extends Thread{
 
-    public static boolean testaSenha(ZipFile zipFile, String senha) {
+    public static boolean testPassword(ZipFile zipFile, String senha) {
         try {
             if (zipFile.isEncrypted()) {
                 zipFile.setPassword(senha.toCharArray());
@@ -25,4 +25,7 @@ public class TestPassword {
         }
         return false;
     }
+
+    @Override
+    
 }
