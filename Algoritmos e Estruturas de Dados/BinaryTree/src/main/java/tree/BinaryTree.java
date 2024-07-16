@@ -82,11 +82,11 @@ public class BinaryTree<T extends Comparable<T>> {
         return getSmaller(current.getLeftNode());
     }
 
-    public boolean compareTrees(BinaryTree<T> treeToCompare){
+    public boolean compareTrees(BinaryTree<T> treeToCompare) {
         return compareTrees(this.root, treeToCompare.getRoot());
     }
 
-    private boolean compareTrees(BinNode<T> current, BinNode<T> otherCurrent){
+    private boolean compareTrees(BinNode<T> current, BinNode<T> otherCurrent) {
         if (current == null && otherCurrent == null) {
             return true;
         }
@@ -139,5 +139,29 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current.getData().compareTo(data) == 0) return current;
         if (current.getData().compareTo(data) < 0) return searchNode(data, current.getRightNode());
         return searchNode(data, current.getLeftNode());
+    }
+
+    public void remove(T data) {
+        this.root = remove(this.root, data);
+    }
+
+    private BinNode<T> remove(BinNode<T> current, T data) {
+        if (current == null) return current;
+
+        if (data.compareTo(current.getData()) < 0) {
+            current.setLeftNode(remove(current.getLeftNode(), data));
+        } else if (data.compareTo(current.getData()) > 0) {
+            current.setRightNode(remove(current.getRightNode(), data));
+        } else {
+            if (current.getLeftNode() == null) {
+                return current.getRightNode();
+            } else if (current.getRightNode() == null) {
+                return current.getLeftNode();
+            }
+            current.setData(this.getSmaller(current.getRightNode()).getData());
+            current.setRightNode(remove(current.getRightNode(), current.getData()));
+        }
+
+        return current;
     }
 }

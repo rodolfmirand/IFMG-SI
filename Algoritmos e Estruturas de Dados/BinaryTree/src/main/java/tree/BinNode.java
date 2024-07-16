@@ -1,8 +1,8 @@
 package tree;
 
-public class BinNode <T extends Comparable<T>>  {
+public class BinNode<T extends Comparable<T>> {
 
-    private final T data;
+    private T data;
     private BinNode<T> leftNode;
     private BinNode<T> rightNode;
     private BinNode<T> parent;
@@ -12,7 +12,10 @@ public class BinNode <T extends Comparable<T>>  {
         this.leftNode = this.rightNode = this.parent = null;
     }
 
-    public T getData() { return data; }
+
+    public T getData() {
+        return data;
+    }
 
     public BinNode<T> getLeftNode() {
         return this.leftNode;
@@ -26,12 +29,20 @@ public class BinNode <T extends Comparable<T>>  {
         return this.rightNode;
     }
 
-    public BinNode<T> getParent(){ return this.parent; }
+    public BinNode<T> getParent() {
+        return this.parent;
+    }
 
-    public void setParent(BinNode<T> parent){ this.parent = parent; }
+    public void setParent(BinNode<T> parent) {
+        this.parent = parent;
+    }
 
     public void setRightNode(BinNode<T> rightNode) {
         this.rightNode = rightNode;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
     @Override
