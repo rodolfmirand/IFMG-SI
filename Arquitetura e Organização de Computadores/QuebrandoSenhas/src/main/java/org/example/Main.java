@@ -21,5 +21,5 @@ public class Main {
 
     public static final File directory = new File("D:\\Download\\projeto e arquivos para o problema da senha\\senha");
 
-    
+
 }
