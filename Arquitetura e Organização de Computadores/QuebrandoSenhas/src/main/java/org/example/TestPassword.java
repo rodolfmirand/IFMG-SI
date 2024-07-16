@@ -26,7 +26,8 @@ public class TestPassword {
     public static boolean testPassword(ZipFile zipFile, String senha) {
         try {
             //System.out.println(senha.toCharArray());
-            zipFile.setPassword(senha.toCharArray());
+            if(zipFile.isEncrypted())
+                zipFile.setPassword(senha.toCharArray());
 
             List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
 
@@ -49,7 +50,7 @@ public class TestPassword {
                 for (int i = startAscii; i <= endAscii; i++) {
                     if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
                     stringBuilder.append((char) i);
-
+                    System.out.println(stringBuilder);
                     if (testPassword(this.zipFile, stringBuilder.toString())) {
                         return true;
                     }
@@ -62,7 +63,7 @@ public class TestPassword {
                         if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
                         stringBuilder.append((char) i);
                         stringBuilder.append((char) j);
-
+                        System.out.println(stringBuilder);
                         if (testPassword(this.zipFile, stringBuilder.toString())) {
                             return true;
                         }
@@ -79,7 +80,7 @@ public class TestPassword {
                             stringBuilder.append((char) i);
                             stringBuilder.append((char) j);
                             stringBuilder.append((char) k);
-
+                            System.out.println(stringBuilder);
                             if (testPassword(this.zipFile, stringBuilder.toString())) {
                                 return true;
                             }
