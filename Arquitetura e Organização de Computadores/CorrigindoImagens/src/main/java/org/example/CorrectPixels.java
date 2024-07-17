@@ -1,97 +1,53 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CorrectPixels {
-    public static int[][] correctPixels(int imgOriginal[][]) {
+    public static int[][] correctPixels(int[][] originalImage) throws InterruptedException {
 
-        //este método você deve desenvolver e aprimorar para que tire proveito dos múltiplos núcleos de sua máquina
-        int largura = imgOriginal.length;
-        int altura = imgOriginal[0].length;
-        int[][] imgCorrigida = new int[largura][altura];
+        int row = originalImage.length;
+        int column = originalImage[0].length;
+        int[][] correctedImage = new int[row][column];
 
-        int pixelsValuesSum = 0;
-        int pixelsValuesMean = 0;
+        int numberOfThreads = Runtime.getRuntime().availableProcessors();
 
-        for (int i = 0; i < altura; i++) {
-            for (int j = 0; j < largura; j++) {
-                if (i == 0 && j == 0) {
-                    System.out.println("topo esquerdo");
-                    pixelsValuesSum += imgOriginal[i][j + 1]; //6
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesSum += imgOriginal[i + 1][j + 1];//9
-                    pixelsValuesMean = pixelsValuesSum / 3;
-                }
-                if (j == largura - 1) {
-                    System.out.println("topo direito");
-                    pixelsValuesSum += imgOriginal[i][j - 1];//4
-                    pixelsValuesSum += imgOriginal[i + 1][j - 1];//7
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesMean = pixelsValuesSum / 3;
-                } else {
-                    System.out.println("topo");
-                    pixelsValuesSum += imgOriginal[i][j - 1];//4
-                    pixelsValuesSum += imgOriginal[i][j + 1];//6
-                    pixelsValuesSum += imgOriginal[i + 1][j - 1];//7
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesSum += imgOriginal[i + 1][j + 1];//9
-                    pixelsValuesMean = pixelsValuesSum / 5;
-                }
-            
-                if (i == altura - 1 && j == 0) {
-                    System.out.println("baixo esquerdo");
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i - 1][j + 1];//3
-                    pixelsValuesSum += imgOriginal[i][j + 1];//6
-                    pixelsValuesMean = pixelsValuesSum / 3;
-                }
-                if (j == largura - 1) {
-                    System.out.println("baixo direito");
-                    pixelsValuesSum += imgOriginal[i - 1][j - 1];//1
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i][j - 1];//4
-                    pixelsValuesMean = pixelsValuesSum / 3;
-                } else {
-                    System.out.println("baixo");
-                    pixelsValuesSum += imgOriginal[i - 1][j - 1];//1
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i - 1][j + 1];//3
-                    pixelsValuesSum += imgOriginal[i - 1][j];//4
-                    pixelsValuesSum += imgOriginal[i][j + 1];//6
-                    pixelsValuesMean = pixelsValuesSum / 5;
-                }
+        List<ImageCorrector> threads = new ArrayList<>(numberOfThreads);
 
-                if (j == largura - 1) {
-                    System.out.println(("direito"));
-                    pixelsValuesSum += imgOriginal[i - 1][j - 1];//1
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i][j - 1];//4
-                    pixelsValuesSum += imgOriginal[i + 1][j - 1];//7
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesMean = pixelsValuesSum / 5;
-                } else if (j == 0) {
-                    System.out.println("esquerdo");
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i - 1][j + 1];//3
-                    pixelsValuesSum += imgOriginal[i][j + 1];//6
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesSum += imgOriginal[i + 1][j + 1];//9
-                    pixelsValuesMean = pixelsValuesSum / 5;
-                } else {
-                    System.out.println("meio");
-                    pixelsValuesSum += imgOriginal[i - 1][j - 1];//1
-                    pixelsValuesSum += imgOriginal[i - 1][j];//2
-                    pixelsValuesSum += imgOriginal[i - 1][j + 1];//3
-                    pixelsValuesSum += imgOriginal[i][j - 1];//4
-                    pixelsValuesSum += imgOriginal[i][j + 1];//6
-                    pixelsValuesSum += imgOriginal[i + 1][j - 1];//7
-                    pixelsValuesSum += imgOriginal[i + 1][j];//8
-                    pixelsValuesSum += imgOriginal[i + 1][j + 1];//9
-                    pixelsValuesMean = pixelsValuesSum / 8;
-                }
+        int chunkHeight = row / numberOfThreads;
 
-                imgCorrigida[i][j] = pixelsValuesMean;
-            }
+        for (int i = 0; i < numberOfThreads; i++) {
+            int startX = i * chunkHeight;
+            int endX = (i == numberOfThreads - 1) ? row : (i + 1) * chunkHeight;
+            ImageCorrector thread = new ImageCorrector(originalImage, correctedImage, startX, endX, 0, column);
+            threads.add(thread);
+            thread.start();
         }
 
-        return null;
+        for (ImageCorrector thread : threads) {
+            thread.join();
+        }
+
+        return correctedImage;
+    }
+
+    public static int correctPixel(int[][] originalImage, int i, int j) {
+        int valuePixelsSum = 0;
+        int pixelsNumb = 0;
+        int blackPixelsNumb = 0;
+        for (int i1 = -1; i1 <= 1; i1++) {
+            for (int j1 = -1; j1 <= 1; j1++) {
+                if (j1 + j >= 0 && j1 + j < originalImage[i].length && i1 + i >= 0 && i1 + i < originalImage.length) {
+                    if (i1 + i == i && j1 + j == j) continue;
+                    if (originalImage[i1 + i][j1 + j] < 100) blackPixelsNumb++;
+                    valuePixelsSum += originalImage[i1 + i][j1 + j];
+                    pixelsNumb++;
+                }
+            }
+        }
+        if (blackPixelsNumb > (pixelsNumb - blackPixelsNumb)) {
+            return 0;
+        }
+        return valuePixelsSum / pixelsNumb;
     }
 }
