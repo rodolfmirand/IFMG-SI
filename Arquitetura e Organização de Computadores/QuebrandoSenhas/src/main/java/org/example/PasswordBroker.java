@@ -5,15 +5,11 @@ import net.lingala.zip4j.model.FileHeader;
 
 import java.util.List;
 
-public class PasswordBroker {
+public class TestPassword {
 
-    private ZipFile zipFile;
+    private final ZipFile zipFile;
 
-    public PasswordBroker(ZipFile zipFile) {
-        this.zipFile = zipFile;
-    }
-
-    public void setZipFile(ZipFile zipFile){
+    public TestPassword(ZipFile zipFile) {
         this.zipFile = zipFile;
     }
 
@@ -27,14 +23,11 @@ public class PasswordBroker {
 //        generatePassword(1);
 //    }
 
-    public void brokeFile() {
-        generatePassword(1);
-    }
-
-    private static boolean testPassword(ZipFile zipFile, String senha) {
+    public static boolean testPassword(ZipFile zipFile, String senha) {
         try {
             //System.out.println(senha.toCharArray());
-            zipFile.setPassword(senha.toCharArray());
+            if(zipFile.isEncrypted())
+                zipFile.setPassword(senha.toCharArray());
 
             List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
 
@@ -50,16 +43,15 @@ public class PasswordBroker {
         return false;
     }
 
-    private boolean generatePassword(int numbChar) {
-        String password = "";
+
+    public boolean generatePassword(int numbChar) {
         do {
             if (numbChar == 1) {
                 for (int i = startAscii; i <= endAscii; i++) {
-                    if(!password.isEmpty()) password = "";
-
-                    password = String.valueOf(i);
-
-                    if (testPassword(this.zipFile, password)) {
+                    if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
+                    stringBuilder.append((char) i);
+                    System.out.println(stringBuilder);
+                    if (testPassword(this.zipFile, stringBuilder.toString())) {
                         return true;
                     }
                 }
@@ -68,11 +60,11 @@ public class PasswordBroker {
             if (numbChar == 2) {
                 for (int i = startAscii; i <= endAscii; i++) {
                     for (int j = startAscii; j < endAscii; j++) {
-                        if(!password.isEmpty()) password = "";
-                        password = String.valueOf(i);
-                        password += String.valueOf(j);
-
-                        if (testPassword(this.zipFile, password)) {
+                        if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
+                        stringBuilder.append((char) i);
+                        stringBuilder.append((char) j);
+                        System.out.println(stringBuilder);
+                        if (testPassword(this.zipFile, stringBuilder.toString())) {
                             return true;
                         }
                     }
@@ -84,12 +76,12 @@ public class PasswordBroker {
                 for (int i = startAscii; i <= endAscii; i++) {
                     for (int j = startAscii; j <= endAscii; j++) {
                         for (int k = startAscii; k <= endAscii; k++) {
-                            if(!password.isEmpty()) password = "";
-                            password = String.valueOf(i);
-                            password += String.valueOf(j);
-                            password += String.valueOf(k);
-
-                            if (testPassword(this.zipFile, password)) {
+                            if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
+                            stringBuilder.append((char) i);
+                            stringBuilder.append((char) j);
+                            stringBuilder.append((char) k);
+                            System.out.println(stringBuilder);
+                            if (testPassword(this.zipFile, stringBuilder.toString())) {
                                 return true;
                             }
                         }
