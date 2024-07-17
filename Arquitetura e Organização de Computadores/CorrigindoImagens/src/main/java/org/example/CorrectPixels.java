@@ -39,7 +39,7 @@ public class CorrectPixels {
             for (int j1 = -1; j1 <= 1; j1++) {
                 if (j1 + j >= 0 && j1 + j < originalImage[i].length && i1 + i >= 0 && i1 + i < originalImage.length) {
                     if (i1 + i == i && j1 + j == j) continue;
-                    if (originalImage[i1 + i][j1 + j] < 100) blackPixelsNumb++;
+                    if (originalImage[i1 + i][j1 + j] == 0) blackPixelsNumb++;
                     valuePixelsSum += originalImage[i1 + i][j1 + j];
                     pixelsNumb++;
                 }
