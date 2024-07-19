@@ -3,61 +3,28 @@ package org.example;
 import java.io.File;
 
 public class Main {
+    public static void main(String[] args) throws InterruptedException {
 
-    public static int[][] correctPixels(int[][] imgOriginal) {
-
-        int row = imgOriginal.length;
-        int column = imgOriginal[0].length;
-        int[][] imgCorrigida = new int[row][column];
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                if (imgOriginal[i][j] == 255 || imgOriginal[i][j] == 0) {
-                    imgCorrigida[i][j] = correctPixel(imgOriginal, i, j);
-                    continue;
-                }
-                imgCorrigida[i][j] = imgOriginal[i][j];
-            }
-        }
-        return imgCorrigida;
-    }
-
-    private static int correctPixel(int[][] imgOriginal, int i, int j) {
-        int valuePixelsSum = 0;
-        int pixelsNumb = 0;
-        int blackPixelsNumb = 0;
-        for (int i1 = -1; i1 <= 1; i1++) {
-            for (int j1 = -1; j1 <= 1; j1++) {
-                if (j1 + j >= 0 && j1 + j < imgOriginal[i].length && i1 + i >= 0 && i1 + i < imgOriginal.length) {
-                    if (i1 + i == i && j1 + j == j) continue;
-                    if (imgOriginal[i1 + i][j1 + j] < 100) blackPixelsNumb++;
-                    valuePixelsSum += imgOriginal[i1 + i][j1 + j];
-                    pixelsNumb++;
-                }
-            }
-        }
-        if (blackPixelsNumb > (pixelsNumb - blackPixelsNumb)) {
-            return 0;
-        }
-        return valuePixelsSum / pixelsNumb;
-    }
-
-    public static void main(String[] args) {
-
-        int cpuNumb = Runtime.getRuntime().availableProcessors();
-
-
+        //Extraindo os arquivos do diretório definido
         File directory = new File("D:\\Download\\projeto e arquivos para o problema de imagens\\Imagens\\modificadas");
+
+        //Dividindo os arquivos em um vetor
         File[] imagesFile = directory.listFiles();
 
-        assert imagesFile != null;
+        //Para cada arquivos, será feitos o seguintes métodos
         for (File image : imagesFile) {
 
-            int[][] imageMatrix = PixelsReader.readPixels(image.getAbsolutePath());
+            //Pegando o diretório da imagem
+            String imagePath = image.getAbsolutePath();
 
-            int[][] correctedImage = correctPixels(imageMatrix);
+            //Lendo os pixels da imagem e guardando-os em uma matriz de inteiros com os valores de cada pixel
+            int[][] imageMatrix = PixelsReader.readPixels(image);
 
-            PixelsRecorder.recordPixels(image.getAbsolutePath(), correctedImage);
+            //Corrigindo os pixels defeituosos e os guardando em uma nova matriz
+            int[][] correctedImage = CorrectPixels.correctPixels(imageMatrix);
+
+            //Gravando no disco a matriz corrigida da imagem
+            PixelsRecorder.recordPixels(imagePath, correctedImage);
         }
     }
 }

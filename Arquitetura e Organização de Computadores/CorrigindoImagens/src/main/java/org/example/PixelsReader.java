@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class PixelsReader {
-    public static int[][] readPixels(String path) {
+    public static int[][] readPixels(File file) {
 
         BufferedImage bufferedImage;
         try {
-            bufferedImage = ImageIO.read(new File(path));
+            bufferedImage = ImageIO.read(file);
             int width = bufferedImage.getWidth(null);
             int height = bufferedImage.getHeight(null);
 
