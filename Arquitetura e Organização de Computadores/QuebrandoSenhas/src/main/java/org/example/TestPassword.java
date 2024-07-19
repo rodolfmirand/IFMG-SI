@@ -3,17 +3,11 @@ package org.example;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.model.FileHeader;
 
+import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 public class TestPassword {
-
-    private final ZipFile zipFile;
-
-    public TestPassword(ZipFile zipFile) {
-        this.zipFile = zipFile;
-    }
-
-    public static StringBuilder stringBuilder = new StringBuilder();
 
     public static final int startAscii = 33;
     public static final int endAscii = 126;
@@ -23,16 +17,15 @@ public class TestPassword {
 //        generatePassword(1);
 //    }
 
-    public static boolean testPassword(ZipFile zipFile, String senha) {
+    public static boolean testPassword(File file, String senha) {
         try {
-            //System.out.println(senha.toCharArray());
-            if(zipFile.isEncrypted())
-                zipFile.setPassword(senha.toCharArray());
+            ZipFile zipFile = new ZipFile(file);
+            zipFile.setPassword(senha.toCharArray());
 
             List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
 
             for (FileHeader header : fileHeaderList) {
-                zipFile.extractFile((FileHeader) header, Main.directory.getAbsolutePath());
+                zipFile.extractFile(header, Main.directory.getAbsolutePath());
                 System.out.println("encontramos a senha e o arquivo");
                 return true;
             }
@@ -44,45 +37,45 @@ public class TestPassword {
     }
 
 
-    public boolean generatePassword(int numbChar) {
+
+    public boolean generatePassword(File file, int numbChar) {
+        String senha = "";
         do {
             if (numbChar == 1) {
                 for (int i = startAscii; i <= endAscii; i++) {
-                    if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
-                    stringBuilder.append((char) i);
-                    System.out.println(stringBuilder);
-                    if (testPassword(this.zipFile, stringBuilder.toString())) {
-                        return true;
+                    if (!Objects.equals(senha, "")) senha = "";
+                    senha = String.valueOf((char) i);
+                    if (testPassword(file, senha)) {
+                        break;
                     }
                 }
-                return generatePassword(1 + numbChar);
+                return generatePassword(file, 1 + numbChar);
             }
             if (numbChar == 2) {
                 for (int i = startAscii; i <= endAscii; i++) {
                     for (int j = startAscii; j < endAscii; j++) {
-                        if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
-                        stringBuilder.append((char) i);
-                        stringBuilder.append((char) j);
-                        System.out.println(stringBuilder);
-                        if (testPassword(this.zipFile, stringBuilder.toString())) {
-                            return true;
+                        if (!Objects.equals(senha, "")) senha = "";
+                        senha = String.valueOf((char) i);
+                        senha += String.valueOf((char) j);
+                        if (testPassword(file,  senha)) {
+                            break;
                         }
                     }
                 }
-                return generatePassword(1 + numbChar);
+                return generatePassword(file, 1 + numbChar);
             }
 
             if (numbChar == 3) {
                 for (int i = startAscii; i <= endAscii; i++) {
                     for (int j = startAscii; j <= endAscii; j++) {
                         for (int k = startAscii; k <= endAscii; k++) {
-                            if (!stringBuilder.isEmpty()) stringBuilder.delete(0, stringBuilder.length());
-                            stringBuilder.append((char) i);
-                            stringBuilder.append((char) j);
-                            stringBuilder.append((char) k);
-                            System.out.println(stringBuilder);
-                            if (testPassword(this.zipFile, stringBuilder.toString())) {
-                                return true;
+                            if (!Objects.equals(senha, "")) senha = "";
+                            senha = String.valueOf((char) i);
+                            senha = String.valueOf((char) j);
+                            senha = String.valueOf((char) k);
+
+                            if (testPassword(file, senha)) {
+                                break;
                             }
                         }
                     }
@@ -90,6 +83,10 @@ public class TestPassword {
                 return false;
             }
         } while (true);
+    }
+
+    public void testSenha(File file){
+        testPassword(file, "R");
     }
 
 
