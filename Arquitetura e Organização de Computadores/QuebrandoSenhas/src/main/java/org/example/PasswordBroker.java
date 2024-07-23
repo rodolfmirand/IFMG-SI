@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
-public class TestPassword {
+public class PasswordBroker {
 
     public static final int startAscii = 33;
     public static final int endAscii = 126;
@@ -20,22 +20,26 @@ public class TestPassword {
     public static boolean testPassword(File file, String senha) {
         try {
             ZipFile zipFile = new ZipFile(file);
-            zipFile.setPassword(senha.toCharArray());
+            if (zipFile.isEncrypted()) {
+                zipFile.setPassword(senha.toCharArray());
+            }
+            List fileHeaderList = zipFile.getFileHeaders();
 
-            List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
-
-            for (FileHeader header : fileHeaderList) {
-                zipFile.extractFile(header, Main.directory.getAbsolutePath());
+            for (int i = 0; i < fileHeaderList.size(); i++) {
+                FileHeader fileHeader = (FileHeader) fileHeaderList.get(i);
+                //onde você deseja extrair (neste caso no mesmo caminho)
+                zipFile.extractFile(fileHeader, Main.directory.getAbsolutePath());
                 System.out.println("encontramos a senha e o arquivo");
                 return true;
             }
+
         } catch (net.lingala.zip4j.exception.ZipException ex) {
             //erro na extração do arquivo
             return false;
         }
+
         return false;
     }
-
 
 
     public boolean generatePassword(File file, int numbChar) {
@@ -45,6 +49,7 @@ public class TestPassword {
                 for (int i = startAscii; i <= endAscii; i++) {
                     if (!Objects.equals(senha, "")) senha = "";
                     senha = String.valueOf((char) i);
+                    System.out.println(senha);
                     if (testPassword(file, senha)) {
                         break;
                     }
@@ -57,7 +62,8 @@ public class TestPassword {
                         if (!Objects.equals(senha, "")) senha = "";
                         senha = String.valueOf((char) i);
                         senha += String.valueOf((char) j);
-                        if (testPassword(file,  senha)) {
+                        System.out.println(senha);
+                        if (testPassword(file, senha)) {
                             break;
                         }
                     }
@@ -71,9 +77,9 @@ public class TestPassword {
                         for (int k = startAscii; k <= endAscii; k++) {
                             if (!Objects.equals(senha, "")) senha = "";
                             senha = String.valueOf((char) i);
-                            senha = String.valueOf((char) j);
-                            senha = String.valueOf((char) k);
-
+                            senha += String.valueOf((char) j);
+                            senha += String.valueOf((char) k);
+                            System.out.println(senha);
                             if (testPassword(file, senha)) {
                                 break;
                             }
@@ -84,10 +90,5 @@ public class TestPassword {
             }
         } while (true);
     }
-
-    public void testSenha(File file){
-        testPassword(file, "R");
-    }
-
 
 }

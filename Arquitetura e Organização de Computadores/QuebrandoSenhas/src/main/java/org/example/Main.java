@@ -28,7 +28,7 @@ public class Main {
         //ZipFile zipFile = new ZipFile(new File("D:\\Download\\projeto e arquivos para o problema da senha\\senha\\arquivosTP\\teste.rar"));
         File file = new File("C:\\Users\\rodol\\Downloads\\projeto e arquivos para o problema da senha\\senha\\arquivosTP\\senha.rar");
 
-        TestPassword testPassword = new TestPassword();
-        testPassword.testSenha(file);
+        PasswordBroker testPassword = new PasswordBroker();
+        testPassword.generatePassword(file, 1);
     }
 }
