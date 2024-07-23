@@ -20,13 +20,16 @@ public class CorrectPixels {
         //Dividindo o número de linhas para cada thread
         int chunkHeight = row / numberOfThreads;
 
-        for (int i = 0; i < numberOfThreads; i++) {
+        for (int counter = 0; counter < numberOfThreads; counter++) {
             //Definindo os pontos de inicio e fim para cada thread
-            int startX = i * chunkHeight;
-            int endX = (i == numberOfThreads - 1) ? row : (i + 1) * chunkHeight;
+            int startX = counter * chunkHeight;
+            int endX = (counter == numberOfThreads - 1)
+                    ? row
+                    : (counter + 1) * chunkHeight;
 
             //Instanciando uma nova thread, adicionando-a na Lista de Threads e a iniciando
-            ImageCorrector thread = new ImageCorrector(originalImage, correctedImage, startX, endX, 0, column);
+            ImageCorrector thread = new ImageCorrector(originalImage, correctedImage,
+                    startX, endX, 0, column);
             threads.add(thread);
             thread.start();
         }
@@ -48,18 +51,25 @@ public class CorrectPixels {
         //Número de pixels pretos em volta do pixel a se corrigir
         int blackPixelsNumb = 0;
 
-        //Percorrendo os pixels em volta do pixel a se corrgir
+        //Percorrendo os pixels em volta do pixel a se corrigir
         for (int i1 = -1; i1 <= 1; i1++) {
             for (int j1 = -1; j1 <= 1; j1++) {
-                if (j1 + j >= 0 && j1 + j < originalImage[i].length && i1 + i >= 0 && i1 + i < originalImage.length) {
+                //Verificando se o valor dos contadores não são negativos,
+                // para que não tente acessar valores inalcançáveis
+                if (j1 + j >= 0
+                        && j1 + j < originalImage[i].length
+                        && i1 + i >= 0 && i1 + i < originalImage.length) {
 
-                    //Caso a posição do pixel percorrido seja igual a posição do pixel a se corrigir é passado para o próximo pixel
+                    //Caso a posição do pixel percorrido seja igual a posição do pixel a
+                    // se corrigir é passado para o próximo pixel
                     if (i1 + i == i && j1 + j == j) continue;
 
-                    //Caso o pixel percorrido tenha valor 0 (preto) é somado 1 ao número de pixels pretos
+                    //Caso o pixel percorrido tenha valor 0 (preto) é somado 1
+                    // ao número de pixels pretos
                     if (originalImage[i1 + i][j1 + j] == 0) blackPixelsNumb++;
 
-                    //Somando o valor do pixel percorrido à soma dos valores dos pixels percorridos
+                    //Somando o valor do pixel percorrido à soma dos
+                    // valores dos pixels percorridos
                     valuePixelsSum += originalImage[i1 + i][j1 + j];
 
                     //Somando 1 ao número de pixels percorridos

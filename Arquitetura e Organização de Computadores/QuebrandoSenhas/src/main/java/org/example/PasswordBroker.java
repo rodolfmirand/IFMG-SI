@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class PasswordBroker {
 
+    public static ZipFile zipFile;
     public static final int startAscii = 33;
     public static final int endAscii = 126;
 
@@ -41,8 +42,7 @@ public class PasswordBroker {
         return false;
     }
 
-
-    public boolean generatePassword(File file, int numbChar) {
+    public boolean generatePassword(int numbChar) {
         String senha = "";
         do {
             if (numbChar == 1) {
@@ -50,11 +50,11 @@ public class PasswordBroker {
                     if (!Objects.equals(senha, "")) senha = "";
                     senha = String.valueOf((char) i);
                     System.out.println(senha);
-                    if (testPassword(file, senha)) {
+                    if (testPassword(senha)) {
                         break;
                     }
                 }
-                return generatePassword(file, 1 + numbChar);
+                return generatePassword(1 + numbChar);
             }
             if (numbChar == 2) {
                 for (int i = startAscii; i <= endAscii; i++) {
@@ -63,12 +63,12 @@ public class PasswordBroker {
                         senha = String.valueOf((char) i);
                         senha += String.valueOf((char) j);
                         System.out.println(senha);
-                        if (testPassword(file, senha)) {
+                        if (testPassword(senha)) {
                             break;
                         }
                     }
                 }
-                return generatePassword(file, 1 + numbChar);
+                return generatePassword(1 + numbChar);
             }
 
             if (numbChar == 3) {
@@ -80,7 +80,7 @@ public class PasswordBroker {
                             senha += String.valueOf((char) j);
                             senha += String.valueOf((char) k);
                             System.out.println(senha);
-                            if (testPassword(file, senha)) {
+                            if (testPassword(senha)) {
                                 break;
                             }
                         }
@@ -91,4 +91,22 @@ public class PasswordBroker {
         } while (true);
     }
 
+    private boolean testPassword(String senha) {
+        try {
+            zipFile.setPassword(senha.toCharArray());
+
+            List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
+            zipFile.extractFile("senha.txt", Main.directory.getAbsolutePath() );
+//            for (FileHeader header : fileHeaderList) {
+//                zipFile.extractFile(header, Main.directory.getAbsolutePath());
+//                System.out.println("encontramos a senha e o arquivo");
+//                return true;
+//            }
+            return true;
+        } catch (net.lingala.zip4j.exception.ZipException ex) {
+            //erro na extração do arquivo
+            return false;
+        }
+        //return false;
+    }
 }
