@@ -49,7 +49,7 @@ public class HeapSort {
         System.out.println("Array ordenado é");
         printArray(arr);
     }
-    
+
     static void printArray(int[] arr) {
         int n = arr.length;
         for (int j : arr) {
