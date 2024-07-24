@@ -29,13 +29,8 @@ public class Main {
 //        File file = new File("C:\\Users\\rodol\\Downloads\\projeto e arquivos para o problema da senha\\senha\\arquivosTP\\doc1.zip");
 //        ZipFile zipFile = new ZipFile(file);
 
-        ZipFile zipFile = new ZipFile(new File("C:\\Users\\rodol\\Downloads\\projeto e arquivos para o problema da senha\\senha\\arquivosTP\\senha.rar"));
+        ZipFile zipFile = new ZipFile(new File("C:\\Users\\rodol\\Downloads\\projeto e arquivos para o problema da senha\\senha\\arquivosTP\\doc1.zip"));
         PasswordBroker passwordBroker = new PasswordBroker();
-        PasswordBroker.setZipFile(zipFile);
-        passwordBroker.brokeFile();
-
-
-
-
+        passwordBroker.brakeFile(zipFile);
     }
 }
