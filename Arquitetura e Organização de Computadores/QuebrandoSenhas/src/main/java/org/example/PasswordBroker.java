@@ -1,9 +1,9 @@
 package org.example;
 
 import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.headers.HeaderReader;
 import net.lingala.zip4j.model.FileHeader;
 
-import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,18 +18,22 @@ public class PasswordBroker {
 //        generatePassword(1);
 //    }
 
-    public static boolean testPassword(File file, String senha) {
+    public void brakeFile(ZipFile zipFile){
+        PasswordBroker.zipFile = zipFile;
+        this.generatePassword(1);
+    }
+
+    private boolean testPassword(String senha) {
         try {
-            ZipFile zipFile = new ZipFile(file);
-            if (zipFile.isEncrypted()) {
-                zipFile.setPassword(senha.toCharArray());
+            if (PasswordBroker.zipFile.isEncrypted()) {
+                PasswordBroker.zipFile.setPassword(senha.toCharArray());
             }
-            List fileHeaderList = zipFile.getFileHeaders();
+            List<FileHeader> fileHeaderList = PasswordBroker.zipFile.getFileHeaders();
 
             for (int i = 0; i < fileHeaderList.size(); i++) {
                 FileHeader fileHeader = (FileHeader) fileHeaderList.get(i);
                 //onde você deseja extrair (neste caso no mesmo caminho)
-                zipFile.extractFile(fileHeader, Main.directory.getAbsolutePath());
+                PasswordBroker.zipFile.extractFile(fileHeader, Main.directory.getAbsolutePath());
                 System.out.println("encontramos a senha e o arquivo");
                 return true;
             }
@@ -42,7 +46,7 @@ public class PasswordBroker {
         return false;
     }
 
-    public boolean generatePassword(int numbChar) {
+    private boolean generatePassword(int numbChar) {
         String senha = "";
         do {
             if (numbChar == 1) {
@@ -89,24 +93,5 @@ public class PasswordBroker {
                 return false;
             }
         } while (true);
-    }
-
-    private boolean testPassword(String senha) {
-        try {
-            zipFile.setPassword(senha.toCharArray());
-
-            List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
-            zipFile.extractFile("senha.txt", Main.directory.getAbsolutePath() );
-//            for (FileHeader header : fileHeaderList) {
-//                zipFile.extractFile(header, Main.directory.getAbsolutePath());
-//                System.out.println("encontramos a senha e o arquivo");
-//                return true;
-//            }
-            return true;
-        } catch (net.lingala.zip4j.exception.ZipException ex) {
-            //erro na extração do arquivo
-            return false;
-        }
-        //return false;
     }
 }
