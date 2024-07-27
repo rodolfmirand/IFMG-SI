@@ -1,87 +1,57 @@
 package org.example;
 
-import java.io.File;
-import java.util.List;
-import java.util.zip.ZipException;
-
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.model.FileHeader;
 
+import java.io.*;
+import java.util.List;
+
 public class Main {
 
-    public static ZipFile zipFile;
-    public static final int startAscii = 33;
-    public static final int endAscii = 126;
+    //Diretório dos arquivos a serem descompactados
+    public static final String path = "D:\\Área de Trabalho\\IFMG-SI\\Arquitetura e Organização de Computadores\\QuebrandoSenhas\\";
 
-    //caminho absoluto da pasta
-    public static final String caminho = "D:\\Download\\projeto e arquivos para o problema da senha (1)\\senha\\arquivosTP\\";
+    public static void main(String[] args) throws InterruptedException, IOException {
 
-    public static boolean testaSenha(String senha) {
-        //necessário trocar o nome do arquivo de maneira iterativa
-        ZipFile zipFile = new ZipFile(new File(caminho + "doc1.zip"));
-        try {
+        //Senha do arquivo final
+        String finalPassword = "";
 
-            //encriptado?
-            zipFile.setPassword(senha.toCharArray());
+        for (int i = 1; i <= 4; i++){
 
-            List fileHeaderList = zipFile.getFileHeaders();
+            //Localiza o arquivo a ser descompactado
+            ZipFile file = new ZipFile(path + "doc" + i + ".zip");
 
-            for (int i = 0; i < fileHeaderList.size(); i++) {
-                FileHeader fileHeader = (FileHeader) fileHeaderList.get(i);
-                //onde você deseja extrair (neste caso no mesmo caminho)
-                zipFile.extractFile(fileHeader, caminho);
-                System.out.println("Encontramos a senha e o arquivo: " + senha);
-                return true;
-            }
+            //Define o arquivo que as threads devem quebrar a senha
+            FileBreaker.setZipFile(file);
 
-        } catch (net.lingala.zip4j.exception.ZipException ex) {
-            //erro na extração do arquivo
-            return false;
+            //Tenta quebrar a senha do arquivo
+            BreakFile.breakFile();
+
+            //Redefine se a senha já foi quebrada para 'false' para o próximo arquivo a ser quebrado
+            FileBreaker.isPasswordBroken = false;
         }
 
-        return false;
-    }
-
-    public static boolean generatePassword(int numbChar) {
-        String senha = "";
-        for (int i = startAscii; i <= endAscii; i++) {
-            if (numbChar == 1) {
-                senha = String.valueOf((char) i);
-                System.out.println(senha);
-                if (testaSenha(senha)) {
-                    return true;
-                }
-            } else {
-                for (int j = startAscii; j <= endAscii; j++) {
-                    if (numbChar == 2) {
-                        senha = String.valueOf((char) i) + (char) j;
-                        System.out.println(senha);
-                        if (testaSenha(senha)) {
-                            return true;
-                        }
-                    } else {
-                        for (int k = startAscii; k <= endAscii; k++) {
-                            if (numbChar == 3) {
-                                senha = String.valueOf((char) i) + (char) j + (char) k;
-                                System.out.println(senha);
-                                if (testaSenha(senha)) {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        //Lê a primeira linha dos arquivos .txt e os concatenam em uma String
+        for(int i = 1; i <= 4; i++){
+            BufferedReader br = new BufferedReader(new FileReader(path + "doc" + i + ".txt"));
+            finalPassword += br.readLine();
         }
-        return false;
-    }
 
-    public static void main(String[] args) {
-        int maxPasswordLength = 3;
-        for (int i = 1; i <= maxPasswordLength; i++) {
-            if (generatePassword(i)) {
-                break;
+        //Tenta descompactar o arquivo final
+        try{
+            ZipFile finalFile = new ZipFile(path + "final.zip");
+
+            finalFile.setPassword(finalPassword.toCharArray());
+
+            List<FileHeader> fileHeaderList = finalFile.getFileHeaders();
+
+            for (FileHeader header : fileHeaderList) {
+                finalFile.extractFile(header, Main.path);
+                System.out.println("Arquivo final descompactado.");
             }
+        }catch (net.lingala.zip4j.exception.ZipException ex){
+            System.out.println("Erro na descompactação do arquivo final.");
         }
+
     }
 }
