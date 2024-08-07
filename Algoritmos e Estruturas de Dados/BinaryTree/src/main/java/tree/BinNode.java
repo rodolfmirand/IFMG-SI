@@ -1,20 +1,20 @@
 package tree;
 
-public class BinNode<T extends Comparable<T>> {
+public class BinNode<T> implements Comparable<BinNode<T>> {
 
-    private T data;
+    private T binNodeData;
     private BinNode<T> leftNode;
     private BinNode<T> rightNode;
     private BinNode<T> parent;
 
     public BinNode(T data) {
-        this.data = data;
+        this.binNodeData = data;
         this.leftNode = this.rightNode = this.parent = null;
     }
 
 
-    public T getData() {
-        return data;
+    public T getBinNodeData() {
+        return binNodeData;
     }
 
     public BinNode<T> getLeftNode() {
@@ -41,14 +41,19 @@ public class BinNode<T extends Comparable<T>> {
         this.rightNode = rightNode;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setBinNodeData(T binNodeData) {
+        this.binNodeData = binNodeData;
     }
 
     @Override
     public String toString() {
         return "BinNode{" +
-                "data=" + data +
+                "data=" + binNodeData +
                 '}';
+    }
+
+    @Override
+    public int compareTo(BinNode<T> o) {
+        return 0;
     }
 }

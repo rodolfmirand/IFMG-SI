@@ -21,7 +21,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current == null) {
             newNode.setParent(parent); // Define o pai do novo nó
             return newNode;
-        } else if (newNode.getData().compareTo(current.getData()) < 0) {
+        } else if (newNode.getBinNodeData().compareTo(current.getBinNodeData()) < 0) {
             current.setLeftNode(insert(current.getLeftNode(), newNode, current));
         } else {
             current.setRightNode(insert(current.getRightNode(), newNode, current));
@@ -37,7 +37,7 @@ public class BinaryTree<T extends Comparable<T>> {
     private void showInOrder(BinNode<T> current) {
         if (current != null) {
             showInOrder(current.getLeftNode());
-            System.out.print(current.getData() + ", ");
+            System.out.print(current.getBinNodeData() + ", ");
             showInOrder(current.getRightNode());
         }
     }
@@ -51,7 +51,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current != null) {
             showPostOrder(current.getLeftNode());
             showPostOrder(current.getRightNode());
-            System.out.print(current.getData() + ", ");
+            System.out.print(current.getBinNodeData() + ", ");
         }
     }
 
@@ -62,7 +62,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
     private void showPreOrder(BinNode<T> current) {
         if (current != null) {
-            System.out.print(current.getData() + ", ");
+            System.out.print(current.getBinNodeData() + ", ");
             showPreOrder(current.getLeftNode());
             showPreOrder(current.getRightNode());
         }
@@ -93,7 +93,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current == null || otherCurrent == null) {
             return false;
         }
-        return (current.getData().compareTo(otherCurrent.getData()) == 0 &&
+        return (current.getBinNodeData().compareTo(otherCurrent.getBinNodeData()) == 0 &&
                 compareTrees(current.getLeftNode(), otherCurrent.getLeftNode()) &&
                 compareTrees(current.getRightNode(), otherCurrent.getRightNode()));
     }
@@ -129,15 +129,15 @@ public class BinaryTree<T extends Comparable<T>> {
     private BinNode<T> searchSuccessor(T data, BinNode<T> current) {
         if (current.getParent() == null) return null;
 
-        if (data.compareTo(current.getParent().getData()) > 0)
+        if (data.compareTo(current.getParent().getBinNodeData()) > 0)
             return searchSuccessor(data, current.getParent());
 
         return current.getParent();
     }
 
     private BinNode<T> searchNode(T data, BinNode<T> current) {
-        if (current.getData().compareTo(data) == 0) return current;
-        if (current.getData().compareTo(data) < 0) return searchNode(data, current.getRightNode());
+        if (current.getBinNodeData().compareTo(data) == 0) return current;
+        if (current.getBinNodeData().compareTo(data) < 0) return searchNode(data, current.getRightNode());
         return searchNode(data, current.getLeftNode());
     }
 
@@ -148,9 +148,9 @@ public class BinaryTree<T extends Comparable<T>> {
     private BinNode<T> remove(BinNode<T> current, T data) {
         if (current == null) return current;
 
-        if (data.compareTo(current.getData()) < 0) {
+        if (data.compareTo(current.getBinNodeData()) < 0) {
             current.setLeftNode(remove(current.getLeftNode(), data));
-        } else if (data.compareTo(current.getData()) > 0) {
+        } else if (data.compareTo(current.getBinNodeData()) > 0) {
             current.setRightNode(remove(current.getRightNode(), data));
         } else {
             if (current.getLeftNode() == null) {
@@ -158,8 +158,8 @@ public class BinaryTree<T extends Comparable<T>> {
             } else if (current.getRightNode() == null) {
                 return current.getLeftNode();
             }
-            current.setData(this.getSmaller(current.getRightNode()).getData());
-            current.setRightNode(remove(current.getRightNode(), current.getData()));
+            current.setBinNodeData(this.getSmaller(current.getRightNode()).getBinNodeData());
+            current.setRightNode(remove(current.getRightNode(), current.getBinNodeData()));
         }
 
         return current;

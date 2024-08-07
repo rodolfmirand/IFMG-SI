@@ -32,13 +32,15 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Área de Trabalho/IFMG-SI/Algoritmos e Estruturas de Dados/BinaryTree"
+    "last_opened_file_path": "D:/Área de Trabalho/Nova pasta"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Área de Trabalho\IFMG-SI\Algoritmos e Estruturas de Dados\BinaryTree\src\main\java\tree" />
       <recent name="C:\Users\rodol\Área de Trabalho\BinaryTree\src\main\java\tree" />
     </key>
   </component>
@@ -72,5 +74,16 @@
       <updated>1720477437455</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tree/Main.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
