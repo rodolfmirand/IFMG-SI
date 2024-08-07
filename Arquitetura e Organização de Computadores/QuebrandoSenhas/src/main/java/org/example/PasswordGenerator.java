@@ -15,15 +15,15 @@ public class PasswordGenerator {
 
     //Método para testar a senha gerada
     //Poucas mudanças foram feitas
-    private boolean testPassword(String senha) {
+    private boolean testPassword(String password) {
         try {
-            zipFile.setPassword(senha.toCharArray());
+            zipFile.setPassword(password.toCharArray());
 
             List<FileHeader> fileHeaderList = zipFile.getFileHeaders();
 
             for (FileHeader header : fileHeaderList) {
                 zipFile.extractFile(header, Main.path);
-                System.out.println("Encontramos a senha e o arquivo: " + senha);
+                System.out.println("Encontramos a senha e o arquivo: " + password);
                 return true;
             }
         } catch (net.lingala.zip4j.exception.ZipException ex) {
@@ -35,7 +35,7 @@ public class PasswordGenerator {
 
     public boolean generatePassword(int numbChar, int start, int end) {
 
-        String senha = "";
+        String password = "";
 
         //Gera uma senha dependendo do número de caracteres necessários
         for (int i = start; i <= end; i++) {
@@ -45,8 +45,8 @@ public class PasswordGenerator {
 
             //Se a quantidade de caracteres necessários forem 1, é retornado apenas um caracter, se não é gerado mais caracteres
             if (numbChar == 1) {
-                senha = String.valueOf((char) i);
-                if (testPassword(senha)) return true;
+                password = String.valueOf((char) i);
+                if (testPassword(password)) return true;
 
             } else {
                 //Valor do caracter inicial da tabela ASCII
@@ -61,8 +61,8 @@ public class PasswordGenerator {
 
                     //Se a quantidade de caracteres necessários forem 2, é retornado dois caracteres, se não é gerado mais um caracter
                     if (numbChar == 2) {
-                        senha = String.valueOf((char) i) + (char) j;
-                        if (testPassword(senha)) return true;
+                        password = String.valueOf((char) i) + (char) j;
+                        if (testPassword(password)) return true;
 
                     } else {
                         for (int k = startAscii; k <= endAscii; k++) {
@@ -72,8 +72,8 @@ public class PasswordGenerator {
 
                             //Gera o último caracter necessários
                             if (numbChar == 3) {
-                                senha = String.valueOf((char) i) + (char) j + (char) k;
-                                if (testPassword(senha)) return true;
+                                password = String.valueOf((char) i) + (char) j + (char) k;
+                                if (testPassword(password)) return true;
                             }
                         }
                     }

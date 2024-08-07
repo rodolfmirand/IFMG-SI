@@ -13,7 +13,7 @@ public class BreakFile {
         //Caracter inicial
         int startOfAscii = 33;
 
-        //Caracter final
+        //Caracter finalA
         int endOfAscii = 126;
 
         //Número de Threads disponíveis
@@ -32,7 +32,9 @@ public class BreakFile {
             int start = startOfAscii + (numberOfCharsPerThread * counter);
 
             //Valor final de uma determinada thread
-            int end = (counter != numberOfThreads - 1) ? startOfAscii + (numberOfCharsPerThread * (counter + 1)) : endOfAscii;
+            int end = (counter != numberOfThreads - 1)
+                    ? startOfAscii + (numberOfCharsPerThread * (counter + 1))
+                    : endOfAscii;
 
             //Instancia uma thread
             FileBreaker thread = new FileBreaker(start, end);
