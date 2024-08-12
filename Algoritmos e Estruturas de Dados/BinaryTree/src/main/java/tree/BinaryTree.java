@@ -77,6 +77,7 @@ public class BinaryTree<T extends Comparable<T>> {
         return getBigger(current.getRightNode());
     }
 
+
     private BinNode<T> getSmaller(BinNode<T> current) {
         if (current.getLeftNode() == null) return current;
         return getSmaller(current.getLeftNode());
@@ -98,26 +99,10 @@ public class BinaryTree<T extends Comparable<T>> {
                 compareTrees(current.getRightNode(), otherCurrent.getRightNode()));
     }
 
-//    public boolean compareTree(BinaryTree<T> treeToCompare){
-//        return compareTree(treeToCompare, this.root, treeToCompare.getRoot());
-//    }
-//
-//    private boolean compareTree(BinaryTree<T> treeToCompare, BinNode<T> current, BinNode<T> currentOtherTree){
-//        if(current.getData().compareTo(currentOtherTree.getData()) != 0) return false;
-//
-//        if(current.getLeftNode() == null && currentOtherTree.getLeftNode() != null
-//            || current.getLeftNode() != null && currentOtherTree.getLeftNode() == null) return false;
-//
-//        if(current.getLeftNode() == null && currentOtherTree.getLeftNode() == null)
-//            if(current.getParent().getRightNode() == null && currentOtherTree.getParent().getRightNode() == null) return true;
-//            return compareTree(treeToCompare, current.getParent().getRightNode(), currentOtherTree.getParent().getRightNode());
-//
-//        if(current.getLeftNode() != null && currentOtherTree.getLeftNode() != null)
-//            return compareTree(treeToCompare, current.getLeftNode(), currentOtherTree.getLeftNode());
-//
-//
-//        return true;
-//    }
+    public boolean verifyIfSubtree(BinaryTree<T> treeToCompare) {
+        BinNode<T> node = searchNode(treeToCompare.getRoot().getBinNodeData(), this.root);
+        return compareTrees(treeToCompare.getRoot(), node);
+    }
 
     public BinNode<T> searchSuccessor(T data) {
         BinNode<T> newNode = searchNode(data, this.root);

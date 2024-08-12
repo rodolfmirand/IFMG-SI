@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="074549cd-11fb-4c4f-8054-2efd771e7b1b" name="Changes" comment="" />
+    <list default="true" id="074549cd-11fb-4c4f-8054-2efd771e7b1b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tree/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tree/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tree/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tree/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HeapSort/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HeapSort/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +41,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Área de Trabalho/Nova pasta"
+    "last_opened_file_path": "C:/Users/rodol/Área de Trabalho/IFMG-SI/Algoritmos e Estruturas de Dados/BinaryTree"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -74,16 +80,5 @@
       <updated>1720477437455</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tree/Main.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
