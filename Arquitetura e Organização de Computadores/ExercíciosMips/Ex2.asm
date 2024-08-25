@@ -37,6 +37,7 @@
 		addi $t2, $t2, 4
 	
 		addi $t4, $t4, 1
+		
 		j calcular
 		
 	fim:
