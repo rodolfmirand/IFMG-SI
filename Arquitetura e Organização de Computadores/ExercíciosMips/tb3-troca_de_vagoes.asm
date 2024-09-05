@@ -1,9 +1,10 @@
 .data
-	trem: .space 16 
-	msg_introducao: .asciiz "Quantidade de trens: " 
-	msg_quantidade_vagoes: .asciiz "\n\nQuantidade de vagões do trem: "
+	locomotiva: .space 16
+	
+	msg_introducao: .asciiz "Quantidade de locomotivas: " 
+	msg_quantidade_vagoes: .asciiz "\n\nQuantidade de vagões da locomotiva: "
 	msg_numero_vagao: .asciiz "Número do vagão: "
-	msg_printando_trem: .asciiz "Trem ordenado: "
+	msg_printando_locomotiva: .asciiz "Locomotiva ordenado: "
 	msg_espaco: .asciiz " " 
 	
 .text
@@ -16,7 +17,7 @@
 		syscall
 		move $t0, $v0
 		
-	iniciar_trem:
+	iniciar_locomotiva:
 		beqz $t0, fim
 		
 		li $v0, 4
@@ -27,8 +28,8 @@
 		syscall
 		move $t2, $v0
 		
-		la $t4, trem
-		li $t1, 0
+		la $t4, locomotiva
+		li $t1, 0 
 		
 	acoplar_vagoes:
 		bge $t1, $t2, ordenar
@@ -47,13 +48,13 @@
 		j acoplar_vagoes
 		
 	ordenar:
-		la $t4, trem
+		la $t4, locomotiva
 		li $t1, 0
 		move $t7, $t2
 		subi $t7, $t7, 1
 		
 	carregar_vagoes:	
-		bge $t1, $t7, printar_vagao
+		bge $t1, $t7, printar_locomotiva
 		
 		lw $t5, 0($t4)
 		lw $t6, 4($t4)
@@ -69,17 +70,17 @@
 		sw $t6, 0($t4)
 		j ordenar
 		
-	printar_vagao:
-		la $t4, trem
+	printar_locomotiva:
+		la $t4, locomotiva
 		li $t1, 0
-		subi $t0, $t0, 1
+		subi $t0, $t0, 1 
 		
 		li $v0, 4
-		la $a0, msg_printando_trem
+		la $a0, msg_printando_locomotiva
 		syscall
 		
-	printar_vagao_loop:
-		bge $t1, $t2, iniciar_trem
+	printar_locomotiva_loop:
+		bge $t1, $t2, iniciar_locomotiva
 		
 		lw $a0, 0($t4)
 		li $v0, 1
@@ -92,7 +93,7 @@
 		addi $t4, $t4, 4
 		addi $t1, $t1, 1
 		
-		j printar_vagao_loop
+		j printar_locomotiva_loop
 		
 	fim: 
 		li $v0, 10
