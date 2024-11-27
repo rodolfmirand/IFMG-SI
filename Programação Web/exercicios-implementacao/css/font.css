@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'caviar-dreams';
+    src: url('/font/CaviarDreams.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar-dreams-bold';
+    src: url('/font/CaviarDreams_Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'heading-now';
+    src: url('/font/HeadingNowTrial-04Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'heading-now-medium';
+    src: url('/font/HeadingNowTrial-05Medium.ttf') format('truetype');
+    font-weight: medium;
+    font-style: medium;
+}
