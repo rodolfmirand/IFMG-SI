@@ -1,11 +1,28 @@
-const botaoAdicionar = document.getElementById('add');
-const botaoRemover = document.getElementById('remove');
-const lista = document.getElementById('list');
+const addItemBtn = document.getElementById('addItemBtn');
+const popup = document.getElementById('popup');
+const insert = document.getElementById('insert');
+const cancel = document.getElementById('cancel');
+const input = document.getElementById('input');
+const list = document.getElementById('list');
 
-function adicionarLinha() {
-    lista.appendChild(document.createElement('li'));
+function abrirInput() {
+    popup.classList.remove('hidden');
+    input.value = ''; 
+    input.focus();
 }
 
-function removerLinha() {
-    lista.appendChild(lista.lastChild.remove());
+function cancelar() {
+    popup.classList.add('hidden');
+}
+
+function inserirTexto() {
+    const text = input.value.trim();
+    if (text) {
+        const line = document.createElement('li');
+        line.textContent = text;
+        list.appendChild(line);
+        popup.classList.add('hidden');
+    } else {
+        alert('Digite algo antes de confirmar!');
+    }
 }

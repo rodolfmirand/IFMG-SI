@@ -1,0 +1,37 @@
+@import url('/css/font.css');
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        width: 50vw;
+        height: 10vh;
+        background-color: rgb(122, 52, 252);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 100px;
+        padding-right: 100px;
+        gap:  50px;
+
+        .text {
+            h1 {
+                font-family: 'caviar-dreams', sans-serif;
+                font-size: 100px;
+                letter-spacing: 3px;
+            }
+        }
+
+        .image {
+            img {
+                width: 100px;
+            }
+
+            img:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

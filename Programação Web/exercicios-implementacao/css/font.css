@@ -25,3 +25,10 @@
     font-weight: medium;
     font-style: medium;
 }
+
+@font-face {
+    font-family: 'more-sugar';
+    src: url('/font/MoreSugar-Regular.otf') format('opentype');
+    font-weight: medium;
+    font-style: medium;
+}

@@ -18,15 +18,28 @@
             <div class="container">
                 <ul id="list"></ul>
             </div>
-            <div class="buttons">
-                <button id="button" onclick="adicionarLinha()">
-                    <h1>adicionar</h1>
-                </button>
-                <button id="button" onclick="removerLinha()">
-                    <h1>remover</h1>
-                </button>
-            </div>
+            <button id="button" onclick="abrirInput()">
+                <h1>adicionar</h1>
+            </button>
         </main>
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <div class="item-title">
+                    <h2>Texto:</h2>
+                </div>
+                <div class="item-input">
+                    <input type="text" id="input">
+                </div>
+                <div class="item-button">
+                    <button id="insert" onclick="inserirTexto()">
+                        <h1>inserir</h1>
+                    </button>
+                    <button id="cancel" onclick="cancelar()">
+                        <h1>cancelar</h1>
+                    </button>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="/js/add-item-list.js"></script>
 </html>

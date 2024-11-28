@@ -1,0 +1,16 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-family: 'more-sugar', sans-serif;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    p:hover {
+        color: rgb(76, 0, 255);
+    }
+}

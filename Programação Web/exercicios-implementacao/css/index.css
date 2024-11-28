@@ -2,8 +2,6 @@
 
 main {
     padding-top: 100px;
-    height: 80%;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
