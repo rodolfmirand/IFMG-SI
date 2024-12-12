@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es6",             // Define a versão do JavaScript de saída
+    "module": "commonjs",        // Especifica o sistema de módulos (comum para Node.js)
+    "outDir": "./dist",          // Diretório de saída para os arquivos JavaScript
+    "rootDir": "./src",          // Diretório de origem dos arquivos TypeScript
+    "strict": true               // Ativa checagem de tipo rigorosa
+  },
+  "include": ["src/**/*"],        // Inclui todos os arquivos TypeScript da pasta 'src'
+  "exclude": ["node_modules"]     // Exclui a pasta node_modules
+}
