@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MVC - Product</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <form id="product-form" action="" method="post">
+                <h1>Product</h1>
+                <div class="item-group">
+                    <label for="name" class="name">Name:</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="item-group">
+                    <label for="price" class="price">Price:</label>
+                    <input id="price" type="number">
+                </div>
+                <div class="item-group">
+                    <label for="options" class="category">Category</label>
+                    <select name="options" id="category">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                </div>
+                <input type="button" value="Add" id="button">
+            </form>
+            <div class="products">
+                <ul id="products"></ul>
+            </div>
+        </div>
+    </body>
+    <script type="module" src="./script/form.js"></script>
+</html>
