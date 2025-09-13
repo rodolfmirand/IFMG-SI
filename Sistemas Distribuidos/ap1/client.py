@@ -11,10 +11,10 @@ dados = {
 }
 
 mensagens = [
-    ("CSV", "nome,cpf,idade,mensagem\n{nome},{cpf},{idade},{mensagem}".format(**dados)),
+    ("CSV", 'nome,cpf,idade,mensagem\n{nome},{cpf},{idade},"{mensagem}"'.format(**dados)),
     ("JSON", json.dumps(dados)),
     ("XML", f"<dados><nome>{dados['nome']}</nome><cpf>{dados['cpf']}</cpf><idade>{dados['idade']}</idade><mensagem>{dados['mensagem']}</mensagem></dados>"),
-    ("YAML", yaml.dump(dados)),
+    ("YAML", yaml.dump(dados, sort_keys=False, allow_unicode=True)),
     ("TOML", toml.dumps(dados))
 ]
 

@@ -13,7 +13,7 @@ print('Servidor esperando conexão | {}:{}'.format(host, port))
 conn, addr = server.accept()
 print('Conectado por: {}'.format(addr))
 
-for _ in range(5):  # receber 5 mensagens
+for _ in range(5):
     data = conn.recv(4096).decode("utf-8")
     formato, conteudo = data.split("\n", 1)
     print(f"\n{formato}")
