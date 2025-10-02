@@ -1,0 +1,80 @@
+:root {
+  --cor-fundo: #3a3a3a;
+  --cor-tabela-bg: #202020;
+  --cor-tabela-header: #ffffff;
+  --cor-botao-editar: #007bff;
+  --cor-botao-excluir: #aa2c39;
+  --cor-botao-salvar: #6432d8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 30px;
+  background: var(--cor-fundo);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#form-container {
+  margin: 20px auto;
+  padding: 15px;
+  width: 400px;
+  background: var(--cor-tabela-bg);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  color: white;
+}
+
+#form-container input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+#form-container button {
+  width: 100%;
+  background: var(--cor-botao-salvar);
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--cor-tabela-bg);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+th {
+  background: var(--cor-tabela-header);
+}
+
+td {
+  color: white;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+  border: none;
+}
+
+.delete-btn {
+  background: var(--cor-botao-excluir);
+  color: white;
+}
