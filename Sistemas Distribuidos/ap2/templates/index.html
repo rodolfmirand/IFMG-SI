@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Usuários</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Gerenciamento de Usuários</h1>
+
+  <!-- Formulário para adicionar ou editar -->
+  <div id="form-container">
+    <h3 id="form-title">Adicionar Usuário</h3>
+    <input type="text" id="name" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <button onclick="saveUser()">Salvar</button>
+  </div>
+
+  <!-- Tabela de usuários -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="userTable"></tbody>
+  </table>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+/* Arquivo: style.css */
+
+/* Reset básico */
+body,
+h1,
+ul,
+li,
+p,
+input,
+select,
+label,
+form,
+div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.container {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Título do formulário */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupos de itens */
+.item-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Inputs e select */
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #007bff;
+}
+
+/* Botão de adicionar */
+input[type="button"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="button"]:active {
+    background-color: #004494;
+}
+
+/* Lista de produtos */
+.products {
+    margin-top: 30px;
+    border-top: 1px solid #cccccc;
+    padding-top: 15px;
+}
+
+.products ul {
+    list-style: none;
+}
+
+.products li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Efeito de hover nos itens da lista */
+.products li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Lista de produtos */
+.products {
+    margin-top: 30px;
+    border-top: 1px solid #cccccc;
+    padding-top: 15px;
+    max-height: 300px;
+    /* Tamanho fixo para a área de produtos */
+    overflow-y: auto;
+    /* Adiciona a rolagem vertical quando necessário */
+}
+
+.products ul {
+    list-style: none;
+    padding: 0;
+    /* Remove o padding padrão da lista */
+}
+
+.products li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Efeito de hover nos itens da lista */
+.products li:hover {
+    background-color: #f1f1f1;
+}
