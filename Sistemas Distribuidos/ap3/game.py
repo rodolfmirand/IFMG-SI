@@ -2,15 +2,32 @@ import turtle
 import time
 import rpyc
 
-SERVER_IP = 'localhost' 
-SERVER_PORT = 18861
-proxy = rpyc.connect(SERVER_IP, SERVER_PORT, config={'allow_public_attrs': True})
+DEFAULT_HOST = 'localhost'
+DEFAULT_PORT = 18861
 
-# registra o jogador e obtém seu ID e estado inicial
-MY_ID, my_initial_state = proxy.root.register_player()
-print(f"Registrado no jogo com o ID: {MY_ID}")
-print(f"Estado inicial: {my_initial_state}")
+host_input = input(f"Digite o IP do servidor (pressione Enter para '{DEFAULT_HOST}'): ")
+SERVER_IP = host_input if host_input else DEFAULT_HOST
 
+port_input = input(f"Digite a porta do servidor (pressione Enter para {DEFAULT_PORT}): ")
+try:
+    SERVER_PORT = int(port_input) if port_input else DEFAULT_PORT
+except ValueError as e:
+    print(f"Erro: Porta inválida. {e}. Usando a porta padrão {DEFAULT_PORT}.")
+    SERVER_PORT = DEFAULT_PORT
+
+try:
+    print(f"Conectando ao servidor em {SERVER_IP}:{SERVER_PORT}...")
+    proxy = rpyc.connect(SERVER_IP, SERVER_PORT, config={'allow_public_attrs': True})
+    
+    MY_ID, my_initial_state = proxy.root.register_player()
+    print(f"Conectado com sucesso! Seu ID: {MY_ID[:8]}")
+
+except ConnectionRefusedError:
+    print("\nERRO: A conexão foi recusada. Verifique se:")
+    print(f"1. O servidor está rodando no IP '{SERVER_IP}'.")
+    print(f"2. A porta '{SERVER_PORT}' está correta e não está bloqueada por um firewall.")
+    exit()
+    
 delay = 0.05
 
 wn = turtle.Screen()
