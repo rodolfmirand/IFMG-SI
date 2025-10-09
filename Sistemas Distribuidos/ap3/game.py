@@ -60,10 +60,10 @@ def close():
     wn.bye()
 
 def move():
-    if head.direction == "up": head.sety(head.ycor() + 2)
-    if head.direction == "down": head.sety(head.ycor() - 2)
-    if head.direction == "left": head.setx(head.xcor() - 2)
-    if head.direction == "right": head.setx(head.xcor() + 2)
+    if head.direction == "up": head.sety(head.ycor() + 10)
+    if head.direction == "down": head.sety(head.ycor() - 10)
+    if head.direction == "left": head.setx(head.xcor() - 10)
+    if head.direction == "right": head.setx(head.xcor() + 10)
 
 wn.listen()
 wn.onkeypress(go_up, "w")
