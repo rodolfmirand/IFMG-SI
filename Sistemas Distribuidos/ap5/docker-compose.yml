@@ -1,0 +1,22 @@
+services:
+  servidor:
+    build: .
+    container_name: servidor
+    command: python servidor_tls.py 
+    networks:
+      - app_net
+  cliente:
+    build: .
+    container_name: cliente
+    command: python cliente_tls.py
+    networks:
+      - app_net
+    depends_on:
+      - servidor 
+    
+    stdin_open: true
+    tty: true
+
+networks:
+  app_net:
+    driver: bridge
