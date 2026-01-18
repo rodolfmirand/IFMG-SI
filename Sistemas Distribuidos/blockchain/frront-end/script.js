@@ -35,23 +35,33 @@ async function fetchChain(port) {
 async function sendTransaction() {
     const input = document.getElementById('txData');
     const btn = document.getElementById('btnMine');
-    if(!input.value) return;
+    const selectedPort = document.getElementById('nodeSelect').value; // Captura o nó selecionado
+
+    if(!input.value) {
+        alert("Digite uma mensagem antes de minerar.");
+        return;
+    }
 
     btn.disabled = true;
-    btn.innerText = "Minerando...";
+    const originalText = btn.innerText;
+    btn.innerText = `Minerando no Nó ${selectedPort}...`;
 
     try {
-        await fetch('http://localhost:3000/transaction', {
+        const response = await fetch(`http://localhost:${selectedPort}/transaction`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ texto: input.value })
         });
+
+        if (!response.ok) throw new Error("Erro na mineração");
+
         input.value = '';
     } catch (e) {
-        alert("Erro ao enviar");
+        console.error(e);
+        alert(`Erro ao enviar para o Nó ${selectedPort}. O servidor está rodando?`);
     } finally {
         btn.disabled = false;
-        btn.innerText = "Minerar no Nó 3000";
+        btn.innerText = originalText;
         updateAll();
     }
 }

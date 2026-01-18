@@ -135,10 +135,20 @@
 </head>
 
 <body>
-    <div class="input-area">
+<div class="input-area">
         <strong>Nova Transação</strong>
         <input type="text" id="txData" placeholder="Digite a mensagem...">
-        <button id="btnMine" onclick="sendTransaction()">Minerar no Nó 3000</button>
+        
+        <div style="margin-bottom: 15px;">
+            <label class="label">Escolha o Nó Minerador:</label>
+            <select id="nodeSelect" style="width: 100%; padding: 10px; background: #0d1117; color: white; border: 1px solid #30363d;">
+                <option value="3000">Nó 3000</option>
+                <option value="3001">Nó 3001</option>
+                <option value="3002">Nó 3002</option>
+            </select>
+        </div>
+
+        <button id="btnMine" onclick="sendTransaction()">Minerar Bloco</button>
     </div>
 
     <div class="container">
