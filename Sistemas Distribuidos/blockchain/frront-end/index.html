@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Monitor</title>
+<style>
+        /* Tema Escuro e Estilo Quadrado */
+        body { 
+            font-family: 'Consolas', 'Monaco', monospace; 
+            background: #0d1117; 
+            color: #c9d1d9;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 { color: #58a6ff; text-transform: uppercase; letter-spacing: 2px; }
+
+        .container { 
+            display: flex; 
+            gap: 15px; 
+            width: 100%; 
+            max-width: 1400px; 
+            justify-content: center; 
+        }
+
+        /* Cards dos Nós - Menos redondos */
+        .node-card { 
+            background: #161b22; 
+            border: 1px solid #30363d;
+            border-radius: 2px; /* Quase quadrado */
+            padding: 20px; 
+            width: 32%; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-top: 4px solid #58a6ff; 
+        }
+
+        h2 { 
+            color: #f0f6fc; 
+            text-align: center; 
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        /* Blocos individuais */
+        .block { 
+            background: #0d1117; 
+            border: 1px solid #30363d; 
+            margin-bottom: 15px; 
+            padding: 15px; 
+            border-radius: 0; /* Totalmente quadrado */
+            font-size: 0.85em; 
+            overflow-wrap: break-word; 
+            transition: border-color 0.3s;
+        }
+
+        .block:hover { border-color: #58a6ff; }
+
+        /* Bloco Gênesis com cor de destaque */
+        .genesis { border-left: 4px solid #d29922; background: #1c1602; }
+
+        .hash { 
+            color: #3fb950; 
+            font-family: 'Consolas', monospace; 
+            font-weight: bold; 
+            word-break: break-all;
+            display: block;
+            margin-top: 5px;
+            background: #000;
+            padding: 5px;
+        }
+
+        .label { color: #8b949e; font-size: 0.8em; text-transform: uppercase; }
+
+        /* Área de Input */
+        .input-area { 
+            margin-bottom: 40px; 
+            background: #161b22; 
+            padding: 25px; 
+            border: 1px solid #30363d;
+            border-radius: 2px; 
+            width: 500px; 
+            text-align: center; 
+        }
+
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 15px 0; 
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: #f0f6fc;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        button { 
+            width: 100%; 
+            padding: 15px; 
+            background: #238636; 
+            color: white; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            cursor: pointer; 
+            border: none;
+            transition: background 0.2s;
+        }
+
+        button:hover { background: #2ea043; }
+        button:disabled { background: #21262d; color: #8b949e; cursor: not-allowed; }
+
+        .offline { color: #f85149; text-align: center; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <div class="input-area">
+        <strong>Nova Transação</strong>
+        <input type="text" id="txData" placeholder="Digite a mensagem...">
+        <button id="btnMine" onclick="sendTransaction()">Minerar no Nó 3000</button>
+    </div>
+
+    <div class="container">
+        <div class="node-card">
+            <h2>Nó 3000</h2>
+            <div id="chain-3000"></div>
+        </div>
+        <div class="node-card">
+            <h2>Nó 3001</h2>
+            <div id="chain-3001"></div>
+        </div>
+        <div class="node-card">
+            <h2>Nó 3002</h2>
+            <div id="chain-3002"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
