@@ -2,7 +2,6 @@ import * as http from 'http';
 import { Blockchain } from './models/blockchain.model.ts';
 
 const PORT = parseInt(process.argv[2]) || 3000;
-// Lista de todos os nós da rede (inclusive ele mesmo)
 
 const ALL_NODES = [3000, 3001, 3002];
 const OTHER_NODES = ALL_NODES.filter(p => p !== PORT);
@@ -10,7 +9,6 @@ const OTHER_NODES = ALL_NODES.filter(p => p !== PORT);
 const myBlockchain = new Blockchain();
 
 const server = http.createServer((req, res) => {
-    // CORS é OBRIGATÓRIO para o frontend separado funcionar
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -32,7 +30,6 @@ const server = http.createServer((req, res) => {
     if (method === 'POST' && url === '/transaction') {
         let body = '';
 
-        // Escuta os pedaços de dados que chegam
         req.on('data', chunk => {
             body += chunk.toString();
         });
@@ -48,14 +45,12 @@ const server = http.createServer((req, res) => {
             
             console.log(`[Nó ${PORT}] Bloco ${myBlockchain.getLatestBlock().index} adicionado com sucesso!`);
 
-            // Responde para o cliente que enviou o POST
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ 
                 message: "Bloco minerado e adicionado", 
                 index: myBlockchain.getLatestBlock().index 
             }));
 
-            // Só depois de responder ao usuário, inicia o consenso com os vizinhos
             runConsensus(); 
 
             } catch (error) {
@@ -84,25 +79,29 @@ async function runConsensus() {
 
     if (remoteChains.length === 0) return;
 
-    // 1. Encontrar a maior corrente válida entre os vizinhos
+    // Encontrar a maior corrente válida entre os vizinhos
     let bestRemoteChain = myBlockchain.chain;
 
     for (const remoteChain of remoteChains) {
-        // Regra de Ouro: Só consideramos se for maior que a nossa atual
+        // Regra: Deve ser maior que a atual E passar no teste matemático de validade
         if (remoteChain.length > bestRemoteChain.length) {
-            // Opcional: Aqui você chamaria um myBlockchain.isChainValid(remoteChain)
-            bestRemoteChain = remoteChain;
+            
+            if (myBlockchain.isChainValid(remoteChain)) {
+                bestRemoteChain = remoteChain;
+            } else {
+                console.log(`[Nó ${PORT}] Alerta: Recebida corrente maior, porém INVÁLIDA de um vizinho.`);
+            }
         }
     }
 
-    // 2. Se a melhor corrente encontrada for maior que a minha, eu atualizo
+    // Se a melhor corrente encontrada for maior, atualiza
     if (bestRemoteChain.length > myBlockchain.chain.length) {
         console.log(`[Nó ${PORT}] Encontrada corrente mais longa. Sincronizando...`);
         myBlockchain.chain = bestRemoteChain;
         return; 
     }
 
-    // 3. Democracia (Empate de tamanho): Se as correntes têm o mesmo tamanho mas hashes diferentes
+    // Democracia (Empate de tamanho): Se as correntes têm o mesmo tamanho mas hashes diferentes
     const allChains = [...remoteChains, myBlockchain.chain].filter(c => c.length === myBlockchain.chain.length);
     const votes: Record<string, number> = {};
     const chainMap: Record<string, any[]> = {};

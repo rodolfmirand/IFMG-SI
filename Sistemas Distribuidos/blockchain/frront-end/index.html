@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Blockchain Monitor</title>
 <style>
-        /* Tema Escuro e Estilo Quadrado */
         body { 
             font-family: 'Consolas', 'Monaco', monospace; 
             background: #0d1117; 
@@ -27,11 +26,11 @@
             justify-content: center; 
         }
 
-        /* Cards dos Nós - Menos redondos */
+        /* Cards dos Nós */
         .node-card { 
             background: #161b22; 
             border: 1px solid #30363d;
-            border-radius: 2px; /* Quase quadrado */
+            border-radius: 2px;
             padding: 20px; 
             width: 32%; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -53,7 +52,7 @@
             border: 1px solid #30363d; 
             margin-bottom: 15px; 
             padding: 15px; 
-            border-radius: 0; /* Totalmente quadrado */
+            border-radius: 0;
             font-size: 0.85em; 
             overflow-wrap: break-word; 
             transition: border-color 0.3s;
@@ -115,6 +114,23 @@
         button:disabled { background: #21262d; color: #8b949e; cursor: not-allowed; }
 
         .offline { color: #f85149; text-align: center; font-weight: bold; }
+
+        .hash-prev { 
+            color: #8b949e;
+            font-family: 'Consolas', monospace; 
+            font-size: 0.9em;
+            word-break: break-all;
+            display: block;
+        }
+
+        .block:not(.genesis)::before {
+            content: "↑ LINKED TO PREVIOUS";
+            display: block;
+            font-size: 0.7em;
+            color: #58a6ff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 

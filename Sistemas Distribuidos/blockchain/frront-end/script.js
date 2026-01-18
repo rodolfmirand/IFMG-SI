@@ -8,12 +8,22 @@ async function fetchChain(port) {
             const isGenesis = block.index === 0;
             const conteudo = block.data.texto || (isGenesis ? "ROOT" : JSON.stringify(block.data));
             
-            return `
+        return `
                 <div class="block ${isGenesis ? 'genesis' : ''}">
-                    <small>Bloco #${block.index}</small><br>
+                    <small class="label">Bloco #${block.index}</small><br>
                     <b>Conteúdo:</b> ${conteudo}<br>
-                    <small style="display:block; margin-top:5px">Hash:</small>
-                    <span class="hash">${block.hash}</span>
+                    
+                    <div style="margin-top:10px">
+                        <small class="label">Hash Anterior:</small>
+                        <span class="hash-prev">${block.previousHash}</span>
+                    </div>
+
+                    <div style="margin-top:5px">
+                        <small class="label">Hash Atual:</small>
+                        <span class="hash">${block.hash}</span>
+                    </div>
+                    
+                    <small class="label">Nonce:</small> <b>${block.nonce}</b>
                 </div>
             `;
         }).reverse().join('');
