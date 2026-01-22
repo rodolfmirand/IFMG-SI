@@ -7,13 +7,10 @@ async function fetchChain(port) {
         container.innerHTML = data.map(block => {
             const isGenesis = block.index === 0;
             
-            // LÓGICA DE VALIDAÇÃO VISUAL
-            // Verifica se o hash é válido (deve começar com "0000")
             const isHashInvalid = !isGenesis && !block.hash.startsWith("0000");
             
             const conteudo = block.data.texto || (isGenesis ? "ROOT" : JSON.stringify(block.data));
             
-            // Adiciona a classe 'invalid-block' se o hash for inválido
             return `
                 <div class="block ${isGenesis ? 'genesis' : ''} ${isHashInvalid ? 'invalid-block' : ''}">
                     <small class="label">Bloco #${block.index}</small>
@@ -43,7 +40,7 @@ async function fetchChain(port) {
 async function sendTransaction() {
     const input = document.getElementById('txData');
     const btn = document.getElementById('btnMine');
-    const selectedPort = document.getElementById('nodeSelect').value; // Captura o nó selecionado
+    const selectedPort = document.getElementById('nodeSelect').value;
 
     if(!input.value) {
         alert("Digite uma mensagem antes de minerar.");
