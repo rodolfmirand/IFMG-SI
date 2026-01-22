@@ -125,7 +125,7 @@ server.listen(PORT, () => {
     console.log(`Blockchain Node rodando na porta ${PORT}`);
 });
 
-const INTERVALO_VALIDACAO = 10000; // 10 segundos
+const INTERVALO_VALIDACAO = 5000; // 5 segundos
 
 setInterval(async () => {
     console.log(`[Nó ${PORT}] Executando validação periódica de rotina...`);

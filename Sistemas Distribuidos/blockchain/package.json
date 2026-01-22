@@ -16,6 +16,7 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
+    "net": "^1.0.2",
     "typescript": "^5.0.0"
   }
 }
