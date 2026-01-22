@@ -30,10 +30,12 @@ const server = http.createServer((req, res) => {
     if (method === 'POST' && url === '/transaction') {
         let body = '';
 
+        // Coleta os dados do corpo da requisição
         req.on('data', chunk => {
             body += chunk.toString();
         });
 
+        // Quando todos os dados forem recebidos
         req.on('end', async () => {
             try {
             const data = JSON.parse(body);
@@ -45,12 +47,14 @@ const server = http.createServer((req, res) => {
             
             console.log(`[Nó ${PORT}] Bloco ${myBlockchain.getLatestBlock().index} adicionado com sucesso!`);
 
+            // Responde ao cliente
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ 
                 message: "Bloco minerado e adicionado", 
                 index: myBlockchain.getLatestBlock().index 
             }));
 
+            // Executa o consenso após adicionar o bloco
             runConsensus(); 
 
             } catch (error) {
@@ -58,13 +62,20 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify({ error: "JSON inválido ou erro na mineração" }));
             }
         });
+    }
+
+    if (method === 'GET' && url === '/corrupt') {
+        if (myBlockchain.chain.length > 1) {
+            myBlockchain.forceInvalidBlock({ info: "Dado Corrompido" }); 
         }
-    }); 
+    }
+}); 
 
 // LÓGICA DE CONSENSO (Democracia 50% + 1)
 async function runConsensus() {
     const remoteChains: any[][] = [];
 
+    // Coleta as correntes dos nós vizinhos
     for (const port of OTHER_NODES) {
         try {
             const response = await fetch(`http://localhost:${port}/blockchain`);
@@ -86,6 +97,7 @@ async function runConsensus() {
         // Regra: Deve ser maior que a atual E passar no teste matemático de validade
         if (remoteChain.length > bestRemoteChain.length) {
             
+            // Verifica validade da corrente remota
             if (myBlockchain.isChainValid(remoteChain)) {
                 bestRemoteChain = remoteChain;
             } else {
@@ -106,15 +118,18 @@ async function runConsensus() {
     const votes: Record<string, number> = {};
     const chainMap: Record<string, any[]> = {};
 
+    // Conta votos por hash da última bloco
     allChains.forEach(chain => {
         const chainId = chain[chain.length - 1].hash;
         votes[chainId] = (votes[chainId] || 0) + 1;
         chainMap[chainId] = chain;
     });
 
+    // Verifica se algum hash atingiu a maioria
     const majorityNeeded = Math.floor(ALL_NODES.length / 2) + 1;
     const winningHash = Object.keys(votes).find(hash => votes[hash] >= majorityNeeded);
 
+    // Se houver um vencedor diferente do atual, adota a corrente vencedora
     if (winningHash && winningHash !== myBlockchain.getLatestBlock().hash) {
         console.log(`[Nó ${PORT}] Consenso de maioria: substituindo por versão divergente de mesmo tamanho.`);
         myBlockchain.chain = chainMap[winningHash];

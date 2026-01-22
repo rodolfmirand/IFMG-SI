@@ -131,6 +131,16 @@
             margin-bottom: 5px;
             letter-spacing: 1px;
         }
+
+        .invalid-block {
+            border: 2px solid #f85149 !important;
+            background: #2a1211 !important;
+            box-shadow: 0 0 10px rgba(248, 81, 73, 0.3);
+        }
+
+        .invalid-block .hash {
+            color: #ff7b72 !important;
+        }
     </style>
 </head>
 
@@ -149,6 +159,15 @@
         </div>
 
         <button id="btnMine" onclick="sendTransaction()">Minerar Bloco</button>
+    </div>
+
+    <div class="input-area" style="border-top: 4px solid #f85149; margin-top: 20px;">
+        <strong style="color: #f85149;">Ações Maliciosas</strong>
+        <p class="label" style="margin-top: 10px;">Forçar inserção de bloco inválido no nó selecionado:</p>
+        
+        <button id="btnCorrupt" onclick="corruptNode()" style="background: #da3633; margin-top: 10px;">
+            Corromper Blockchain
+        </button>
     </div>
 
     <div class="container">

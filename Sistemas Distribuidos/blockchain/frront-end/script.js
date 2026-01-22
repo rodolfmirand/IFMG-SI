@@ -6,11 +6,19 @@ async function fetchChain(port) {
         
         container.innerHTML = data.map(block => {
             const isGenesis = block.index === 0;
+            
+            // LÓGICA DE VALIDAÇÃO VISUAL
+            // Verifica se o hash é válido (deve começar com "0000")
+            const isHashInvalid = !isGenesis && !block.hash.startsWith("0000");
+            
             const conteudo = block.data.texto || (isGenesis ? "ROOT" : JSON.stringify(block.data));
             
-        return `
-                <div class="block ${isGenesis ? 'genesis' : ''}">
-                    <small class="label">Bloco #${block.index}</small><br>
+            // Adiciona a classe 'invalid-block' se o hash for inválido
+            return `
+                <div class="block ${isGenesis ? 'genesis' : ''} ${isHashInvalid ? 'invalid-block' : ''}">
+                    <small class="label">Bloco #${block.index}</small>
+                    ${isHashInvalid ? '<b style="color:#f85149; float:right">⚠️ INVÁLIDO</b>' : ''}<br>
+                    
                     <b>Conteúdo:</b> ${conteudo}<br>
                     
                     <div style="margin-top:10px">
@@ -59,6 +67,34 @@ async function sendTransaction() {
     } catch (e) {
         console.error(e);
         alert(`Erro ao enviar para o Nó ${selectedPort}. O servidor está rodando?`);
+    } finally {
+        btn.disabled = false;
+        btn.innerText = originalText;
+        updateAll();
+    }
+}
+
+async function corruptNode() {
+    const selectedPort = document.getElementById('nodeSelect').value;
+    const btn = document.getElementById('btnCorrupt');
+    
+    if(!confirm(`Deseja realmente inserir um bloco INVÁLIDO no Nó ${selectedPort}?`)) return;
+
+    btn.disabled = true;
+    const originalText = btn.innerText;
+    btn.innerText = "Corrompendo...";
+
+    try {
+        const response = await fetch(`http://localhost:${selectedPort}/corrupt`);
+
+        if (response.ok) {
+            alert(`Nó ${selectedPort} corrompido! Observe como a rede reagirá.`);
+        } else {
+            throw new Error("Erro ao corromper");
+        }
+    } catch (e) {
+        console.error(e);
+        alert(`Erro: O servidor do Nó ${selectedPort} tem a rota /corrupt implementada?`);
     } finally {
         btn.disabled = false;
         btn.innerText = originalText;

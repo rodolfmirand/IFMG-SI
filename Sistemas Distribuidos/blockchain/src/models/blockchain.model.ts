@@ -44,4 +44,21 @@ export class Blockchain {
         }
         return true;
     }
+
+    // Método para forçar a criação de um bloco inválido
+    forceInvalidBlock(badData: any) {
+        const previousBlock = this.getLatestBlock();
+
+        const invalidBlock = new Block(
+            previousBlock.index + 1,
+            Date.now(),
+            badData,
+            previousBlock.hash
+        );
+        
+        // Sobrescrevemos o hash com algo que não atende a dificuldade
+        invalidBlock.hash = "HASH-INVALIDO"; 
+        
+        this.chain.push(invalidBlock);
+    }
 }
