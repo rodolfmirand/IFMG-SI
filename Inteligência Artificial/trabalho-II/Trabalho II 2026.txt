@@ -1,0 +1,56 @@
+﻿IFMG - campus Ouro Branco - Bacharelado em Sistemas de Informação
+Projeto Prático Inteligência Artificial -  2026
+Valor: 20 pontos
+Deve ser feito individualmente.
+Data de entrega: 03/07
+
+
+Tema: Inteligência Artificial aplicado à medicina - detecção de tumores cerebrais.
+O dataset a seguir possui diversas imagens de cérebros que possuem tumores ou não, no qual cada pessoa está dentro de um tipo.
+
+
+https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset/data
+
+
+O dataset contém 7.200 imagens de ressonância magnética (RM) do cérebro humano, categorizadas em quatro classes:
+
+
+1. Glioma
+2. Meningioma
+3. Tumor hipofisário
+4. Sem tumor
+
+
+Implementar uma solução e realizar experimentos utilizando Aprendizado de Máquina para realizar a classificação adequada das imagens. Os experimentos devem envolver o cálculo da acurácia, da precisão, da recall da F-Mesure (ou F-Score)*.
+Implementar a solução em Python utilizando as APIs Keras e/ou Scikit-Learn.
+Portanto, você deverá realizar experimentos (pelo menos 8 no total) testando diferentes: 
+* tipos técnicas de Aprendizado de Máquina (diferentes tipos Redes Neurais ou SVM) - no mínimo duas diferentes;
+   * exemplos de escolhas que podem ser feitas:
+      * MLP e Transformer;
+      * CNN e Transformer;
+      * SVM e LSTM (RNN);
+      * etc
+   * Você pode escolher qualquer combinação, mas recomendo usar a Transformer por causa da sua ampla utilização hoje em dia.
+   * Como são 8 no total, você pode, por exemplo, realizar 4 experimentos variando parâmetros e técnicas  com MLP e 4 com a Transformer.
+* técnicas para redução de overfit e melhoria da precisão da abordagem (L1, L2, dropout etc);
+* parâmetros para melhoria de uma das métricas: acurácia, precisão, recall e F-Mesure/F-Score.
+   * Exemplos de parâmetros:
+      * número de neurônios
+      * porcentagem de dropout
+      * etc
+
+
+*Métricas:
+acurácia = (Verdadeiros Positivos + Verdadeiros Negativos) / Total de Amostras 
+precisão = Verdadeiros Positivos / (Verdadeiros Positivos + Falsos Positivos)
+recall = Verdadeiros Positivos / (Verdadeiros Positivos + Falsos Negativos)
+F-Mesure = (2 * precisão * recall)/(precisão + recall)
+
+
+O que deve ser entregue:
+* Relatório contendo: 
+   * códigos utilizados como base nos experimentos;
+   * explicação dos experimentos, especialmente as variações de técnicas e parâmetros no código; 
+   * tabela de resultados mostrando as métricas avaliadas;
+   * qual foi a melhor abordagem aplicada? Explique e faça conjecturas.
+* Link para um vídeo explicando o código e os experimentos.
