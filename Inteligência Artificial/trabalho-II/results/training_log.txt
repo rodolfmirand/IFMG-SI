@@ -1,0 +1,309 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782665131.140593   19872 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782665135.113449   19872 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento C1: CNN baseline, sem regulariza��o ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782665138.420048   19872 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 69s - 462ms/step - accuracy: 0.7588 - loss: 0.6131 - val_accuracy: 0.2536 - val_loss: 4.5184
+Epoch 2/10
+149/149 - 78s - 527ms/step - accuracy: 0.8483 - loss: 0.3895 - val_accuracy: 0.2548 - val_loss: 3.8406
+Epoch 3/10
+149/149 - 63s - 424ms/step - accuracy: 0.8786 - loss: 0.3138 - val_accuracy: 0.3369 - val_loss: 1.9572
+Epoch 4/10
+149/149 - 63s - 426ms/step - accuracy: 0.8977 - loss: 0.2738 - val_accuracy: 0.6369 - val_loss: 0.8528
+Epoch 5/10
+149/149 - 83s - 555ms/step - accuracy: 0.9187 - loss: 0.2326 - val_accuracy: 0.7524 - val_loss: 0.7439
+Epoch 6/10
+149/149 - 130s - 875ms/step - accuracy: 0.9315 - loss: 0.1873 - val_accuracy: 0.6595 - val_loss: 0.9308
+Epoch 7/10
+149/149 - 66s - 445ms/step - accuracy: 0.9534 - loss: 0.1238 - val_accuracy: 0.7619 - val_loss: 1.3835
+Epoch 8/10
+149/149 - 73s - 488ms/step - accuracy: 0.9645 - loss: 0.0950 - val_accuracy: 0.7155 - val_loss: 0.8139
+Epoch 9/10
+149/149 - 61s - 408ms/step - accuracy: 0.9712 - loss: 0.0837 - val_accuracy: 0.8774 - val_loss: 0.4453
+Epoch 10/10
+149/149 - 61s - 408ms/step - accuracy: 0.9813 - loss: 0.0559 - val_accuracy: 0.8714 - val_loss: 0.4055
+Resultado C1: {'accuracy': 0.79125, 'precision_macro': 0.8593703967621036, 'recall_macro': 0.79125, 'f1_macro': 0.7911652684529639}
+
+=== Experimento C2: CNN + Dropout (0.5) ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 71s - 474ms/step - accuracy: 0.6929 - loss: 0.8069 - val_accuracy: 0.2536 - val_loss: 7.7254
+Epoch 2/10
+149/149 - 66s - 444ms/step - accuracy: 0.8011 - loss: 0.5119 - val_accuracy: 0.2536 - val_loss: 6.4034
+Epoch 3/10
+149/149 - 64s - 427ms/step - accuracy: 0.8508 - loss: 0.3976 - val_accuracy: 0.3679 - val_loss: 5.3394
+Epoch 4/10
+149/149 - 64s - 427ms/step - accuracy: 0.8639 - loss: 0.3635 - val_accuracy: 0.4226 - val_loss: 2.9765
+Epoch 5/10
+149/149 - 62s - 417ms/step - accuracy: 0.8763 - loss: 0.3190 - val_accuracy: 0.6214 - val_loss: 1.4150
+Epoch 6/10
+149/149 - 62s - 416ms/step - accuracy: 0.8922 - loss: 0.2765 - val_accuracy: 0.7810 - val_loss: 0.6271
+Epoch 7/10
+149/149 - 59s - 394ms/step - accuracy: 0.9036 - loss: 0.2521 - val_accuracy: 0.8143 - val_loss: 0.4933
+Epoch 8/10
+149/149 - 61s - 409ms/step - accuracy: 0.9191 - loss: 0.2212 - val_accuracy: 0.8488 - val_loss: 0.4283
+Epoch 9/10
+149/149 - 64s - 429ms/step - accuracy: 0.9244 - loss: 0.2062 - val_accuracy: 0.8833 - val_loss: 0.2928
+Epoch 10/10
+149/149 - 62s - 413ms/step - accuracy: 0.9315 - loss: 0.1847 - val_accuracy: 0.4929 - val_loss: 1.7715
+Resultado C2: {'accuracy': 0.806875, 'precision_macro': 0.8523612000041172, 'recall_macro': 0.8068749999999999, 'f1_macro': 0.8113328773188482}
+
+=== Experimento C3: CNN + L2 (1e-4) + Data Augmentation ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 61s - 410ms/step - accuracy: 0.7134 - loss: 0.7705 - val_accuracy: 0.2536 - val_loss: 4.1102
+Epoch 2/10
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782670602.477264   22192 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782670606.519430   22192 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento C3: CNN + L2 (1e-4) + Data Augmentation ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782670609.920671   22192 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 67s - 448ms/step - accuracy: 0.7105 - loss: 0.7951 - val_accuracy: 0.2536 - val_loss: 2.0638
+Epoch 2/10
+149/149 - 62s - 414ms/step - accuracy: 0.7977 - loss: 0.5733 - val_accuracy: 0.2536 - val_loss: 3.6603
+Epoch 3/10
+149/149 - 62s - 415ms/step - accuracy: 0.8366 - loss: 0.4809 - val_accuracy: 0.3524 - val_loss: 1.9894
+Epoch 4/10
+149/149 - 62s - 416ms/step - accuracy: 0.8655 - loss: 0.4138 - val_accuracy: 0.4786 - val_loss: 1.7086
+Epoch 5/10
+149/149 - 64s - 431ms/step - accuracy: 0.8784 - loss: 0.3830 - val_accuracy: 0.7036 - val_loss: 0.9648
+Epoch 6/10
+149/149 - 67s - 448ms/step - accuracy: 0.8958 - loss: 0.3431 - val_accuracy: 0.6452 - val_loss: 1.2764
+Epoch 7/10
+149/149 - 67s - 449ms/step - accuracy: 0.9038 - loss: 0.3136 - val_accuracy: 0.5845 - val_loss: 1.4474
+Epoch 8/10
+149/149 - 68s - 458ms/step - accuracy: 0.9223 - loss: 0.2726 - val_accuracy: 0.5095 - val_loss: 2.5768
+Epoch 9/10
+149/149 - 80s - 537ms/step - accuracy: 0.9261 - loss: 0.2553 - val_accuracy: 0.8452 - val_loss: 0.5079
+Epoch 10/10
+149/149 - 67s - 447ms/step - accuracy: 0.9273 - loss: 0.2529 - val_accuracy: 0.6131 - val_loss: 1.3131
+Resultado C3: {'accuracy': 0.74875, 'precision_macro': 0.8067581724015999, 'recall_macro': 0.74875, 'f1_macro': 0.7312489885273326}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782671282.289772   18768 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782671286.168111   18768 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento C4: CNN tuned: dropout + L2 + augmentation + mais filtros/neur�nios ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782671289.367572   18768 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 122s - 818ms/step - accuracy: 0.6876 - loss: 0.8836 - val_accuracy: 0.3417 - val_loss: 3.7728
+Epoch 2/10
+149/149 - 112s - 753ms/step - accuracy: 0.7779 - loss: 0.6548 - val_accuracy: 0.2536 - val_loss: 6.3161
+Epoch 3/10
+149/149 - 119s - 798ms/step - accuracy: 0.8139 - loss: 0.5655 - val_accuracy: 0.2655 - val_loss: 4.1070
+Epoch 4/10
+149/149 - 120s - 809ms/step - accuracy: 0.8382 - loss: 0.5129 - val_accuracy: 0.4940 - val_loss: 1.7624
+Epoch 5/10
+149/149 - 121s - 811ms/step - accuracy: 0.8639 - loss: 0.4699 - val_accuracy: 0.7214 - val_loss: 0.9785
+Epoch 6/10
+149/149 - 119s - 798ms/step - accuracy: 0.8891 - loss: 0.3896 - val_accuracy: 0.8167 - val_loss: 0.5342
+Epoch 7/10
+149/149 - 120s - 806ms/step - accuracy: 0.8857 - loss: 0.4105 - val_accuracy: 0.6476 - val_loss: 1.2210
+Epoch 8/10
+149/149 - 118s - 794ms/step - accuracy: 0.9034 - loss: 0.3477 - val_accuracy: 0.6750 - val_loss: 0.9754
+Epoch 9/10
+149/149 - 131s - 882ms/step - accuracy: 0.9160 - loss: 0.3329 - val_accuracy: 0.9250 - val_loss: 0.3897
+Epoch 10/10
+149/149 - 125s - 837ms/step - accuracy: 0.9132 - loss: 0.3243 - val_accuracy: 0.4607 - val_loss: 2.6804
+Resultado C4: {'accuracy': 0.828125, 'precision_macro': 0.841064878660446, 'recall_macro': 0.828125, 'f1_macro': 0.8201268475741905}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782672526.473012   17516 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782672530.346731   17516 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento V1: ViT baseline, sem dropout ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782672533.549115   17516 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:From D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\backend\tensorflow\core.py:233: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 49s - 326ms/step - accuracy: 0.4643 - loss: 1.2182 - val_accuracy: 0.6167 - val_loss: 0.8806
+Epoch 2/10
+149/149 - 32s - 214ms/step - accuracy: 0.7452 - loss: 0.6679 - val_accuracy: 0.8036 - val_loss: 0.5351
+Epoch 3/10
+149/149 - 39s - 263ms/step - accuracy: 0.7945 - loss: 0.5729 - val_accuracy: 0.8238 - val_loss: 0.4707
+Epoch 4/10
+149/149 - 35s - 234ms/step - accuracy: 0.8197 - loss: 0.4846 - val_accuracy: 0.8452 - val_loss: 0.4143
+Epoch 5/10
+149/149 - 39s - 261ms/step - accuracy: 0.8189 - loss: 0.4737 - val_accuracy: 0.8452 - val_loss: 0.4225
+Epoch 6/10
+149/149 - 35s - 237ms/step - accuracy: 0.8389 - loss: 0.4346 - val_accuracy: 0.8631 - val_loss: 0.3858
+Epoch 7/10
+149/149 - 36s - 244ms/step - accuracy: 0.8529 - loss: 0.3941 - val_accuracy: 0.8845 - val_loss: 0.3331
+Epoch 8/10
+149/149 - 33s - 219ms/step - accuracy: 0.8607 - loss: 0.3837 - val_accuracy: 0.8833 - val_loss: 0.3431
+Epoch 9/10
+149/149 - 36s - 245ms/step - accuracy: 0.8687 - loss: 0.3485 - val_accuracy: 0.8964 - val_loss: 0.3077
+Epoch 10/10
+149/149 - 37s - 250ms/step - accuracy: 0.8693 - loss: 0.3384 - val_accuracy: 0.8881 - val_loss: 0.3287
+Resultado V1: {'accuracy': 0.76875, 'precision_macro': 0.7881263195371304, 'recall_macro': 0.7687499999999999, 'f1_macro': 0.7626322383668789}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782672920.030955    8724 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782672924.484882    8724 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento V2: ViT + Dropout (0.3) em aten��o e MLP ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782672928.003150    8724 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:From D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\backend\tensorflow\core.py:233: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 63s - 423ms/step - accuracy: 0.4954 - loss: 1.1950 - val_accuracy: 0.7024 - val_loss: 0.7433
+Epoch 2/10
+149/149 - 45s - 300ms/step - accuracy: 0.7185 - loss: 0.7340 - val_accuracy: 0.8012 - val_loss: 0.5552
+Epoch 3/10
+149/149 - 37s - 252ms/step - accuracy: 0.7830 - loss: 0.5828 - val_accuracy: 0.8381 - val_loss: 0.4890
+Epoch 4/10
+149/149 - 35s - 238ms/step - accuracy: 0.8130 - loss: 0.5236 - val_accuracy: 0.8417 - val_loss: 0.4454
+Epoch 5/10
+149/149 - 35s - 235ms/step - accuracy: 0.8200 - loss: 0.5016 - val_accuracy: 0.8071 - val_loss: 0.4801
+Epoch 6/10
+149/149 - 35s - 235ms/step - accuracy: 0.8336 - loss: 0.4594 - val_accuracy: 0.8190 - val_loss: 0.4691
+Epoch 7/10
+149/149 - 34s - 226ms/step - accuracy: 0.8376 - loss: 0.4531 - val_accuracy: 0.8643 - val_loss: 0.3879
+Epoch 8/10
+149/149 - 33s - 219ms/step - accuracy: 0.8487 - loss: 0.4222 - val_accuracy: 0.8488 - val_loss: 0.4100
+Epoch 9/10
+149/149 - 34s - 225ms/step - accuracy: 0.8584 - loss: 0.3924 - val_accuracy: 0.8845 - val_loss: 0.3659
+Epoch 10/10
+149/149 - 34s - 226ms/step - accuracy: 0.8626 - loss: 0.3767 - val_accuracy: 0.8738 - val_loss: 0.3595
+Resultado V2: {'accuracy': 0.7225, 'precision_macro': 0.7442016799520309, 'recall_macro': 0.7224999999999999, 'f1_macro': 0.7188622911772012}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782673329.387126   20880 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782673332.986593   20880 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento V3: ViT + weight decay (AdamW) + Data Augmentation ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782673336.101174   20880 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:From D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\backend\tensorflow\core.py:233: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 47s - 314ms/step - accuracy: 0.4414 - loss: 1.2341 - val_accuracy: 0.5833 - val_loss: 1.0151
+Epoch 2/10
+149/149 - 29s - 194ms/step - accuracy: 0.6374 - loss: 0.9006 - val_accuracy: 0.6726 - val_loss: 0.7649
+Epoch 3/10
+149/149 - 29s - 197ms/step - accuracy: 0.6735 - loss: 0.8068 - val_accuracy: 0.7952 - val_loss: 0.6077
+Epoch 4/10
+149/149 - 29s - 197ms/step - accuracy: 0.7076 - loss: 0.7466 - val_accuracy: 0.8036 - val_loss: 0.5595
+Epoch 5/10
+149/149 - 30s - 198ms/step - accuracy: 0.7155 - loss: 0.7158 - val_accuracy: 0.7774 - val_loss: 0.5674
+Epoch 6/10
+149/149 - 30s - 198ms/step - accuracy: 0.7231 - loss: 0.6963 - val_accuracy: 0.7905 - val_loss: 0.5469
+Epoch 7/10
+149/149 - 29s - 198ms/step - accuracy: 0.7256 - loss: 0.6911 - val_accuracy: 0.7917 - val_loss: 0.5821
+Epoch 8/10
+149/149 - 30s - 202ms/step - accuracy: 0.7336 - loss: 0.6686 - val_accuracy: 0.8024 - val_loss: 0.5231
+Epoch 9/10
+149/149 - 30s - 198ms/step - accuracy: 0.7494 - loss: 0.6369 - val_accuracy: 0.8190 - val_loss: 0.4536
+Epoch 10/10
+149/149 - 29s - 197ms/step - accuracy: 0.7534 - loss: 0.6247 - val_accuracy: 0.8274 - val_loss: 0.5064
+Resultado V3: {'accuracy': 0.7, 'precision_macro': 0.6912480958150151, 'recall_macro': 0.7, 'f1_macro': 0.6791179722243418}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782673657.825062   17372 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782673661.576835   17372 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+=== Experimento V4: ViT tuned: dropout + weight decay + mais heads/layers ===
+Found 5600 files belonging to 4 classes.
+Using 4760 files for training.
+I0000 00:00:1782673664.773382   17372 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 5600 files belonging to 4 classes.
+Using 840 files for validation.
+Found 1600 files belonging to 4 classes.
+WARNING:tensorflow:From D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\backend\tensorflow\core.py:233: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+D:\Projetos\academicos\IFMG-SI\Intelig�ncia Artificial\trabalho-II\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/10
+149/149 - 82s - 553ms/step - accuracy: 0.3496 - loss: 1.4337 - val_accuracy: 0.5095 - val_loss: 1.0321
+Epoch 2/10
+149/149 - 57s - 381ms/step - accuracy: 0.5517 - loss: 1.0150 - val_accuracy: 0.6083 - val_loss: 0.8381
+Epoch 3/10
+149/149 - 57s - 384ms/step - accuracy: 0.6298 - loss: 0.9078 - val_accuracy: 0.7702 - val_loss: 0.6442
+Epoch 4/10
+149/149 - 57s - 380ms/step - accuracy: 0.6592 - loss: 0.8390 - val_accuracy: 0.6762 - val_loss: 0.8396
+Epoch 5/10
+149/149 - 57s - 382ms/step - accuracy: 0.6758 - loss: 0.7920 - val_accuracy: 0.7560 - val_loss: 0.6078
+Epoch 6/10
+149/149 - 60s - 401ms/step - accuracy: 0.6882 - loss: 0.7948 - val_accuracy: 0.7226 - val_loss: 0.6977
+Epoch 7/10
+149/149 - 56s - 379ms/step - accuracy: 0.6931 - loss: 0.7613 - val_accuracy: 0.7393 - val_loss: 0.6501
+Epoch 8/10
+149/149 - 57s - 382ms/step - accuracy: 0.6996 - loss: 0.7497 - val_accuracy: 0.7452 - val_loss: 0.6466
+Epoch 9/10
+149/149 - 56s - 379ms/step - accuracy: 0.7124 - loss: 0.7160 - val_accuracy: 0.7917 - val_loss: 0.5546
+Epoch 10/10
+149/149 - 57s - 382ms/step - accuracy: 0.7151 - loss: 0.7111 - val_accuracy: 0.7762 - val_loss: 0.5480
+Resultado V4: {'accuracy': 0.628125, 'precision_macro': 0.6410350863928012, 'recall_macro': 0.628125, 'f1_macro': 0.6178516993779052}
