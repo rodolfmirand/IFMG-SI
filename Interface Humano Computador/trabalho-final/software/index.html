@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ListaFácil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">ListaFácil</span>
+    </div>
+    <nav class="side-nav">
+      <span class="nav-section">Organização</span>
+      <button data-view="lista" class="nav-btn active">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg>
+        <span>Tarefas</span>
+      </button>
+      <button data-view="categorias" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Categorias</span>
+      </button>
+
+      <span class="nav-section">Acadêmico</span>
+      <button data-view="boletim" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>Boletim</span>
+      </button>
+      <button data-view="frequencia" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+        <span>Frequência</span>
+      </button>
+      <button data-view="horario" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Horário</span>
+      </button>
+      <button data-view="avisos" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        <span>Avisos</span>
+      </button>
+      <button data-view="historico" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>
+        <span>Histórico</span>
+      </button>
+      <button data-view="biblioteca" class="nav-btn">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6"/></svg>
+        <span>Biblioteca</span>
+      </button>
+    </nav>
+    <div class="side-foot">Portal do Estudante · demonstração</div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <!-- TELA: LISTA DE TAREFAS -->
+    <section id="view-lista" class="view">
+      <header class="view-head">
+        <div>
+          <h1>Minhas tarefas</h1>
+          <p class="subtitle">Organize e acompanhe o que precisa ser feito.</p>
+        </div>
+        <button id="btn-nova-tarefa" class="btn-primary">
+          <svg viewBox="0 0 24 24" class="ico"><path d="M12 5v14M5 12h14"/></svg>
+          Nova tarefa
+        </button>
+      </header>
+
+      <div class="toolbar">
+        <div class="field-inline">
+          <select id="filtro-categoria">
+            <option value="">Todas as categorias</option>
+          </select>
+        </div>
+        <div class="field-inline">
+          <select id="filtro-status">
+            <option value="">Todos os status</option>
+            <option value="pendente">Pendentes</option>
+            <option value="concluida">Concluídas</option>
+          </select>
+        </div>
+      </div>
+
+      <ul id="lista-tarefas" class="lista-tarefas"></ul>
+      <div id="lista-vazia" class="empty-state" hidden>
+        <svg viewBox="0 0 24 24" class="empty-ico"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+        <p>Nenhuma tarefa por aqui.</p>
+        <span>Crie sua primeira tarefa para começar.</span>
+      </div>
+    </section>
+
+    <!-- TELA: NOVA / EDITAR TAREFA -->
+    <section id="view-form" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1 id="form-titulo">Nova tarefa</h1>
+          <p class="subtitle">Preencha os detalhes abaixo.</p>
+        </div>
+      </header>
+
+      <form id="form-tarefa" class="card form-card">
+        <label class="field">
+          <span class="field-label">Título</span>
+          <input type="text" id="campo-titulo" placeholder="Ex: Entregar relatório">
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Categoria</span>
+            <select id="campo-categoria"></select>
+          </label>
+          <label class="field">
+            <span class="field-label">Prazo</span>
+            <input type="date" id="campo-prazo">
+          </label>
+        </div>
+        <label class="field">
+          <span class="field-label">Prioridade</span>
+          <select id="campo-prioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media" selected>Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </label>
+        <p id="form-erro" class="erro" hidden>Erro ao salvar.</p>
+        <div class="form-actions">
+          <button type="button" id="btn-cancelar" class="btn-ghost">Cancelar</button>
+          <button type="submit" id="btn-salvar" class="btn-primary">Salvar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- TELA: CATEGORIAS -->
+    <section id="view-categorias" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Categorias</h1>
+          <p class="subtitle">Agrupe suas tarefas por contexto.</p>
+        </div>
+      </header>
+
+      <div class="card">
+        <div class="toolbar">
+          <div class="field-inline grow">
+            <input type="text" id="nova-categoria-nome" placeholder="Nome da categoria">
+          </div>
+          <button id="btn-add-categoria" class="btn-primary">Adicionar</button>
+        </div>
+        <ul id="lista-categorias" class="lista-categorias"></ul>
+        <a href="#" id="link-ajuda" class="link-ajuda">
+          <svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          Ajuda
+        </a>
+      </div>
+    </section>
+
+    <!-- TELA: AJUDA -->
+    <section id="view-ajuda" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Ajuda</h1>
+          <p class="subtitle">Como usar o ListaFácil.</p>
+        </div>
+      </header>
+      <div class="card prose">
+        <p>Bem-vindo ao ListaFácil. Use o botão <strong>Nova tarefa</strong> para criar
+           tarefas, organize-as em categorias e marque-as como concluídas clicando no
+           ícone correspondente em cada item da lista.</p>
+        <button id="btn-voltar-ajuda" class="btn-ghost">Voltar</button>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- MÓDULOS ACADÊMICOS — mockups NÃO-FUNCIONAIS (fachada) -->
+    <!-- Apenas front-end estático; nenhum dado é real ou salvo. -->
+    <!-- Ver docs/00-escopo-software.md.                          -->
+    <!-- ==================================================== -->
+
+    <!-- BOLETIM -->
+    <section id="view-boletim" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Boletim <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Notas por disciplina · 2026/1º semestre</p>
+        </div>
+      </header>
+      <div class="card">
+        <table class="grade-table">
+          <thead>
+            <tr><th>Disciplina</th><th>1º Bim</th><th>2º Bim</th><th>3º Bim</th><th>4º Bim</th><th>Média</th><th>Situação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Algoritmos e Programação</td><td>85</td><td>90</td><td>88</td><td>92</td><td><strong>88,8</strong></td><td><span class="badge badge-prio baixa">Aprovado</span></td></tr>
+            <tr><td>Cálculo I</td><td>70</td><td>65</td><td>72</td><td>68</td><td><strong>68,8</strong></td><td><span class="badge badge-prio baixa">Aprovado</span></td></tr>
+            <tr><td>Interação Humano-Computador</td><td>95</td><td>88</td><td>—</td><td>—</td><td><strong>—</strong></td><td><span class="badge badge-prio media">Em curso</span></td></tr>
+            <tr><td>Banco de Dados</td><td>80</td><td>82</td><td>78</td><td>85</td><td><strong>81,3</strong></td><td><span class="badge badge-prio baixa">Aprovado</span></td></tr>
+            <tr><td>Estrutura de Dados</td><td>60</td><td>55</td><td>—</td><td>—</td><td><strong>—</strong></td><td><span class="badge badge-prio alta">Em recuperação</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FREQUÊNCIA -->
+    <section id="view-frequencia" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Frequência <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Percentual de presença por disciplina</p>
+        </div>
+      </header>
+      <div class="card freq-list">
+        <div class="freq-row"><span class="freq-nome">Algoritmos e Programação</span><div class="bar"><div class="bar-fill" style="width:92%"></div></div><span class="freq-pct">92%</span></div>
+        <div class="freq-row"><span class="freq-nome">Cálculo I</span><div class="bar"><div class="bar-fill warn" style="width:78%"></div></div><span class="freq-pct">78%</span></div>
+        <div class="freq-row"><span class="freq-nome">Interação Humano-Computador</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="freq-pct">100%</span></div>
+        <div class="freq-row"><span class="freq-nome">Banco de Dados</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span class="freq-pct">85%</span></div>
+        <div class="freq-row"><span class="freq-nome">Estrutura de Dados</span><div class="bar"><div class="bar-fill danger" style="width:68%"></div></div><span class="freq-pct">68%</span></div>
+        <p class="freq-nota">Frequência mínima para aprovação: 75%.</p>
+      </div>
+    </section>
+
+    <!-- HORÁRIO -->
+    <section id="view-horario" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Horário de aulas <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Grade semanal · turno noturno</p>
+        </div>
+      </header>
+      <div class="card schedule-wrap">
+        <table class="schedule">
+          <thead><tr><th></th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th></tr></thead>
+          <tbody>
+            <tr><th>19:00</th><td class="cls a">Algoritmos</td><td class="cls b">Cálculo I</td><td class="cls a">Algoritmos</td><td class="cls c">IHC</td><td class="cls d">Banco de Dados</td></tr>
+            <tr><th>20:40</th><td class="cls b">Cálculo I</td><td class="cls e">Est. de Dados</td><td class="cls d">Banco de Dados</td><td class="cls c">IHC</td><td class="cls e">Est. de Dados</td></tr>
+            <tr><th>21:30</th><td class="cls c">IHC</td><td class="cls e">Est. de Dados</td><td class="cls a">Algoritmos</td><td class="cls b">Cálculo I</td><td class="cls d">Banco de Dados</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- AVISOS -->
+    <section id="view-avisos" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Avisos <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Comunicados da instituição</p>
+        </div>
+      </header>
+      <div class="avisos-list">
+        <article class="card aviso"><span class="aviso-data">28/06/2026</span><h3>Renovação de matrícula aberta</h3><p>O período de renovação de matrícula para o próximo semestre vai até 15/07. Acesse a secretaria virtual.</p></article>
+        <article class="card aviso"><span class="aviso-data">20/06/2026</span><h3>Semana Acadêmica de Computação</h3><p>Inscrições abertas para as palestras e minicursos da Semana Acadêmica, de 05 a 09 de agosto.</p></article>
+        <article class="card aviso"><span class="aviso-data">12/06/2026</span><h3>Manutenção do sistema</h3><p>O portal ficará indisponível no domingo (15/06) das 2h às 6h para manutenção programada.</p></article>
+      </div>
+    </section>
+
+    <!-- HISTÓRICO -->
+    <section id="view-historico" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Histórico escolar <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Registro acadêmico completo</p>
+        </div>
+      </header>
+      <div class="card empty-state">
+        <svg viewBox="0 0 24 24" class="empty-ico"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        <p>Módulo em desenvolvimento</p>
+        <span>O histórico escolar completo estará disponível em breve.</span>
+      </div>
+    </section>
+
+    <!-- BIBLIOTECA -->
+    <section id="view-biblioteca" class="view" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Biblioteca <span class="demo-tag">demonstração</span></h1>
+          <p class="subtitle">Seus empréstimos</p>
+        </div>
+      </header>
+      <div class="card">
+        <ul class="lista-categorias">
+          <li><span>Interaction Design — Preece et al. · devolução 10/07</span><button class="btn-ghost btn-sm">Renovar</button></li>
+          <li><span>Introdução à Computação — Forbellone · devolução 18/07</span><button class="btn-ghost btn-sm">Renovar</button></li>
+          <li><span>Cálculo Vol. 1 — Stewart · devolução 22/07</span><button class="btn-ghost btn-sm">Renovar</button></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
