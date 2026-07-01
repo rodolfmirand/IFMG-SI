@@ -1,0 +1,62 @@
+﻿Trabalho Final de Interação Humano-Computador 2026
+
+
+
+
+Selecionar um software (pode ser site, aplicativo, software desktop, game etc) que seja algum sistema que você está desenvolvendo no seu TCC, trabalho/estágio, pesquisa, extensão etc - para realizar uma avaliação. Você deve assumir o papel de Engenheiro de Usabilidade do seu próprio projeto.
+
+
+O trabalho consistirá em:
+
+
+* Explicar quais como as etapas do framework conceitual de avaliação DECIDE serão seguidas
+   * Acesse o artigo: link_artigo.
+   * Descrição do framework - página 3.
+   * Como os passos são aplicados - página 4.
+* Aplicar as Heurísticas de Usabilidade 
+   * Os dois membros da equipe devem aplicar.
+   * Montar o relatório completo que deverá incluir:
+      * Para cada heurística violada:
+         * Mostrar qual heurística foi violada.
+         * Mostrar o local/tela (print) em que o problema ocorreu.
+         * Informar o grau do problema de (1) Cosmético até (4) Catastrófico.
+         * Sugerir uma solução para o problema.
+         * Veja o material: link_heuristica
+* Realizar cinco testes de usabilidade com cinco potenciais usuários do sistema.
+   * O teste deve envolver apenas uma atividade (uma tarefa para o usuário cumprir).
+   * Os testes de usabilidade devem ser gravados em vídeo.
+   * Para auxiliar no teste veja o vídeo:
+      * vídeo_teste_usabilidade
+* Realizar três entrevistas semi-estruturadas contendo pelo menos três perguntas.
+   * Gravar apenas em áudio as entrevistas.
+   * Transcrever a entrevista para texto usando um software específico.
+   * Para analisar as entrevistas consultar como isso foi feito na página 7 deste artigo: link_artigo.
+* Para este trabalho, você pode entrevistar parentes e amigos, mas lembre-se que isso vai adicionar viés na sua avaliação. Não faça isso se quiser entregar um trabalho em uma conferência científica importante.
+* Critérios éticos: você deve aplicar um Termo de Consentimento Livre e Esclarecido - TCLE. O usuário deve assinar e autorizar sua participação no trabalho.
+
+
+O que deve ser entregue:
+* Relatório em PDF descrevendo os principais achados da avaliação.
+   * Além de relatar os achados em cada uma das três técnicas aplicadas, você deve realizar uma triangulação dos dados.
+* Links para as mídias de vídeo (testes de usabilidade) e texto transcritos das entrevistas.
+* Entrega pelo sistema Moodle.
+
+
+
+
+
+
+
+
+
+
+O projeto será dividido em três partes:
+Parte 1: Framework DECIDE e Avaliação Heurística - valor 20 pontos.
+Parte 2: Testes de usabilidade e entrevistas com usuários - valor 30 pontos.
+
+
+Observação: Faltarão 5 pontos na disciplina que serão distribuídos em uma pequena atividade sobre design universal no moodle.
+
+
+Trabalho pode ser feito em duplas.
+Data de entrega: em breve!
