@@ -12,6 +12,16 @@ app simples, sem backend/servidor (roda 100% no navegador, dados salvos em
 Gerenciar tarefas: criar, categorizar, definir prazo, marcar como concluída, filtrar
 e excluir.
 
+## Estado inicial de demonstração
+
+Na primeira abertura, o app carrega **4 tarefas de exemplo fixas** (variando categoria,
+prioridade e status — uma delas já concluída). Isso deixa a interface realista, dá
+conteúdo para a avaliação heurística e torna significativo o passo de "localizar pelo
+filtro" no teste de usabilidade. O estado é **idêntico para todos os participantes** e
+pode ser restaurado a qualquer momento com `resetSessionLog()` ou `seedDemo()` no
+console (ver [docs/04](04-roteiro-teste-usabilidade.md), seção 9). Nenhuma das tarefas
+de exemplo é a que o participante deve criar no teste.
+
 ## Telas (5)
 
 1. **Lista de tarefas** (tela inicial) — mostra todas as tarefas, com filtro por

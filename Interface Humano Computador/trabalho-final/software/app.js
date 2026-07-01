@@ -3,10 +3,31 @@
 
 const STORAGE_TASKS = "listafacil_tarefas";
 const STORAGE_CATS = "listafacil_categorias";
+const CATS_PADRAO = ["Trabalho", "Pessoal", "Estudos"];
 
-let tarefas = JSON.parse(localStorage.getItem(STORAGE_TASKS) || "[]");
-let categorias = JSON.parse(localStorage.getItem(STORAGE_CATS) || "null") || ["Trabalho", "Pessoal", "Estudos"];
+// Estado inicial de DEMONSTRAÇÃO (tarefas de exemplo). Serve para:
+// - deixar o app realista já na primeira abertura (ex.: no GitHub Pages);
+// - dar conteúdo à avaliação heurística da tela de lista;
+// - tornar significativo o passo "localizar pelo filtro" no teste de usabilidade.
+// Fixo e IGUAL para todos os participantes — restaure com resetSessionLog()/seedDemo()
+// antes de cada sessão. Nenhuma delas é a tarefa que o participante deve criar.
+const DEMO_TASKS = [
+  { titulo: "Reunião do grupo de TCC",      categoria: "Trabalho", prazo: "2026-07-03", prioridade: "alta",  concluida: false },
+  { titulo: "Ler capítulo 3 de IHC",        categoria: "Estudos",  prazo: "2026-07-05", prioridade: "media", concluida: false },
+  { titulo: "Enviar exercício de Cálculo",  categoria: "Estudos",  prazo: "2026-07-08", prioridade: "media", concluida: false },
+  { titulo: "Renovar livro na biblioteca",  categoria: "Pessoal",  prazo: "2026-07-02", prioridade: "baixa", concluida: true  },
+];
+function novasDemo() { return DEMO_TASKS.map(t => ({ id: crypto.randomUUID(), ...t })); }
+
+let tarefas = JSON.parse(localStorage.getItem(STORAGE_TASKS) || "null");
+let categorias = JSON.parse(localStorage.getItem(STORAGE_CATS) || "null") || CATS_PADRAO.slice();
 let editandoId = null;
+
+// Primeira abertura (app nunca inicializado): carrega as tarefas de exemplo.
+if (tarefas === null) {
+  tarefas = novasDemo();
+  localStorage.setItem(STORAGE_TASKS, JSON.stringify(tarefas));
+}
 
 function salvarTarefas() { localStorage.setItem(STORAGE_TASKS, JSON.stringify(tarefas)); }
 function salvarCategorias() { localStorage.setItem(STORAGE_CATS, JSON.stringify(categorias)); }
@@ -87,14 +108,23 @@ window.exportSessionLog = function () {
   return dados;
 };
 
+// Restaura o estado inicial de demonstração (mesmas 4 tarefas de exemplo).
+window.seedDemo = function () {
+  tarefas = novasDemo();
+  categorias = CATS_PADRAO.slice();
+  salvarTarefas();
+  salvarCategorias();
+  renderLista();
+  console.log("[sessão] Estado de demonstração restaurado (4 tarefas de exemplo).");
+};
+
 window.resetSessionLog = function () {
-  localStorage.removeItem(STORAGE_TASKS);
-  localStorage.removeItem(STORAGE_CATS);
   sessao.inicio = Date.now();
   sessao.eventos = [];
   sessao.tarefaAtual = null;
   sessao.tarefaAcoes = 0;
-  console.log("[sessão] Log e dados zerados. Recarregue a página (F5) para começar limpo.");
+  window.seedDemo(); // volta ao estado inicial idêntico para o próximo participante
+  console.log("[sessão] Log zerado e demonstração restaurada. Pronto para o próximo participante.");
 };
 
 // Ícones SVG inline (estilo Lucide). Nota: os ícones de "editar" e "concluir"

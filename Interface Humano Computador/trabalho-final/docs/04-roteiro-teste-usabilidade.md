@@ -29,8 +29,10 @@ observar se os problemas levantados na avaliação heurística
 ## 3. Materiais e preparação (checklist do facilitador)
 
 - [ ] [TCLE](03-tcle.md) impresso/digital pronto para assinatura.
-- [ ] Software aberto no navegador, com dados limpos (rodar `resetSessionLog()` e
-      limpar o `localStorage` antes de cada participante — ver seção 9).
+- [ ] Software aberto no navegador no **estado inicial padrão** — rodar
+      `resetSessionLog()` no console antes de cada participante para restaurar as
+      4 tarefas de exemplo idênticas e zerar o log (ver seção 9). **Todos começam do
+      mesmo estado**, senão as métricas ficam incomparáveis.
 - [ ] Gravação de tela + áudio configurada e testada.
 - [ ] Cronômetro (ou usar o logger de sessão automático — seção 9).
 - [ ] Ficha de registro aberta ([docs/07](07-registro-testes-usabilidade.md)).
@@ -147,7 +149,16 @@ navegador (F12):
 - `endTask()` — marca o fim; imprime o tempo total e o nº de ações da tarefa.
 - `exportSessionLog()` — imprime/baixa o log completo (eventos com timestamp) para
   anexar à ficha do participante.
-- `resetSessionLog()` — zera o log e os dados; **rodar antes de cada participante**.
+- `resetSessionLog()` — zera o log **e restaura o estado inicial padrão** (as 4
+  tarefas de exemplo idênticas); **rodar antes de cada participante**.
+- `seedDemo()` — só restaura as 4 tarefas de exemplo (sem mexer no log), caso precise.
+
+> **Estado inicial (mesmo para todos):** o app já abre com 4 tarefas de exemplo fixas
+> (Reunião do grupo de TCC · Ler capítulo 3 de IHC · Enviar exercício de Cálculo ·
+> Renovar livro na biblioteca — esta última concluída). Elas dão contexto realista e
+> tornam significativo o passo de **localizar pelo filtro** (ao filtrar por "Trabalho",
+> além da tarefa recém-criada aparece "Reunião do grupo de TCC"). Nenhuma delas é a
+> tarefa que o participante deve criar.
 
 Todos os dados por participante devem ser transcritos em
 [docs/07-registro-testes-usabilidade.md](07-registro-testes-usabilidade.md) logo após
