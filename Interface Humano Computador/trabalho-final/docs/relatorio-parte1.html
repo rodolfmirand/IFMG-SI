@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Relatório de Avaliação de Usabilidade — Parte 1</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1a1c2b; font-size: 11pt; line-height: 1.5; margin: 0;
+  }
+  h1, h2, h3 { color: #14162a; line-height: 1.25; break-after: avoid; }
+  h1 { font-size: 20pt; margin: 0 0 4pt; }
+  h2 { font-size: 15pt; margin: 22pt 0 8pt; border-bottom: 2px solid #5b5ef0; padding-bottom: 4pt; }
+  h3 { font-size: 12.5pt; margin: 16pt 0 4pt; color: #3a3d66; }
+  p { margin: 6pt 0; }
+  ul { margin: 6pt 0; padding-left: 20pt; }
+  li { margin: 3pt 0; }
+  strong { color: #14162a; }
+  code { background: #f0f1f6; padding: 1px 4px; border-radius: 3px; font-size: 9.5pt; }
+  a { color: #14162a; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; font-size: 10pt; }
+  th, td { border: 1px solid #d8dbe8; padding: 6pt 8pt; text-align: left; vertical-align: top; }
+  th { background: #eeeefe; color: #3a3d66; font-weight: 600; }
+
+  blockquote {
+    margin: 8pt 0; padding: 8pt 12pt; background: #fafbfe;
+    border-left: 3px solid #5b5ef0; color: #4a4d66; font-size: 10pt;
+  }
+
+  .cover { text-align: center; padding-top: 80pt; break-after: page; }
+  .cover .mark { width: 64pt; height: 64pt; border-radius: 16pt; background: linear-gradient(135deg,#5b5ef0,#8a6cf0); color:#fff; font-size: 34pt; font-weight: 700; line-height: 64pt; display: inline-block; margin-bottom: 20pt; }
+  .cover .sub { color: #6b7089; font-size: 12pt; margin-top: 6pt; }
+  .cover .meta { margin-top: 60pt; font-size: 11pt; color: #3a3d66; }
+  .cover .meta div { margin: 4pt 0; }
+
+  .section { break-before: page; }
+
+  figure { break-inside: avoid; margin: 12pt 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #d8dbe8; border-radius: 6px; }
+  figure img.small { max-width: 220pt; }
+  figcaption { font-size: 9pt; color: #6b7089; margin-top: 4pt; }
+
+  .problema { break-inside: avoid; margin: 14pt 0; padding: 10pt 12pt; border: 1px solid #e7e9f2; border-radius: 8px; background: #ffffff; }
+  .problema h3 { margin-top: 0; }
+  .grav { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 9pt; font-weight: 700; color: #fff; }
+  .g1 { background: #7a7f9c; } .g2 { background: #c77700; } .g3 { background: #e5484d; } .g4 { background: #8f1d20; }
+  .lbl { font-weight: 600; color: #3a3d66; }
+  .footer-note { margin-top: 24pt; font-size: 9pt; color: #9aa0b8; border-top: 1px solid #e7e9f2; padding-top: 8pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= CAPA ================= -->
+<div class="cover">
+  <div class="mark">L</div>
+  <h1>Relatório de Avaliação de Usabilidade</h1>
+  <div class="sub">Parte 1 — Framework DECIDE e Avaliação Heurística</div>
+  <div class="sub"><strong>Software avaliado: ListaFácil</strong></div>
+  <div class="meta">
+    <div><span class="lbl">Disciplina:</span> Interação Humano-Computador — IFMG</div>
+    <div><span class="lbl">Engenheiro(a) de Usabilidade:</span> Rodolfo Miranda</div>
+    <div><span class="lbl">Data:</span> Julho de 2026</div>
+  </div>
+</div>
+
+<!-- ================= INTRODUÇÃO ================= -->
+<h2>1. Introdução</h2>
+<p>
+  Este relatório apresenta a <strong>Parte 1</strong> da avaliação de usabilidade do
+  <strong>ListaFácil</strong>, um aplicativo web de gerenciamento de tarefas com módulos
+  de apoio acadêmico (boletim, frequência, horário, entre outros). Assumindo o papel de
+  Engenheiro de Usabilidade do próprio projeto, esta etapa cobre duas técnicas que
+  <em>não exigem a participação de usuários finais</em>: o planejamento da avaliação por
+  meio do <strong>framework conceitual DECIDE</strong> (Preece et al., 2005) e a
+  <strong>Avaliação Heurística</strong> de Nielsen (1994), um método de inspeção.
+</p>
+<p>
+  A Parte 2 do trabalho (testes de usabilidade e entrevistas com usuários) e a
+  triangulação final dos dados são executadas em etapa posterior; o planejamento dessas
+  técnicas já está previsto na aplicação do DECIDE a seguir.
+</p>
+
+<!-- ================= DECIDE ================= -->
+<h2 class="section">2. Aplicação do Framework DECIDE</h2>
+<blockquote>
+  Framework conceitual de avaliação proposto por Preece et al. (2005), utilizado como
+  referência no artigo <em>"Avaliação de Interação de um Sistema de Gestão Acadêmica"</em>
+  (seção 3). Fornece uma checklist de seis etapas para planejar avaliações de IHC
+  dirigidas por metas claras.
+</blockquote>
+
+<h3>2.1 Determinar as metas</span></h3>
+<p>A avaliação do ListaFácil busca:</p>
+<ul>
+  <li>Verificar se a interface permite que usuários concluam a tarefa central (criar e concluir uma tarefa) de forma rápida e sem erros.</li>
+  <li>Identificar violações às heurísticas de usabilidade de Nielsen presentes na interface atual.</li>
+  <li>Levantar a percepção subjetiva de usuários reais sobre clareza, navegação e utilidade do sistema, via entrevistas.</li>
+</ul>
+
+<h3>2.2 Explorar as questões específicas <span style="font-weight:400;color:#6b7089">(Explore the questions)</span></h3>
+<ul>
+  <li>Os usuários conseguem encontrar o botão de criar uma nova tarefa sem ajuda?</li>
+  <li>Os ícones de "editar" e "concluir" são distinguíveis o suficiente?</li>
+  <li>O usuário percebe que uma ação (salvar, excluir) teve efeito, mesmo sem feedback visual explícito?</li>
+  <li>O formato de data exibido (<code>DD/MM</code>) é interpretado corretamente pelos usuários?</li>
+  <li>Os usuários sentem falta de confirmação ao excluir uma tarefa ou categoria?</li>
+  <li>Qual a opinião geral dos usuários sobre a utilidade e a navegação do sistema?</li>
+</ul>
+
+<h3>2.3 Escolher o paradigma e as técnicas</h3>
+<table>
+  <thead><tr><th>Técnica</th><th>Paradigma</th><th>O que revela</th></tr></thead>
+  <tbody>
+    <tr><td>Avaliação Heurística (inspeção)</td><td>Inspeção por especialista</td><td>Problemas estruturais de design, sem precisar de usuários</td></tr>
+    <tr><td>Teste de usabilidade (observação direta)</td><td>Observação</td><td>Problemas reais ao executar uma tarefa concreta</td></tr>
+    <tr><td>Entrevista semiestruturada</td><td>Investigação</td><td>Percepção subjetiva, expectativas e opiniões dos usuários</td></tr>
+  </tbody>
+</table>
+
+<h3>2.4 Identificar as questões práticas</h3>
+<ul>
+  <li><strong>Avaliador:</strong> uma única pessoa (autor deste trabalho), assumindo o papel de Engenheiro de Usabilidade — a avaliação heurística foi feita em duas passadas independentes para compensar a ausência de um segundo avaliador (ver seção 3).</li>
+  <li><strong>Participantes:</strong> 5 pessoas para os testes de usabilidade e 3 pessoas para as entrevistas (podem se sobrepor, conforme disponibilidade).</li>
+  <li><strong>Recursos:</strong> computador com navegador, software de gravação de tela/vídeo (testes) e de áudio (entrevistas), ferramenta de transcrição automática.</li>
+  <li><strong>Prazo:</strong> menos de uma semana — recrutamento de participantes iniciado no primeiro dia para não travar o cronograma.</li>
+  <li><strong>Local:</strong> sessões remotas (compartilhamento de tela) ou presenciais, conforme a disponibilidade.</li>
+</ul>
+
+<h3>2.5 Decidir como lidar com as questões éticas</h3>
+<ul>
+  <li>Todo participante assina o <strong>TCLE — Termo de Consentimento Livre e Esclarecido</strong> antes da sessão, autorizando a gravação e o uso dos dados exclusivamente para fins acadêmicos.</li>
+  <li>Nomes reais só aparecem com autorização explícita; por padrão, participantes são identificados como "Usuário 1", "Usuário 2" etc.</li>
+  <li>Vídeos e áudios ficam em local de acesso restrito (link compartilhado apenas com o professor).</li>
+  <li>Participantes podem interromper a sessão ou pedir exclusão dos seus dados a qualquer momento, sem prejuízo.</li>
+</ul>
+
+<h3>2.6 Avaliar, interpretar e apresentar os dados</h3>
+<ul>
+  <li><strong>Avaliação heurística:</strong> dados qualitativos (heurística violada, local, gravidade 1–4, sugestão de solução) consolidados em tabela única.</li>
+  <li><strong>Testes de usabilidade:</strong> dados quali e quantitativos (tempo na tarefa, erros/hesitações, sucesso) registrados por usuário e agregados por padrão.</li>
+  <li><strong>Entrevistas:</strong> transcrição completa e análise de conteúdo por padrões de resposta entre os entrevistados.</li>
+  <li><strong>Triangulação:</strong> os achados das três técnicas são cruzados — um problema visto na inspeção que também aparece nos testes e é mencionado nas entrevistas tem evidência mais forte que um achado isolado.</li>
+  <li><strong>Limitações a declarar:</strong> amostra pequena (5+3 participantes), avaliador único nas heurísticas e possível viés se parte dos participantes for próxima do avaliador.</li>
+</ul>
+
+<!-- ================= HEURÍSTICA ================= -->
+<h2 class="section">3. Avaliação Heurística</h2>
+<p>
+  Método: Avaliação Heurística de Nielsen (1994), com as 10 heurísticas, aplicado
+  conforme o procedimento do material da disciplina: para cada tela × heurística, quando
+  violada, registra-se localização (print), heurística violada, justificativa, gravidade
+  (1 cosmético a 4 catastrófico) e sugestão de solução.
+</p>
+
+<h3>3.1 Avaliadores e consolidação</h3>
+<p>
+  O enunciado prevê que "os dois membros da equipe" apliquem a avaliação. Como este
+  trabalho é individual, a inspeção foi feita em <strong>duas passadas independentes</strong>,
+  em momentos distintos, simulando dois avaliadores:
+</p>
+<ul>
+  <li><strong>Avaliador 1:</strong> passada focada em navegação e no fluxo completo das tarefas.</li>
+  <li><strong>Avaliador 2:</strong> passada focada tela a tela, comparando cada elemento à lista das 10 heurísticas.</li>
+</ul>
+<p>Os achados a seguir já estão <strong>consolidados</strong> (união dos dois, sem duplicatas; sem divergência de gravidade entre as passadas).</p>
+
+<h3>3.2 Escala de gravidade</h3>
+<table>
+  <thead><tr><th>Grau</th><th>Significado</th></tr></thead>
+  <tbody>
+    <tr><td><span class="grav g1">1</span> Cosmético</td><td>Não precisa ser corrigido a menos que sobre tempo</td></tr>
+    <tr><td><span class="grav g2">2</span> Pequeno</td><td>Baixa prioridade</td></tr>
+    <tr><td><span class="grav g3">3</span> Grande</td><td>Alta prioridade, muitos usuários ficarão insatisfeitos</td></tr>
+    <tr><td><span class="grav g4">4</span> Catastrófico</td><td>Imperativo corrigir antes do lançamento</td></tr>
+  </tbody>
+</table>
+
+<figure>
+  <img src="prints/02-lista-icones-e-data.png" alt="Tela principal de tarefas">
+  <figcaption>Figura 1 — Tela principal (Lista de tarefas), referenciada em vários problemas a seguir.</figcaption>
+</figure>
+
+<h3>3.3 Problemas identificados</h3>
+
+<div class="problema">
+  <h3>Problema 1 — Exclusão sem confirmação nem "desfazer" <span class="grav g3">Gravidade 3</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 3. Controle e liberdade do usuário.</p>
+  <p><span class="lbl">Tela/local:</span> Lista de tarefas, botão de excluir (ícone de lixeira).</p>
+  <p><span class="lbl">Justificativa:</span> a tarefa desaparece imediatamente ao clicar na lixeira, sem diálogo de confirmação nem opção de desfazer. Um clique acidental resulta em perda de dados permanente.</p>
+  <p><span class="lbl">Sugestão:</span> diálogo de confirmação ou, preferencialmente, uma notificação temporária "Tarefa excluída — Desfazer" por alguns segundos.</p>
+  <figure>
+    <img src="prints/06a-antes-excluir.png" alt="Antes de excluir">
+    <img src="prints/06b-depois-excluir-sem-confirmacao.png" alt="Depois de excluir, sem confirmação">
+    <figcaption>Figura 2 — Antes (duas tarefas) e depois: a tarefa some sem qualquer confirmação.</figcaption>
+  </figure>
+</div>
+
+<div class="problema">
+  <h3>Problema 2 — Ícones de "editar" e "concluir" pouco distinguíveis <span class="grav g3">Gravidade 3</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 6. Reconhecimento em vez de memorização (relacionada também à 4, consistência e padronização).</p>
+  <p><span class="lbl">Tela/local:</span> Lista de tarefas, grupo de três ícones à direita de cada item.</p>
+  <p><span class="lbl">Justificativa:</span> os três ícones (editar, concluir, excluir) têm o mesmo tamanho, cor e peso visual, sem rótulos visíveis (apenas <code>title</code>, que não aparece em telas de toque). Editar (lápis) e concluir (check) ficam lado a lado e são fáceis de confundir num clique rápido.</p>
+  <p><span class="lbl">Sugestão:</span> diferenciar por cor (verde/azul/vermelho), aumentar o espaçamento e considerar rótulos curtos.</p>
+  <figure>
+    <img src="prints/02b-icones-zoom.png" class="small" alt="Zoom nos três ícones idênticos">
+    <figcaption>Figura 3 — Os três ícones de ação, sem rótulo e com a mesma aparência.</figcaption>
+  </figure>
+</div>
+
+<div class="problema">
+  <h3>Problema 3 — Mensagem de erro genérica ao salvar <span class="grav g2">Gravidade 2</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 9. Ajudar a reconhecer, diagnosticar e recuperar de erros.</p>
+  <p><span class="lbl">Tela/local:</span> Tela "Nova tarefa", ao salvar com o campo Título vazio.</p>
+  <p><span class="lbl">Justificativa:</span> a mensagem é apenas "Erro ao salvar", sem indicar o campo incorreto nem como corrigir. O campo Título também não recebe destaque visual nem foco automático.</p>
+  <p><span class="lbl">Sugestão:</span> mensagem específica ("O campo Título é obrigatório") perto do campo, com borda vermelha e foco automático.</p>
+  <figure>
+    <img src="prints/03-erro-generico.png" alt="Mensagem de erro genérica">
+    <figcaption>Figura 4 — A mensagem "Erro ao salvar." não diz o que está errado.</figcaption>
+  </figure>
+</div>
+
+<div class="problema">
+  <h3>Problema 4 — Excluir categoria não avisa sobre tarefas associadas <span class="grav g3">Gravidade 3</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 5. Prevenção de erros (e 1, visibilidade do estado).</p>
+  <p><span class="lbl">Tela/local:</span> Tela "Categorias", ao excluir uma categoria em uso.</p>
+  <p><span class="lbl">Justificativa:</span> ao excluir uma categoria, todas as tarefas associadas passam silenciosamente a "sem categoria", sem aviso prévio. O usuário pode só perceber depois.</p>
+  <p><span class="lbl">Sugestão:</span> diálogo de confirmação informando quantas tarefas serão afetadas ("3 tarefas ficarão sem categoria. Continuar?").</p>
+  <figure>
+    <img src="prints/04-categorias.png" alt="Tela de categorias">
+    <figcaption>Figura 5 — Tela de Categorias. Note também o link "Ajuda" isolado no rodapé (Problema 5).</figcaption>
+  </figure>
+</div>
+
+<div class="problema">
+  <h3>Problema 5 — Link de Ajuda escondido dentro de Categorias <span class="grav g2">Gravidade 2</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 10. Ajuda e documentação.</p>
+  <p><span class="lbl">Tela/local:</span> só há um link "Ajuda" no rodapé da tela Categorias; nenhum acesso à ajuda a partir da tela principal.</p>
+  <p><span class="lbl">Justificativa:</span> um usuário que precise de ajuda na tela inicial (a mais usada) não tem pista de que a ajuda existe — é preciso navegar até uma tela secundária para descobri-la.</p>
+  <p><span class="lbl">Sugestão:</span> ícone/link de ajuda visível no cabeçalho, presente em todas as telas.</p>
+  <figure>
+    <img src="prints/05-ajuda.png" alt="Tela de ajuda">
+    <figcaption>Figura 6 — Tela de Ajuda, acessível apenas a partir de Categorias.</figcaption>
+  </figure>
+</div>
+
+<div class="problema">
+  <h3>Problema 6 — Nenhum feedback visual ao salvar <span class="grav g2">Gravidade 2</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 1. Visibilidade do estado do sistema.</p>
+  <p><span class="lbl">Tela/local:</span> Tela "Nova tarefa" → botão "Salvar".</p>
+  <p><span class="lbl">Justificativa:</span> ao salvar dados válidos, o sistema apenas volta à lista, sem nenhuma indicação (toast/mensagem/destaque) de sucesso. O usuário infere o sucesso só pela presença do item na lista (ver Figura 1).</p>
+  <p><span class="lbl">Sugestão:</span> notificação temporária "Tarefa salva com sucesso" ao retornar à lista.</p>
+</div>
+
+<div class="problema">
+  <h3>Problema 7 — Formato de data ambíguo <span class="grav g1">Gravidade 1</span></h3>
+  <p><span class="lbl">Heurística violada:</span> 2. Correspondência entre o sistema e o mundo real.</p>
+  <p><span class="lbl">Tela/local:</span> Lista de tarefas, campo "prazo" de cada item (ex.: "prazo 02/07", ver Figura 1).</p>
+  <p><span class="lbl">Justificativa:</span> a data aparece só como <code>DD/MM</code>, sem ano nem indicação textual, gerando ambiguidade (sobretudo para quem usa <code>MM/DD</code>) e sem deixar claro se o prazo já passou.</p>
+  <p><span class="lbl">Sugestão:</span> exibir a data por extenso ou em formato inequívoco ("2 de julho" ou "02/07/2026") e destacar prazos vencidos.</p>
+</div>
+
+<h3>3.4 Resumo consolidado</h3>
+<table>
+  <thead><tr><th>#</th><th>Problema</th><th>Heurística</th><th>Gravidade</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Exclusão sem confirmação</td><td>Controle e liberdade do usuário</td><td><span class="grav g3">3</span></td></tr>
+    <tr><td>2</td><td>Ícones editar/concluir parecidos</td><td>Reconhecimento em vez de memorização</td><td><span class="grav g3">3</span></td></tr>
+    <tr><td>3</td><td>Erro genérico ao salvar</td><td>Ajuda a reconhecer/diagnosticar erros</td><td><span class="grav g2">2</span></td></tr>
+    <tr><td>4</td><td>Exclusão de categoria sem aviso</td><td>Prevenção de erros</td><td><span class="grav g3">3</span></td></tr>
+    <tr><td>5</td><td>Ajuda de difícil acesso</td><td>Ajuda e documentação</td><td><span class="grav g2">2</span></td></tr>
+    <tr><td>6</td><td>Sem feedback ao salvar</td><td>Visibilidade do estado do sistema</td><td><span class="grav g2">2</span></td></tr>
+    <tr><td>7</td><td>Formato de data ambíguo</td><td>Correspondência com o mundo real</td><td><span class="grav g1">1</span></td></tr>
+  </tbody>
+</table>
+<p>
+  <strong>Pontos positivos observados:</strong> a navegação principal (Tarefas/Categorias)
+  é simples e consistente; os filtros de categoria e status funcionam de forma previsível;
+  o formulário de nova tarefa é curto e objetivo.
+</p>
+
+</body>
+</html>
