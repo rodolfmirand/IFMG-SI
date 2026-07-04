@@ -155,8 +155,10 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
 // ---------- Lista de tarefas ----------
 function preencherFiltroCategorias() {
   const sel = document.getElementById("filtro-categoria");
+  const selecionada = sel.value; // preserva a categoria escolhida antes de reconstruir
   sel.innerHTML = '<option value="">Todas as categorias</option>' +
     categorias.map(c => `<option value="${c}">${c}</option>`).join("");
+  sel.value = selecionada; // restaura a seleção (fica "" se a categoria não existir mais)
 }
 
 function formatarPrazo(iso) {
