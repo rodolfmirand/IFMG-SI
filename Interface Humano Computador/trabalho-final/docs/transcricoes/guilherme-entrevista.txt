@@ -1,0 +1,65 @@
+Transcrição — Entrevista de Usabilidade (ListaFácil)
+Participante: Guilherme
+======================================================================
+
+ENTREVISTADOR: Você já usou algum aplicativo de lista de tarefas? Como foi o ListaFácil
+em comparação com esse aplicativo que você usou?
+
+GUILHERME: Já. É diferente. Foi... foi mais fácil, foi bem mais simples. O outro era
+bem mais complexo de usar.
+
+ENTREVISTADOR: E o que você achou da interface? Ela é agradável?
+
+GUILHERME: É agradável, sim. Ela é tipo... sem ter uma linguagem complicada ali.
+
+ENTREVISTADOR: E as mensagens ficaram claras?
+
+GUILHERME: Sim.
+
+ENTREVISTADOR: Você teve facilidade em encontrar ali o que você precisava?
+
+GUILHERME: É, sim. Pra concluir as coisas, concluir as tarefas, sim. Tive um pouco de
+dificuldade só ali na parte de filtrar.
+
+ENTREVISTADOR: É só na parte de filtrar que você achou mais difícil? E o que você achou
+mais difícil em relação a isso? Por que você acha que teve dificuldade em encontrar o
+filtro? É que ele não é muito... você não está acostumado com esse tipo de filtro, ou
+você não achou muito intuitivo?
+
+GUILHERME: Eu não estou acostumado com esse tipo de filtro.
+
+ENTREVISTADOR: Entendi. Tá. E agora algumas perguntas ali sobre o quanto você concorda,
+né? Sendo 1 "discordo totalmente" e 5 "concordo totalmente". (Essa parte é sobre o
+sistema; pode responder normalmente.)
+
+--- Questionário SUS (respostas de 1 a 5) ---
+
+ENTREVISTADOR: Gostaria de usar este sistema com frequência.
+GUILHERME: 2.
+
+ENTREVISTADOR: Achei o sistema desnecessariamente complexo.
+GUILHERME: 1.
+
+ENTREVISTADOR: Achei o sistema fácil de usar.
+GUILHERME: 3.
+
+ENTREVISTADOR: Precisaria de apoio técnico para conseguir usar.
+GUILHERME: 3.
+
+ENTREVISTADOR: As funções estão bem integradas.
+GUILHERME: 2.
+
+ENTREVISTADOR: Achei o sistema muito inconsistente.
+GUILHERME: 1.
+
+ENTREVISTADOR: A maioria das pessoas aprenderia a usar rapidamente.
+GUILHERME: 2.
+
+ENTREVISTADOR: Achei o sistema atrapalhado ou complicado.
+GUILHERME: 3.
+
+ENTREVISTADOR: Senti-me confiante ao usar.
+GUILHERME: 3.
+
+ENTREVISTADOR: Precisei aprender muita coisa antes de conseguir usar.
+GUILHERME: 2.

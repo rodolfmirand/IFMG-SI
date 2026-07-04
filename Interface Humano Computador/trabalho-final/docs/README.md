@@ -1,40 +1,47 @@
 # Índice — Trabalho Final de IHC
 
-Ordem sugerida de leitura/uso, seguindo o cronograma do plano:
+> **Status: trabalho concluído.** Avaliação realizada com **2 participantes**
+> (Júlia, 25 · Guilherme, 15), cada um fazendo teste de usabilidade + entrevista.
+> Entregável principal: **[Relatorio-Final-ListaFacil.pdf](Relatorio-Final-ListaFacil.pdf)**.
 
-| Arquivo | O que é | Status |
-|---|---|---|
-| [00-escopo-software.md](00-escopo-software.md) | Descrição do software ListaFácil e suas falhas propositais | Pronto |
-| [../software/](../software/) | Código-fonte do app (`index.html`, `style.css`, `app.js`) | Pronto |
-| [02-decide-framework.md](02-decide-framework.md) | As 6 etapas do framework DECIDE aplicadas | Pronto |
-| [03-tcle.md](03-tcle.md) | Modelo do Termo de Consentimento (TCLE) | Pronto — usar em cada sessão |
-| [04-roteiro-teste-usabilidade.md](04-roteiro-teste-usabilidade.md) | Roteiro dos 5 testes de usabilidade | Pronto |
-| [05-roteiro-entrevista.md](05-roteiro-entrevista.md) | Roteiro das 3 entrevistas semiestruturadas | Pronto |
-| [06-avaliacao-heuristica.md](06-avaliacao-heuristica.md) | Avaliação heurística completa (10 heurísticas de Nielsen) com prints reais | Pronto |
-| [prints/](prints/) | Capturas de tela reais do software usadas na avaliação heurística | Pronto |
-| [07-registro-testes-usabilidade.md](07-registro-testes-usabilidade.md) | Template para registrar os 5 testes reais | **A preencher com participantes reais** |
-| [08-registro-entrevistas.md](08-registro-entrevistas.md) | Template para registrar as 3 entrevistas reais | **A preencher com participantes reais** |
-| [09-relatorio-final-esqueleto.md](09-relatorio-final-esqueleto.md) | Esqueleto do relatório final, com checklist de entrega | **A finalizar após dados reais → exportar em PDF** |
+## Entregáveis finais
 
-## O que já está pronto (não depende de pessoas)
+| Arquivo | O que é |
+|---|---|
+| **[Relatorio-Final-ListaFacil.pdf](Relatorio-Final-ListaFacil.pdf)** | **Relatório final completo** (DECIDE + heurística + testes + entrevistas + triangulação) — enviar no Moodle |
+| [relatorio-final.html](relatorio-final.html) | Fonte editável do relatório final |
+| [Relatorio-Parte1-DECIDE-Heuristica.pdf](Relatorio-Parte1-DECIDE-Heuristica.pdf) | Relatório só da Parte 1 (caso queira entregar separado) |
+| [transcricoes/](transcricoes/) | Transcrições das 2 entrevistas (Whisper, feito localmente) |
 
-- Software funcional (`software/`).
-- Framework DECIDE documentado.
-- Avaliação heurística completa, com prints reais e sugestões de solução.
-- TCLE e roteiros de teste/entrevista prontos para uso.
+## Documentos de apoio
 
-## O que falta (depende de recrutar pessoas reais — ver plano)
+| Arquivo | O que é |
+|---|---|
+| [00-escopo-software.md](00-escopo-software.md) | Descrição do ListaFácil, falhas propositais e módulos acadêmicos |
+| [../software/](../software/) | Código-fonte do app (`index.html`, `style.css`, `app.js`) |
+| [02-decide-framework.md](02-decide-framework.md) | As 6 etapas do framework DECIDE |
+| [03-tcle.md](03-tcle.md) | Modelo do TCLE |
+| [06-avaliacao-heuristica.md](06-avaliacao-heuristica.md) | Avaliação heurística completa com prints |
+| [prints/](prints/) | Capturas de tela usadas na avaliação heurística |
+| [07-registro-testes-usabilidade.md](07-registro-testes-usabilidade.md) | Registro dos testes (Júlia e Guilherme) |
+| [08-registro-entrevistas.md](08-registro-entrevistas.md) | Registro das entrevistas + cálculo do SUS |
+| [GUIA-SESSAO.md](GUIA-SESSAO.md) | Guia usado ao vivo durante as gravações |
 
-- Rodar os 5 testes de usabilidade gravados em vídeo e preencher
-  [07-registro-testes-usabilidade.md](07-registro-testes-usabilidade.md).
-- Rodar as 3 entrevistas gravadas em áudio, transcrever e preencher
-  [08-registro-entrevistas.md](08-registro-entrevistas.md).
-- Preencher a triangulação e exportar o
-  [relatório final](09-relatorio-final-esqueleto.md) em PDF.
-- Enviar pelo Moodle.
+## Resultados-chave
+
+- **Ambos concluíram** a tarefa central (criar/concluir tarefa).
+- **Filtro de categoria** foi o ponto crítico — achado **novo dos testes**, não previsto
+  na inspeção heurística (Júlia confundiu com o cadastro de categorias; Guilherme não
+  localizou). Confirmado também na entrevista do Guilherme.
+- **SUS**: Júlia 82,5 · Guilherme 55,0 · **média 68,75**.
+
+## Antes de enviar no Moodle
+
+- [ ] Inserir no relatório os **links** dos vídeos dos testes e dos áudios (hospedagem
+      de acesso restrito) — ver seção 8 do relatório. **Não** commitar as mídias no Git.
+- [ ] Conferir se as transcrições estão anexadas/linkadas.
+- [ ] Enviar o `Relatorio-Final-ListaFacil.pdf` + links pelo Moodle.
 
 ## Como abrir o software
 
-Abra `software/index.html` diretamente no navegador (não precisa de servidor),
-ou sirva a pasta com qualquer servidor estático (ex.: `npx http-server software`)
-para gravar a tela durante os testes de usabilidade.
+Abra `software/index.html` no navegador, ou sirva a pasta (`npx http-server software`).

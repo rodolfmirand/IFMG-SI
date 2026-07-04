@@ -1,86 +1,58 @@
-# Registro das Entrevistas Semiestruturadas
+# Registro das Entrevistas
 
-> Preencher após cada entrevista real (ver roteiro em
-> [docs/05-roteiro-entrevista.md](05-roteiro-entrevista.md)). Transcrever o áudio
-> antes de preencher a análise.
+**2 entrevistados** (Júlia e Guilherme), mesmos participantes dos testes de
+usabilidade. Transcrições completas em [transcricoes/](transcricoes/).
 
-## Entrevistado 1
+## Cálculo do SUS (System Usability Scale)
 
-- **TCLE assinado**: [ ] sim
-- **Link do áudio**:
-- **Link da transcrição completa**:
-- **Respostas resumidas** (uma linha por pergunta do roteiro):
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
-- **Citações marcantes** (trechos literais para o relatório):
-  -
+Regra: itens ímpares → (resposta − 1); itens pares → (5 − resposta); soma × 2,5.
 
-## Entrevistado 2
+| Item | Frase | Júlia | Guilherme |
+|---|---|---|---|
+| 1 | Gostaria de usar com frequência | 3 | 2 |
+| 2 | Desnecessariamente complexo | 1 | 1 |
+| 3 | Fácil de usar | 5 | 3 |
+| 4 | Precisaria de apoio técnico | 1 | 3 |
+| 5 | Funções bem integradas | 4 | 2 |
+| 6 | Muito inconsistente | 1 | 1 |
+| 7 | Maioria aprenderia rápido | 1 | 2 |
+| 8 | Atrapalhado/complicado | 1 | 3 |
+| 9 | Senti-me confiante | 5 | 3 |
+| 10 | Precisei aprender muita coisa | 1 | 2 |
+| | **SUS (0–100)** | **82,5** | **55,0** |
 
-- **TCLE assinado**: [ ] sim
-- **Link do áudio**:
-- **Link da transcrição completa**:
-- **Respostas resumidas**:
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
-- **Citações marcantes**:
-  -
+**Média SUS = 68,75** (referência: ≥ 68 = acima da média).
 
-## Entrevistado 3
+## Análise por pergunta
 
-- **TCLE assinado**: [ ] sim
-- **Link do áudio**:
-- **Link da transcrição completa**:
-- **Respostas resumidas**:
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
-- **Citações marcantes**:
-  -
+### 1. Experiência prévia com apps de tarefas
+- **Júlia**: já usou Trello e Asana (usuária experiente).
+- **Guilherme**: já usou outro app, que achou "mais complexo"; considerou o ListaFácil
+  "mais simples / mais fácil".
 
-## Análise de padrões (após as 3 entrevistas)
+### 2. Interface e linguagem
+- Ambos acharam a interface **agradável**. Guilherme destacou a linguagem simples e
+  disse que as mensagens ficaram claras.
 
-> Seguir o modelo da seção 4.2 do artigo de referência
-> (`10559-28790-1-SM.pdf`): para cada pergunta do roteiro, compilar os padrões
-> de resposta encontrados entre os 3 entrevistados, com trechos ilustrativos.
+### 3. Facilidade de encontrar / dificuldades
+- **Guilherme**: teve facilidade para concluir tarefas, mas dificuldade **só na parte de
+  filtrar** — "não estou acostumado com esse tipo de filtro".
+- **Júlia**: entrevista curta; a dificuldade com o filtro apareceu no **teste** (abriu a
+  aba de cadastro de categorias em vez do filtro).
 
-### Pergunta 1 — Experiência prévia com apps de tarefas
+### 4–6. Funcionalidades, navegação e opinião geral
+- Impressão geral positiva quanto à simplicidade; o ponto de atrito recorrente foi o
+  **filtro por categoria**.
 
-- Padrão identificado:
-- Trecho ilustrativo:
+## Citações marcantes
+- Guilherme: *"Tive um pouco de dificuldade só ali na parte de filtrar."*
+- Guilherme: *"Eu não estou acostumado com esse tipo de filtro."*
+- Guilherme (sobre o app anterior): *"Foi bem mais simples; o outro era bem mais
+  complexo de usar."*
 
-### Pergunta 2 — Interface (agradável? mensagens claras?)
-
-- Padrão identificado:
-- Trecho ilustrativo:
-
-### Pergunta 3 — Facilidade de encontrar informações
-
-- Padrão identificado:
-- Trecho ilustrativo:
-
-### Pergunta 4 — Funcionalidades (atendeu expectativas?)
-
-- Padrão identificado:
-- Trecho ilustrativo:
-
-### Pergunta 5 — Navegação
-
-- Padrão identificado:
-- Trecho ilustrativo:
-
-### Pergunta 6 — Opinião geral e sugestões
-
-- Padrão identificado:
-- Trecho ilustrativo:
+## Observações / limitações
+- Entrevista da Júlia foi curta (perguntas 1 e 2 + SUS).
+- Áudio da Júlia com baixa qualidade; algumas respostas do SUS foram recuperadas
+  ouvindo a gravação.
+- Links das transcrições: [guilherme-entrevista.txt](transcricoes/guilherme-entrevista.txt) ·
+  [julia-entrevista.txt](transcricoes/julia-entrevista.txt).

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Relatório - Avaliação de Usabilidade do ListaFácil</title>
+<style>
+  @page { size: A4; margin: 22mm 20mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
+    color: #111; font-size: 11pt; line-height: 1.5; margin: 0;
+  }
+  h1 { font-size: 22pt; font-weight: bold; color: #1a1a1a; margin: 0 0 2pt; line-height: 1.2; }
+  .aluno { color: #7a7a7a; font-size: 13.5pt; margin: 0 0 4pt; }
+  .disc { color: #7a7a7a; font-size: 11pt; margin: 0 0 18pt; }
+
+  h2 { font-size: 16pt; font-weight: normal; color: #222; margin: 22pt 0 8pt; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: normal; color: #333; margin: 14pt 0 6pt 22px; break-after: avoid; }
+  h2 .n, h3 .n { display: inline-block; min-width: 24px; }
+  h3 .n { min-width: 34px; }
+
+  p, ul, ol, table, figure, .quote { margin-left: 36px; }
+  p { margin-top: 6pt; margin-bottom: 6pt; text-align: justify; }
+  ul, ol { padding-left: 20px; margin-top: 6pt; margin-bottom: 6pt; }
+  li { margin: 3pt 0; text-align: justify; }
+  strong { color: #1a1a1a; }
+  a { color: #1155cc; }
+
+  table { width: calc(100% - 36px); border-collapse: collapse; margin-top: 8pt; margin-bottom: 8pt; font-size: 10pt; }
+  th, td { border: 1px solid #bfbfbf; padding: 5pt 7pt; text-align: left; vertical-align: top; }
+  th { background: #f2f2f2; font-weight: bold; }
+
+  figure { text-align: center; break-inside: avoid; margin-top: 10pt; margin-bottom: 10pt; }
+  figure img { max-width: 88%; border: 1px solid #cccccc; }
+  figure img.small { max-width: 200pt; }
+  figcaption { font-size: 9pt; color: #777; margin-top: 4pt; }
+
+  .transc { margin-left: 36px; font-size: 10pt; line-height: 1.45; }
+  .transc p { margin-left: 0; text-align: left; margin: 4pt 0; }
+  .transc .e { color: #444; }
+  .transc .r { font-weight: bold; }
+  .note { margin-left: 36px; font-size: 9.5pt; color: #777; font-style: italic; }
+  .section { break-before: page; }
+</style>
+</head>
+<body>
+
+<h1>Relatório - Avaliação de Usabilidade do ListaFácil</h1>
+<p class="aluno" style="margin-left:0">Aluno: Rodolfo Oliveira Miranda</p>
+<p class="disc" style="margin-left:0">Disciplina: Interação Humano-Computador — IFMG</p>
+
+<!-- 1 -->
+<h2><span class="n">1.</span>Introdução</h2>
+<p>Este relatório apresenta a avaliação de usabilidade do <strong>ListaFácil</strong>, um
+aplicativo web de gerenciamento de tarefas com módulos de apoio acadêmico. Assumindo o
+papel de Engenheiro de Usabilidade do próprio projeto, foram aplicadas três técnicas
+complementares — avaliação heurística (inspeção), testes de usabilidade (observação) e
+entrevistas semiestruturadas (investigação) — planejadas com o framework DECIDE e
+integradas ao final por meio de uma triangulação de dados. A avaliação foi conduzida
+com dois participantes: Júlia (25 anos) e Guilherme (15 anos), cada um realizando o
+teste de usabilidade e a entrevista.</p>
+
+<!-- 2 -->
+<h2><span class="n">2.</span>Framework DECIDE</h2>
+<p>O framework DECIDE (Preece et al., 2005) oferece uma checklist de seis etapas para
+planejar avaliações de IHC dirigidas por metas. Sua aplicação a este trabalho foi:</p>
+<table>
+  <thead><tr><th>Etapa</th><th>Aplicação ao ListaFácil</th></tr></thead>
+  <tbody>
+    <tr><td>Determinar metas</td><td>Verificar se a interface permite concluir a tarefa central sem erros; identificar violações às heurísticas; levantar a percepção dos usuários.</td></tr>
+    <tr><td>Explorar questões</td><td>Os usuários encontram as funções? Distinguem os ícones? Percebem o efeito das ações? Interpretam a data? Qual a opinião geral?</td></tr>
+    <tr><td>Escolher técnicas</td><td>Inspeção heurística + teste de usabilidade (tarefa única) + entrevista semiestruturada.</td></tr>
+    <tr><td>Identificar questões práticas</td><td>Avaliador único (duas passadas na inspeção); dois participantes; gravação de tela/áudio; transcrição.</td></tr>
+    <tr><td>Decidir questões éticas</td><td>TCLE assinado por cada participante; mídias e transcrições em acesso restrito; transcrição feita localmente, sem envio a serviços externos.</td></tr>
+    <tr><td>Avaliar e apresentar</td><td>Dados qualitativos (inspeção e entrevistas) e quantitativos (SUS); cruzamento final por triangulação.</td></tr>
+  </tbody>
+</table>
+
+<!-- 3 -->
+<h2><span class="n">3.</span>Avaliação Heurística</h2>
+<h3><span class="n">3.1.</span>Método</h3>
+<p>Método de inspeção de Nielsen (10 heurísticas). A inspeção foi feita em duas passadas
+independentes, simulando dois avaliadores (o trabalho é individual), e depois
+consolidada. A gravidade de cada problema segue a escala de 1 (cosmético) a 4
+(catastrófico).</p>
+
+<figure>
+  <img src="prints/02-lista-icones-e-data.png" alt="Tela principal de tarefas">
+  <figcaption>Figura 1 — Tela principal: filtros, ícones de ação e formato de data.</figcaption>
+</figure>
+
+<h3><span class="n">3.2.</span>Problemas identificados</h3>
+<ul>
+  <li><strong>1. Exclusão sem confirmação (gravidade 3)</strong> — Controle e liberdade do usuário. A tarefa é excluída na hora, sem confirmação nem "desfazer". <em>Solução:</em> diálogo de confirmação ou notificação "Desfazer".</li>
+  <li><strong>2. Ícones de editar/concluir pouco distinguíveis (gravidade 3)</strong> — Reconhecimento em vez de memorização. Os três ícones têm mesma cor e tamanho, sem rótulo (Figura 2). <em>Solução:</em> diferenciar por cor e adicionar rótulos.</li>
+  <li><strong>3. Mensagem de erro genérica ao salvar (gravidade 2)</strong> — Ajuda a reconhecer e diagnosticar erros. "Erro ao salvar" não indica o campo. <em>Solução:</em> mensagem específica com destaque no campo.</li>
+  <li><strong>4. Excluir categoria sem avisar sobre tarefas associadas (gravidade 3)</strong> — Prevenção de erros. As tarefas ficam "sem categoria" silenciosamente. <em>Solução:</em> confirmar informando quantas serão afetadas.</li>
+  <li><strong>5. Ajuda escondida dentro de Categorias (gravidade 2)</strong> — Ajuda e documentação. Sem acesso à ajuda na tela principal. <em>Solução:</em> link de ajuda fixo no cabeçalho.</li>
+  <li><strong>6. Sem feedback visual ao salvar (gravidade 2)</strong> — Visibilidade do estado. Salvar não confirma sucesso. <em>Solução:</em> notificação "Tarefa salva".</li>
+  <li><strong>7. Formato de data ambíguo (gravidade 1)</strong> — Correspondência com o mundo real. Data exibida como "02/07", sem ano. <em>Solução:</em> data por extenso ou inequívoca.</li>
+</ul>
+
+<figure>
+  <img src="prints/02b-icones-zoom.png" class="small" alt="Ícones idênticos">
+  <figcaption>Figura 2 — Os três ícones de ação, sem rótulo e com a mesma aparência (Problema 2).</figcaption>
+</figure>
+
+<!-- 4 -->
+<h2 class="section"><span class="n">4.</span>Testes de Usabilidade</h2>
+<h3><span class="n">4.1.</span>Método</h3>
+<p>Teste moderado, com protocolo de "pensar em voz alta" e uma tarefa única: cadastrar a
+tarefa "Entregar relatório" (categoria Trabalho, prioridade Alta, prazo para amanhã),
+localizá-la pelo filtro de categoria e marcá-la como concluída (caminho ótimo = 6 ações).
+Participantes: Júlia (25) e Guilherme (15).</p>
+
+<h3><span class="n">4.2.</span>Resultados</h3>
+<table>
+  <thead><tr><th>Participante</th><th>Idade</th><th>Criou a tarefa</th><th>Principal dificuldade</th><th>SUS</th></tr></thead>
+  <tbody>
+    <tr><td>Júlia</td><td>25</td><td>Sim</td><td>Ao filtrar, abriu a aba "Categorias" (cadastro) em vez do filtro; também confundiu os ícones de ação</td><td>82,5</td></tr>
+    <tr><td>Guilherme</td><td>15</td><td>Sim</td><td>Não localizou o filtro; "não estou acostumado com esse tipo de filtro"</td><td>55,0</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="n">4.3.</span>Achados</h3>
+<ul>
+  <li>A funcionalidade central é usável: os dois criaram e concluíram a tarefa sem intervenção.</li>
+  <li>O filtro por categoria foi o ponto crítico, para ambos, de formas distintas: a usuária experiente (Júlia) confundiu o filtro com o cadastro de categorias; o usuário mais jovem (Guilherme) não encontrou o filtro. O problema é de descoberta/affordance, não de inexperiência isolada — afetou até quem usa Trello e Asana.</li>
+  <li>A confusão de ícones (Júlia) confirma o Problema 2 da inspeção.</li>
+</ul>
+<p class="note">Limitações: métricas automáticas de tempo/ações e SEQ não foram captadas
+de forma confiável; no momento das gravações o filtro tinha um bug (a seleção era
+reiniciada ao renderizar a lista), corrigido posteriormente — porém os relatos foram
+sobre localizar o filtro, não sobre a seleção falhar.</p>
+
+<!-- 5 -->
+<h2 class="section"><span class="n">5.</span>Entrevistas Semiestruturadas</h2>
+<p>Duas entrevistas (mesmos participantes), gravadas em áudio e transcritas localmente. Ao
+final, o questionário SUS (System Usability Scale).</p>
+
+<h3><span class="n">5.1.</span>Questionário SUS</h3>
+<p>Cálculo: itens ímpares → (resposta − 1); itens pares → (5 − resposta); soma × 2,5.</p>
+<table>
+  <thead><tr><th>Item</th><th>Júlia</th><th>Guilherme</th></tr></thead>
+  <tbody>
+    <tr><td>1. Usaria com frequência</td><td>3</td><td>2</td></tr>
+    <tr><td>2. Desnecessariamente complexo</td><td>1</td><td>1</td></tr>
+    <tr><td>3. Fácil de usar</td><td>5</td><td>3</td></tr>
+    <tr><td>4. Precisaria de apoio técnico</td><td>1</td><td>3</td></tr>
+    <tr><td>5. Funções bem integradas</td><td>4</td><td>2</td></tr>
+    <tr><td>6. Muito inconsistente</td><td>1</td><td>1</td></tr>
+    <tr><td>7. Maioria aprenderia rápido</td><td>1</td><td>2</td></tr>
+    <tr><td>8. Atrapalhado/complicado</td><td>1</td><td>3</td></tr>
+    <tr><td>9. Senti-me confiante</td><td>5</td><td>3</td></tr>
+    <tr><td>10. Precisei aprender muito</td><td>1</td><td>2</td></tr>
+    <tr><td><strong>SUS (0–100)</strong></td><td><strong>82,5</strong></td><td><strong>55,0</strong></td></tr>
+  </tbody>
+</table>
+<p>Média SUS = 68,75 (referência: ≥ 68 = acima da média), com forte contraste entre a
+usuária experiente (82,5) e o usuário mais jovem/menos habituado (55,0).</p>
+
+<h3><span class="n">5.2.</span>Achados qualitativos</h3>
+<ul>
+  <li>Experiência prévia: Júlia usa Trello e Asana; Guilherme já usou app "mais complexo" e achou o ListaFácil "bem mais simples".</li>
+  <li>Interface: ambos a acharam agradável; linguagem e mensagens claras (Guilherme).</li>
+  <li>Filtro: Guilherme relatou dificuldade "só na parte de filtrar" e disse "não estou acostumado com esse tipo de filtro".</li>
+</ul>
+
+<!-- 6 -->
+<h2 class="section"><span class="n">6.</span>Triangulação dos Dados</h2>
+<p>Cruzamento dos achados das três técnicas. Problemas confirmados por mais de uma técnica
+têm evidência mais forte; problemas vistos só na inspeção podem não ter impacto real; e
+problemas surgidos nos testes/entrevistas revelam limites da inspeção.</p>
+<table>
+  <thead><tr><th>Achado</th><th>Inspeção</th><th>Testes</th><th>Entrevistas</th><th>Evidência</th></tr></thead>
+  <tbody>
+    <tr><td>Filtro de categoria pouco descobrível/confuso</td><td>Não previsto</td><td>Confirmado (Júlia abriu "Categorias"; Guilherme não achou)</td><td>Confirmado (Guilherme)</td><td>Forte — achado novo, ausente na inspeção</td></tr>
+    <tr><td>Ícones editar/concluir parecidos (Prob. 2)</td><td>Previsto (grav. 3)</td><td>Confirmado (Júlia)</td><td>—</td><td>Forte</td></tr>
+    <tr><td>Sem feedback ao salvar (Prob. 6)</td><td>Previsto (grav. 2)</td><td>Não observado</td><td>—</td><td>Só inspeção</td></tr>
+    <tr><td>Data ambígua (Prob. 7)</td><td>Previsto (grav. 1)</td><td>Não observado</td><td>—</td><td>Só inspeção</td></tr>
+    <tr><td>Exclusão / erros / ajuda (Prob. 1, 3, 4, 5)</td><td>Previstos</td><td>Não exercitados pela tarefa única</td><td>—</td><td>Só inspeção</td></tr>
+  </tbody>
+</table>
+<p>A triangulação evidencia dois pontos centrais: (1) o problema mais impactante na
+prática — a descoberta do filtro de categoria — não foi previsto pela inspeção
+heurística, o que mostra o valor de complementar a inspeção com usuários reais; e (2) a
+confusão de ícones foi prevista pela inspeção e confirmada no teste, ganhando prioridade.
+Vários problemas apontados apenas pela inspeção não foram exercitados pela tarefa única —
+não estão descartados, mas carecem de evidência de uso.</p>
+
+<!-- 7 -->
+<h2 class="section"><span class="n">7.</span>Conclusão e Recomendações</h2>
+<p>O ListaFácil cumpre bem sua função central (criar e concluir tarefas), mas apresenta
+atritos de usabilidade relevantes. Em ordem de prioridade:</p>
+<ol>
+  <li><strong>Filtro de categoria (alta prioridade — achado dos testes):</strong> tornar o filtro claramente descobrível e distinto do cadastro de categorias — rótulo explícito ("Filtrar por categoria"), ícone de filtro e separação visual da aba "Categorias".</li>
+  <li><strong>Ícones de ação (gravidade 3, confirmado):</strong> diferenciar por cor e adicionar rótulos a editar/concluir/excluir.</li>
+  <li><strong>Confirmação de exclusão e aviso ao excluir categoria (gravidade 3):</strong> adicionar diálogos e notificação de desfazer.</li>
+  <li><strong>Feedback ao salvar, mensagens de erro específicas, ajuda acessível e formato de data (gravidade 2–1):</strong> melhorias incrementais.</li>
+</ol>
+
+<h3><span class="n">7.1.</span>Limitações do estudo</h3>
+<ul>
+  <li>Amostra pequena: dois participantes — resultados indicativos, não generalizáveis.</li>
+  <li>Avaliador único na inspeção (mitigado com duas passadas).</li>
+  <li>Possível viés por proximidade dos participantes com o avaliador.</li>
+  <li>Métricas objetivas registradas de forma aproximada — Júlia: 1min48s e 8 ações (SEQ 6/7); Guilherme: 2min41s e 12 ações (SEQ 4/7).</li>
+  <li>O filtro tinha um bug no momento das gravações (corrigido posteriormente).</li>
+</ul>
+
+<!-- 8 -->
+<h2 class="section"><span class="n">8.</span>Vídeo</h2>
+<p>Gravação das sessões de avaliação (teste de usabilidade), com acesso restrito:</p>
+<p><a href="https://drive.google.com/file/d/11aXdbWfkrILxCR3amUotC3k4t_taM8GB/view?usp=sharing">https://drive.google.com/file/d/11aXdbWfkrILxCR3amUotC3k4t_taM8GB/view?usp=sharing</a></p>
+
+<!-- 9 -->
+<h2 class="section"><span class="n">9.</span>Transcrições das Entrevistas</h2>
+<p>Transcrições geradas por reconhecimento automático de fala (Whisper), processadas
+localmente, e revisadas para dividir as falas entre entrevistador e entrevistado.</p>
+
+<h3><span class="n">9.1.</span>Guilherme</h3>
+<div class="transc">
+<p><span class="r">Entrevistador:</span> <span class="e">Você já usou algum aplicativo de lista de tarefas? Como foi o ListaFácil em comparação com esse aplicativo que você usou?</span></p>
+<p><span class="r">Guilherme:</span> Já. É diferente. Foi... foi mais fácil, foi bem mais simples. O outro era bem mais complexo de usar.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">E o que você achou da interface? Ela é agradável?</span></p>
+<p><span class="r">Guilherme:</span> É agradável, sim. Ela é tipo... sem ter uma linguagem complicada ali.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">E as mensagens ficaram claras?</span></p>
+<p><span class="r">Guilherme:</span> Sim.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">Você teve facilidade em encontrar ali o que você precisava?</span></p>
+<p><span class="r">Guilherme:</span> É, sim. Pra concluir as coisas, concluir as tarefas, sim. Tive um pouco de dificuldade só ali na parte de filtrar.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">É só na parte de filtrar que você achou mais difícil? Por que você acha que teve dificuldade em encontrar o filtro? É que você não está acostumado com esse tipo de filtro, ou não achou muito intuitivo?</span></p>
+<p><span class="r">Guilherme:</span> Eu não estou acostumado com esse tipo de filtro.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">Entendi. Agora algumas afirmações sobre o quanto você concorda, de 1 ("discordo totalmente") a 5 ("concordo totalmente"). [Questionário SUS]</span></p>
+<p>Respostas SUS (itens 1 a 10): 2, 1, 3, 3, 2, 1, 2, 3, 3, 2.</p>
+</div>
+
+<h3><span class="n">9.2.</span>Júlia</h3>
+<div class="transc">
+<p><span class="r">Entrevistador:</span> <span class="e">Primeiro algumas perguntas gerais e depois um questionário de 1 a 5. Você já usou apps de lista de tarefas antes?</span></p>
+<p><span class="r">Júlia:</span> Sim. (já usou Trello e Asana)</p>
+<p><span class="r">Entrevistador:</span> <span class="e">O que você achou da interface? É agradável?</span></p>
+<p><span class="r">Júlia:</span> Sim.</p>
+<p><span class="r">Entrevistador:</span> <span class="e">Agora o questionário final: o quanto você concorda com cada frase, de 1 ("discordo totalmente") a 5 ("concordo totalmente"). [Questionário SUS]</span></p>
+<p>Respostas SUS (itens 1 a 10): 3, 1, 5, 1, 4, 1, 1, 1, 5, 1.</p>
+</div>
+
+</body>
+</html>

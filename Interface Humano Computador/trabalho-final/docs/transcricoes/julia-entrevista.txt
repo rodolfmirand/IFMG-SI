@@ -1,0 +1,52 @@
+Transcrição — Entrevista de Usabilidade (ListaFácil)
+Participante: Júlia
+======================================================================
+
+ENTREVISTADOR: São perguntas simples. Primeiro vão ser algumas perguntas gerais e,
+depois, um questionário em que você fala o quanto concorda com cada frase, de 1 a 5.
+Mas primeiro: você já usou apps de lista de tarefas antes?
+
+JÚLIA: Sim. (perfil registrado: já usou Trello e Asana)
+
+ENTREVISTADOR: O que você achou da interface? É agradável?
+
+JÚLIA: Sim.
+
+ENTREVISTADOR: Agora eu vou fazer o questionário final. Você vai falar o quanto concorda
+com cada frase, sendo 1 "discordo totalmente" e 5 "concordo totalmente".
+
+JÚLIA: Tá bom.
+
+--- Questionário SUS (respostas de 1 a 5) ---
+
+ENTREVISTADOR: Gostaria de usar este sistema com frequência.
+JÚLIA: 3.
+
+ENTREVISTADOR: Achei o sistema desnecessariamente complexo.
+JÚLIA: 1.
+
+ENTREVISTADOR: Achei o sistema fácil de usar.
+JÚLIA: 5.
+
+ENTREVISTADOR: Precisaria de apoio técnico para conseguir usar.
+JÚLIA: 1.
+
+ENTREVISTADOR: As funções estão bem integradas.
+JÚLIA: 4.
+
+ENTREVISTADOR: Achei o sistema muito inconsistente.
+JÚLIA: 1.
+
+ENTREVISTADOR: A maioria das pessoas aprenderia a usar rapidamente.
+JÚLIA: 1.
+
+ENTREVISTADOR: Achei o sistema atrapalhado ou complicado.
+JÚLIA: 1.
+
+ENTREVISTADOR: Senti-me confiante ao usar.
+JÚLIA: 5.
+
+ENTREVISTADOR: Precisei aprender muita coisa antes de conseguir usar.
+JÚLIA: 1.
+
+ENTREVISTADOR: Beleza, é só isso mesmo. Muito obrigado!
