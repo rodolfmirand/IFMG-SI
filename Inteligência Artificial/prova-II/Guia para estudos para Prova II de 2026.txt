@@ -1,0 +1,32 @@
+﻿Guia para estudos para Prova II de 2026
+
+
+1. Algoritmos Genéticos (AGs)
+   1. Entender o funcionamento geral, mecanismo de seleção natural, cálculo de aptidões, montagem da roleta, operadores genéticos (cruzamento e mutação).
+   2. Aplicação de AGs para evolução de RNAs
+2. Redes Neurais Artificiais
+   1. Entender um Perceptron 
+   2. Entender uma Multilayer-perceptron
+   3. Entender o que é uma Função de Ativação 
+   4. Saber realizar os cálculos de classificação (de um vetor de entrada) em uma RNA
+   5. Entender como as entradas de treinamento afetam a configuração (os pesos) de uma RNA
+   6. Saber o que é a função de perda (loss function).
+   7. Sobre o treinamento: saber o cálculo para alterar os pesos de uma das arestas tendo como dado a taxa de aprendizado, o ΔW ou delta grande ΔV, exemplo: W11 = W11 + N*ΔW11 (pg. 20 dos slides RNA)
+   8. Saber o conceito de gradiente descendente (somente o conceito mesmo).
+   9. Saber o que é Overfitting e Underfitting.
+   10. O que são Épocas.
+   11. O que são Bias/Viés (os dois tipos possíveis).
+   12. O que são Batchs
+   13. Técnicas de Regularização
+      1. Saber o objetivo.
+      2. Entender as técnicas passadas em aula.
+      3. Não é preciso memorizar as fórmulas para L1 e L2, mas deve-se saber “por alto” como o cálculo é feito.
+   14. CNNs - entender arquitetura/desenho geral, etapas, principais aplicações, vantagens e desvantagens.
+   15. RNNs - entender arquitetura/desenho geral, principais aplicações, vantagens e desvantagens.
+   16. LLM - entender conceitos sobre tokens, características gerais, aplicações de uma rede neural e da função Softmax em um contexto de uma oequena base de dados de frases (igual exemplo disponível dos materiais).
+   17. Transformers - entender as etapas principais, a matriz atenção, utilização de Softmax, as principais aplicações e conceitos gerais.
+   18. Entender “o desenho” (gráfico) das principais Funções de Ativação (não é preciso saber o cálculo) e qual a função mais aplicada/indicada para cada um dos tipos de RNAs estudadas.
+3. SVM: objetivos, conceito geral, modelo, hiperplano, e classificação tanto pelo gráfico quanto pela fórmula vista em aula.
+4. Rede Bayesiana e Árvores de Decisão: conceito geral dos algoritmos - sem precisar dos cálculos matemáticos.
+5. Lógica Fuzzy: operadores básicos - NÃO, E e OU.
+6. Sistemas Especialistas - apenas conceitos gerais.
