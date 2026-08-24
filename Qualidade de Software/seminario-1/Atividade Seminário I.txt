@@ -1,0 +1,28 @@
+﻿Atividade - Qualidade de Software
+
+
+Tema: Princípios de Qualidade
+Valor: 10 ou 15 pontos
+Grupos de no máximo 4 pessoas.
+
+
+Escolha uma empresa de sua preferência para avaliar a Qualidade de seus principais produtos ou serviços.
+Para se buscar um conhecimento mais amplo do conceito de qualidade, não é válido escolher empresas diretamente relacionadas à Tecnologia da Informação.
+Prepare uma apresentação (seminário) de no máximo 15 minutos:
+1. Fale da empresa, sua história, missão e produtos/serviços oferecidos.
+   1. Coloque imagens.
+2. Analise os principais produtos ou serviços da empresa segundo:
+   1. Os Critérios de Garvin para produtos.
+   2. Os Critérios SERVQUAL para serviços.
+3. Dê sua visão/opinião pessoal sobre os produtos/serviços.
+4. Faça uma conclusão: a empresa oferece produtos/serviços de qualidade?
+
+
+O que deve ser entregue:
+Apresentação em PDF.
+Relatório objetivo em PDF contendo as informações solicitadas no seminário.
+Data das apresentações 25 e 26/08.
+
+
+Materiais de referência:
+https://drive.google.com/drive/folders/11KFTW57UI3k8AseHjZ96n9KBBLA6RiqT?usp=sharing

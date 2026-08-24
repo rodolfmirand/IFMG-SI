@@ -1,0 +1,46 @@
+﻿Qualidade de Produtos e Serviços
+
+
+Na literatura acadêmica de Administração e Engenharia de Produção, a avaliação da qualidade é dividida em dois grandes blocos teóricos consolidados: as 8 Dimensões da Qualidade do Produto (Modelo de Garvin) e as 5 Dimensões da Qualidade do Serviço (Modelo SERVQUAL de Parasuraman, Zeithaml e Berry). [1]
+Abaixo estão listados os critérios utilizados em cada modelo e suas respectivas fontes de referência científica.
+________________
+
+
+1. Critérios de Qualidade de Produtos (Modelo de Garvin)
+Proposto por David A. Garvin, professor da Harvard Business School, este modelo divide a qualidade de bens tangíveis em oito categorias estratégicas: [2]
+* Desempenho: Refere-se às características operacionais primárias do produto (ex: a velocidade de processamento de um computador).
+* Características (ou Features): Funções secundárias ou adicionais que complementam o funcionamento básico (ex: câmera com inteligência artificial em um celular).
+* Confiabilidade: Probabilidade de o produto não falhar ou apresentar defeitos dentro de um período determinado.
+* Conformidade: Grau em que o produto atende às normas técnicas e especificações pré-estabelecidas no projeto de fábrica.
+* Durabilidade: Medida da vida útil do produto antes de se deteriorar ou exigir substituição definitiva.
+* Assistência Técnica (ou Facilidade de Manutenção): Rapidez, cortesia e facilidade de obter reparo ou suporte técnico.
+* Estética: Critério subjetivo focado na resposta sensorial do cliente, como aparência, design, som, cor e acabamento.
+* Qualidade Percebida: Avaliação indireta baseada na reputação da marca, histórico da empresa e imagens de publicidade. [2, 3, 4]
+
+
+Fonte bibliográfica:
+* * GARVIN, David A. What Does Product Quality Really Mean? Sloan Management Review, v. 26, n. 1, p. 25-43, 1984.
+* GARVIN, David A. Managing Quality: The Strategic and Competitive Edge. New York: Free Press, 1988.
+* ________________
+
+
+2. Critérios de Qualidade de Serviços (Modelo SERVQUAL)
+Desenvolvido pelos pesquisadores Parasuraman, Zeithaml e Berry, este é o modelo acadêmico mais aceito mundialmente para mensurar a qualidade de experiências e serviços com base no gap entre a expectativa do cliente e a sua percepção real. O modelo utiliza cinco critérios principais: [1, 5]
+* Tangibilidade: Aparência física das instalações, equipamentos, funcionários e ferramentas de comunicação (ex: limpeza do ambiente, modernidade das ferramentas). [1, 5, 6]
+* Confiabilidade: Capacidade de executar o serviço prometido de maneira precisa, segura e consistente, cumprindo prazos e acordos. [5]
+* Responsividade: Disposição e presteza dos funcionários para ajudar os clientes e fornecer o serviço de forma rápida e proativa. [5]
+* Garantia (ou Segurança): Conhecimento, cortesia e capacidade dos funcionários de inspirar confiança, credibilidade e confidencialidade aos clientes. [5]
+* Empatia: Atenção individualizada, personalizada e cuidadosa dada aos clientes, demonstrando a compreensão de suas necessidades específicas. [5]
+Fonte bibliográfica:
+* PARASURAMAN, A.; ZEITHAML, Valarie A.; BERRY, Leonard L. SERVQUAL: A multiple-item scale for measuring consumer perceptions of service quality. Journal of Retailing, v. 64, n. 1, p. 12-40, 1988.
+________________
+
+
+
+
+[1] https://periodicos.ifpb.edu.br
+[2] https://www.youtube.com
+[3] https://www.symestic.com
+[4] https://forum.casadodesenvolvedor.com.br
+[5] https://www.scielo.br
+[6] https://periodicos.utfpr.edu.br
