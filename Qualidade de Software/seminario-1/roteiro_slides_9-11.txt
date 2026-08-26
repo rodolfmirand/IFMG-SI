@@ -1,0 +1,122 @@
+ROTEIRO DE APRESENTAÇÃO — SLIDES 9 A 11
+Tema: Qualidade de Software — Princípios de Qualidade
+Empresa analisada: Burger King Brasil
+Base: apresentacao_burger_king.pdf (slides 9-11) + relatorio_burger_king.pdf
+
+===========================================================
+SLIDE 9 — EVIDÊNCIAS (Dados de Reputação — Reclame Aqui)
+===========================================================
+
+Objetivo do slide: sustentar com dados concretos as análises de Garvin e SERVQUAL
+apresentadas nos slides anteriores (7 e 8), mostrando que os critérios de
+Confiabilidade e Responsividade discutidos não são impressões subjetivas do grupo,
+mas estão respaldados por indicadores públicos.
+
+Fala sugerida:
+
+"Para embasar os critérios que acabamos de analisar — principalmente Confiabilidade
+e Responsividade —, trazemos aqui os dados de reputação do Burger King Brasil
+coletados no Reclame Aqui.
+
+O primeiro indicador é o Índice de Reputação: 6,2 em 10, o que classifica a empresa
+como 'Regular'. Esse número resume o desempenho geral da marca no atendimento pós-
+venda e reforça o que apontamos no critério de Qualidade Percebida: uma reputação
+consolidada, mas mediana.
+
+O segundo dado é o Tempo Médio de Resposta a reclamações: 11 dias e 20 horas.
+Esse número é importante porque, embora a empresa responda a praticamente todas as
+reclamações registradas — 98,2%, segundo o relatório —, o tempo de resposta é longo
+frente à expectativa do consumidor. É por isso que, no critério de Responsividade do
+SERVQUAL, classificamos a prática como uma alta taxa de resposta, mas com baixa
+responsividade real."
+
+Ponto de atenção / justificativa: reforçar a fonte (reclameaqui.com.br) para dar
+credibilidade ao dado e evitar a impressão de opinião não fundamentada — atende à
+exigência de rigor da disciplina.
+
+Transição para o slide 10:
+"Com essas evidências quantitativas em mãos, passamos agora para a análise crítica
+do grupo, cruzando os critérios teóricos com a percepção de mercado."
+
+===========================================================
+SLIDE 10 — ANÁLISE CRÍTICA (Opinião do Grupo)
+===========================================================
+
+Objetivo do slide: apresentar o posicionamento do grupo, diferenciando qualidade do
+produto (avaliada positivamente) de custo-benefício (avaliado como fraco).
+
+Fala sugerida:
+
+"Nesse ponto, saímos da aplicação estrita dos modelos teóricos e trazemos a opinião
+do grupo, formada a partir do cruzamento dos dados de Garvin, do SERVQUAL e da
+experiência de mercado.
+
+Do lado positivo, o produto é bem avaliado: o sabor, a experiência de consumo e,
+principalmente, o diferencial do preparo grelhado — que é o atributo de Desempenho
+mais citado na análise de Garvin — são reconhecidos pelo grupo como pontos fortes
+reais da marca.
+
+Do lado negativo, apontamos dois problemas. Primeiro, o preço é considerado elevado
+em relação ao que é efetivamente entregue. Segundo, ao comparar com hamburguerias
+artesanais na mesma faixa de preço, entendemos que essas concorrentes entregam
+qualidade de produto superior — em ingredientes, montagem e personalização — pelo
+mesmo valor.
+
+A síntese desse slide é a frase de destaque: a percepção de qualidade do BK é boa
+isoladamente, mas perde competitividade quando comparada a concorrentes diretos de
+preço equivalente. Ou seja, o problema não é a qualidade em si, é a relação entre
+qualidade e preço frente à concorrência direta."
+
+Ponto de atenção: deixar claro que essa é uma avaliação qualitativa do grupo (não um
+critério formal de Garvin/SERVQUAL), para não confundir a banca sobre o que é dado
+teórico e o que é opinião argumentada.
+
+Transição para o slide 11:
+"Diante desse cenário — produto forte, atendimento com espaço de melhoria e preço
+questionável frente à concorrência — chegamos à conclusão do trabalho."
+
+===========================================================
+SLIDE 11 — CONCLUSÃO
+===========================================================
+
+Objetivo do slide: fechar a apresentação com um veredito claro e justificado,
+amarrando os três eixos discutidos (produto, serviço e custo-benefício).
+
+Fala sugerida:
+
+"Concluímos que o Burger King oferece produtos e serviços de qualidade, considerando
+os Critérios de Garvin e os Critérios SERVQUAL aplicados ao longo do trabalho.
+
+Essa conclusão se sustenta em três pontos. Primeiro, há consistência na proposta de
+produto: o preparo grelhado como diferencial histórico, um cardápio variado e uma
+presença nacional consolidada, com mais de 850 lojas no Brasil. Segundo, os
+indicadores de serviço são aceitáveis, ainda que passíveis de melhoria — especialmente
+em Confiabilidade, dado o índice de resolução de reclamações de 58,2%, e em tempo de
+resposta, como vimos no slide anterior.
+
+Fazemos uma ressalva importante: a relação custo-benefício do BK fica atrás de
+concorrentes artesanais no mesmo patamar de preço. Isso significa que, avaliando os
+critérios de qualidade em si — e não isoladamente o fator preço — o Burger King
+atende aos parâmetros estabelecidos pelos modelos teóricos de Garvin e SERVQUAL
+utilizados neste trabalho.
+
+Com isso, encerramos a análise. Seguimos para as referências bibliográficas que
+embasaram o estudo."
+
+Ponto de atenção: este é o slide de fechamento do conteúdo analítico — manter o tom
+conclusivo e evitar introduzir dados novos aqui; qualquer dado numérico usado deve já
+ter aparecido nos slides anteriores (7, 8 ou 9).
+
+===========================================================
+OBSERVAÇÕES GERAIS PARA QUEM FOR APRESENTAR
+===========================================================
+
+- Tempo estimado: slide 9 (~40s), slide 10 (~50s), slide 11 (~50s) — total ~2min20s
+  para o bloco de slides 9 a 11.
+- Sempre que citar um número (6,2/10; 11d20h; 58,2%; 98,2%), apoiar-se no relatório
+  em PDF, que traz a fonte (Reclame Aqui) e o contexto completo do dado.
+- Evitar repetir literalmente o texto do slide: usar a fala para explicar o "porquê"
+  do dado, não apenas ler o número.
+- Manter a distinção conceitual entre os três blocos: evidência (dado objetivo,
+  slide 9), opinião fundamentada (julgamento do grupo, slide 10) e conclusão
+  (síntese final ligada aos modelos teóricos, slide 11).
